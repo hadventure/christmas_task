@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export default function App()
-{
-  return <h1>Hello, world!</h1>
-}
+// interface Props {
+
+// }
+
+const App = () => <div />;
+
+export default App;

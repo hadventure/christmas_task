@@ -30,34 +30,3 @@ module.exports = {
     }),
   ],
 };
-
-// module.exports = {
-//   mode: 'development',
-//   entry: './src/index.tsx',
-//   output: {
-//     filename: 'build.js',
-//     path: path.resolve(__dirname, 'dist')
-//   },
-//   // target: 'web',
-//   resolve: {
-//     extensions: ['.ts', '.tsx', '.js']
-//   },
-//   module: {
-//     rules: [
-//       {
-//         test: /\.(tsx|ts)$/,
-//         use: 'ts-loader',
-//         exclude: '/node_modules/'
-//       }
-//     ],
-//   },
-//   plugins: [
-//     new HtmlWebpackPlugin({
-//       minify: false,
-//       template: path.resolve(__dirname, './index.html'),
-//       filename: 'index.html',
-//       // favicon: './favicon.ico',
-//       inject: 'body',
-//     })
-//   ]
-// }

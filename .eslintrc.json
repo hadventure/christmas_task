@@ -4,11 +4,15 @@
         "es2021": true
     },
     "extends": [
+        "eslint:recommended",
         "plugin:react/recommended",
-        "airbnb"
+        "plugin:@typescript-eslint/eslint-recommended",
+        "airbnb",
+        "airbnb-typescript"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
+        "project": "./tsconfig.json",
         "ecmaFeatures": {
             "jsx": true
         },
@@ -20,5 +24,9 @@
         "@typescript-eslint"
     ],
     "rules": {
+        // TO-DO
+       "react/function-component-definition": 0
     }
+    
+
 }
