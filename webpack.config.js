@@ -3,12 +3,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: './src/index.ts',
   mode: 'development',
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
@@ -43,6 +43,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.scss'],
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
   },
   output: {
     filename: 'bundle.js',
@@ -63,7 +66,11 @@ module.exports = {
   devServer: {
     static: './',
     historyApiFallback: true,
-    host: 'localhost',
-    port: 8075,
+    client: {
+      overlay: {
+        errors: false,
+        warnings: false,
+      },
+    },
   },
 };

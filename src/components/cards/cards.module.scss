@@ -1,0 +1,14 @@
+.toys-head {
+  margin-bottom: 1rem;
+  font-family: 'Neucha';
+  font-size: 4.2rem;
+  font-weight: normal;
+  line-height: 4.6rem;
+  text-transform: uppercase;
+}
+
+.toy-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+}

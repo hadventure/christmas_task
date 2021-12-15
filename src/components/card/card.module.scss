@@ -1,4 +1,24 @@
-.card-toy {
-  height: 40px;
-  color: blueviolet;
+.toy-item {
+  background: radial-gradient(109.56% 109.56% at 0% -2.94%, rgba(255, 255, 255, 0.5) 0%, rgba(179, 246, 255, 0.5) 100%);
+  backdrop-filter: blur(4px);
+  border-radius: 1rem;
+  padding: 1.8rem;
+}
+
+.attr {
+  display: flex;
+  justify-content: space-between;
+  line-height: 2rem;
+  font-size: 1.6rem;
+}
+
+.toy-img-wrap {
+  margin-bottom: calc($mb / 2);
+  display: flex;
+  justify-content: center;
+}
+
+.toy-img {
+  // background-image: url(./assets/toys/1.png);
+  width: 40%;
 }

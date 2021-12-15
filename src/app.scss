@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: calc(100vh - 10rem);
+  font-family: 'Neucha';
+  font-size: 1.6rem;
+  color: #eee;
+  background-color: #192F2D;
+}
+
+.container {
+  height: calc(100vh - 10rem);
+  margin: 5rem auto;
+  max-width: 1720px;
+}
+
+.col {
+  padding: 0 2rem;
+}
