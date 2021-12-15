@@ -1,9 +1,5 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Cards } from './components/cards/cards';
-
-// interface Props {
-
-// }
 
 const App = () => <Cards />;
 

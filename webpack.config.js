@@ -21,11 +21,10 @@ module.exports = {
           {
             loader: 'css-loader', // 2
             options: {
-              // sourceMap,
-              import: false,
-              modules: true,
-              // camelCase: true,
-              // localIdentName: isDev ? '[local]' : '[sha1:hash:hex:4]',
+              modules: {
+                auto: true,
+                exportLocalsConvention: 'camelCase',
+              },
             },
           },
           'sass-loader', // 3
@@ -57,8 +56,14 @@ module.exports = {
       minify: false,
       template: path.resolve(__dirname, './index.html'),
       filename: 'index.html',
-      favicon: '/src/assets/favicon.ico',
+      favicon: './src/assets/favicon.ico',
       inject: 'body',
     }),
   ],
+  devServer: {
+    static: './',
+    historyApiFallback: true,
+    host: 'localhost',
+    port: 8075,
+  },
 };
