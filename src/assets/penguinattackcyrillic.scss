@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'PenguinAttackCyrillic';
+	src: url('../fonts/penguinattackcyrillic.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/penguinattackcyrillic.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/penguinattackcyrillic.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/penguinattackcyrillic.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/penguinattackcyrillic.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/penguinattackcyrillic.svg#penguinattackcyrillic') format('svg'); /* Chrome < 4, Legacy iOS */
+}

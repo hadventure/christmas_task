@@ -1,26 +1,23 @@
-import El from '@/common/el';
-import Helper from '@/common/helper';
+import Component from '@/common/component';
+import El from '@/common/tag';
+import { Tags } from '@/types/enums';
 import Cards from '../cards/cards';
 import FilterColor from '../filter-color/filter-color';
 import cls from './main-layout.module.scss';
 
-class Main {
-  static r = El.create('div', `${cls.toys} container`)
-  static filter = El.create('div', `toys-filter col`)
-  static cards = El.create('div', `toys-cards col`)
+class Main extends Component {
+  static container = El.create(Tags.div, `${cls.toys} container`)
+  static filter = El.create(Tags.div, `toys-filter col`)
+  static cards = El.create(Tags.div, `toys-cards col`)
 
-  constructor(root) {
-    console.log(cls)
-    this.root = root;
+  constructor(root: HTMLElement) {
+    super(root);
   }
 
   register() {
-    console.log('++++')
-
-
-    this.root.append(Main.r);
-    Main.r.append(Main.filter);
-    Main.r.append(Main.cards);
+    this.root.append(Main.container);
+    Main.container.append(Main.filter);
+    Main.container.append(Main.cards);
 
     const cards = new Cards(Main.cards)
     cards.register()

@@ -1,44 +1,43 @@
-import El from '@/common/el';
+import Component from '@/common/component';
+import El from '@/common/tag';
 import EventEmitter from '@/common/event-emitter';
-import Helper from '@/common/helper';
-import Filter from '@/models/filter';
 import Toy from '@/models/toy';
+import { Tags } from '@/types/enums';
 import Card from '../card/card';
 import cls from './cards.module.scss';
 
-class Cards {
-  static r = El.create('div', `${cls.toyList}`)
+class Cards extends Component {
+  static toyList = El.create(Tags.div, `${cls.toyList}`)
 
-  constructor(root) {
-    this.root = root;
+  constructor(root: HTMLElement) {
+    super(root);
 
     EventEmitter.subscribe('change:color', () => {
-      console.log(this)
-
       Toy.filterColor();
       this.render();
     });
   }
 
   render() {
-    Cards.r.innerHTML = '';
+    Cards.toyList.innerHTML = '';
 
     Toy.store.forEach(element => {
-      const toy = new Card(Cards.r, element)
+      const toy = new Card(Cards.toyList, element)
       toy.register();
     });
   }
 
   async register() {
     await Toy.getList();
+
     const head = `
       <div class=${cls.toysHead}>игрушки</div>
     `;
 
-    const headTpl = document.createElement('template');
+    const headTpl = document.createElement(Tags.tpl);
     headTpl.innerHTML = head;
     this.root.append(headTpl.content);
-    this.root.append(Cards.r);
+    this.root.append(Cards.toyList);
 
     this.render();
 

@@ -10,7 +10,7 @@ class Helper {
     }, [[]]);
   }
 
-  static getRndInteger(min, max) {
+  static getRndInteger(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
@@ -23,21 +23,6 @@ class Helper {
     }
 
     return array;
-  }
-
-  static getImage(url, imageNum, className) {
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.className = className;
-      img.src = `${url}${imageNum}${process.env.IMG_FRMT_JPG}`;
-
-      img.onload = () => {
-        resolve(img);
-      };
-      img.onerror = (err) => {
-        reject(err);
-      };
-    });
   }
 }
 

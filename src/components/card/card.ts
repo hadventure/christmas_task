@@ -1,61 +1,61 @@
-import Filter from '@/models/filter';
+import Component from '@/common/component';
+import El from '@/common/tag';
+import { tToy } from '@/models/toy';
+import { Tags } from '@/types/enums';
 import cls from './card.module.scss';
 
-class Card {
-  constructor(root, el) {
-    // console.log(root, el)
-    this.root = root;
-    this.el = el;
+class Card extends Component {
+  private item
+
+  constructor(root: HTMLElement, item: tToy) {
+    super(root);
+    this.item = item;
   }
 
   register() {
-    // console.log('card++++', this.el)
-    
     const toy = `
       <div class=${cls.toyItem}>
-        <div class="toy-name">${this.el.name}</div>
-        <div class=${cls.toyImageWrap}>
-          <img src="./src/assets/toys/${this.el.num}.png" alt="" class=${cls.toyImg}>
+
+    <div class=${cls.toyProp}>
+      <div class=${cls.toyImageWrap}>
+        <img src="./src/assets/toys/${this.item.num}.png" alt="" class=${cls.toyImg}>
+      </div>
+        
+      <div>
+        <div class=${cls.attr}>
+          <div class="attr-value">${this.item.count}</div>
         </div>
 
         <div class=${cls.attr}>
-          <div class="attr-name">Количество:</div>
-          <div class="attr-value">${this.el.count}</div>
+          <div class="attr-value">${this.item.year}</div>
         </div>
 
         <div class=${cls.attr}>
-          <div class="attr-name">Год покупки:</div>
-          <div class="attr-value">${this.el.year}</div>
+          <div class="attr-value">${this.item.shape}</div>
         </div>
 
         <div class=${cls.attr}>
-          <div class="attr-name">Форма игрушки:</div>
-          <div class="attr-value">${this.el.shape}</div>
+          <div class="attr-value">${this.item.color}</div>
         </div>
 
         <div class=${cls.attr}>
-          <div class="attr-name">Цвет игрушки:</div>
-          <div class="attr-value">${this.el.color}</div>
+          <div class="attr-value">${this.item.size}</div>
         </div>
 
         <div class=${cls.attr}>
-          <div class="attr-name">Размер игрушки:</div>
-          <div class="attr-value">${this.el.size}</div>
+          <div class="attr-value">${this.item.favorite}</div>
         </div>
-
-        <div class=${cls.attr}>
-          <div class="attr-name">Любимая:</div>
-          <div class="attr-value">${this.el.favorite}</div>
         </div>
+        <div class=${cls.toyName}>${this.item.name}</div>
+    </div
+        
       </div>
     `;
 
-    const toyTpl = document.createElement('template');
+    const toyTpl = <HTMLTemplateElement>El.create(Tags.tpl);
     toyTpl.innerHTML = toy;
 
     this.root.append(toyTpl.content);
-
-
   }
 }
 

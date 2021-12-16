@@ -1,7 +1,13 @@
-class EventEmitter {
-  static events = {};
+// TODO: add remove listner
 
-  static subscribe(eventName: any, fn: any) {
+type tEvents = {
+  [index: string]: []
+}
+
+class EventEmitter {
+  static events: tEvents = {};
+
+  static subscribe(eventName: string, fn: any) {
     if (!this.events[eventName]) {
       this.events[eventName] = [];
     }
@@ -13,7 +19,7 @@ class EventEmitter {
     };
   }
 
-  static emit(eventName: any, data: any) {
+  static emit(eventName: string, data?: any) {
     const event = this.events[eventName];
     if (event) {
       event.forEach((fn: any) => {

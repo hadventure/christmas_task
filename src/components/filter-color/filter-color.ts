@@ -1,11 +1,12 @@
-import El from '@/common/el';
+import Component from '@/common/component';
+import El from '@/common/tag';
 import Filter from '@/models/filter';
 import Toy from '@/models/toy';
 import cls from './card.module.scss';
 
-class FilterColor {
-  constructor(root) {
-    this.root = root;
+class FilterColor extends Component {
+  constructor(root: HTMLElement) {
+    super(root);
   }
 
   register() {

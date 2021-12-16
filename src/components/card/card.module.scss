@@ -7,18 +7,31 @@
 
 .attr {
   display: flex;
-  justify-content: space-between;
-  line-height: 2rem;
-  font-size: 1.6rem;
+  justify-content: center;
+  line-height: 2.4rem;
+  font-size: 1.8rem;
 }
 
-.toy-img-wrap {
-  margin-bottom: calc($mb / 2);
+.toy-image-wrap {
+  margin-bottom: 2rem;
   display: flex;
   justify-content: center;
 }
 
 .toy-img {
-  // background-image: url(./assets/toys/1.png);
-  width: 40%;
+  height: 64px;
+}
+
+.toy-name {
+  font-size: 2.2rem;
+  margin-top: 2rem;
+  grid-area: c;
+}
+
+.toy-prop {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+            "a b"
+            "c c"
 }

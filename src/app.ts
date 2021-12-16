@@ -1,12 +1,8 @@
 import Controller from '@/common/controller';
 import { mainpage } from '@/common/pages';
 
-interface IApp {
-  // initialize: () => void
-}
-
-class App implements IApp {
-  static root = document.querySelector('#root');
+class App {
+  static root = <HTMLElement>document.querySelector('#root');
 
   static activePage = mainpage;
 

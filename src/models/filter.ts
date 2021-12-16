@@ -1,14 +1,13 @@
 import EventEmitter from '@/common/event-emitter';
-import { quizDataUrl, quizQty, quizSize } from '../common/game-constants';
-import Helper from '../common/helper';
 
 class Filter {
+  colors: string[]
+
   constructor() {
     this.colors = []
   }
 
-  setColors(val) {
-    console.log(val)
+  setColors(val: string) {
     this.colors.push(val);
     EventEmitter.emit('change:color');
   }
