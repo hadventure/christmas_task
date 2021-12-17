@@ -21,7 +21,7 @@ class Cards extends Component {
   render() {
     Cards.toyList.innerHTML = '';
 
-    Toy.store.forEach(element => {
+    Toy.filterd.forEach(element => {
       const toy = new Card(Cards.toyList, element)
       toy.register();
     });

@@ -7,7 +7,7 @@ import cls from './main-layout.module.scss';
 
 class Main extends Component {
   static container = El.create(Tags.div, `${cls.toys} container`)
-  static filter = El.create(Tags.div, `toys-filter col`)
+  static filter = El.create(Tags.div, `${cls.toysFilter} col`)
   static cards = El.create(Tags.div, `toys-cards col`)
 
   constructor(root: HTMLElement) {

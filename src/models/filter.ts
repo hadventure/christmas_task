@@ -1,14 +1,24 @@
 import EventEmitter from '@/common/event-emitter';
 
+type tColors = {
+  [index: string]: boolean
+}
+
 class Filter {
-  colors: string[]
+  colors: tColors
 
   constructor() {
-    this.colors = []
+    this.colors = {
+      white: false,
+      yellow: false,
+      red: false,
+      blue: false,
+      green: false,
+    }
   }
 
   setColors(val: string) {
-    this.colors.push(val);
+    this.colors[val] = true;
     EventEmitter.emit('change:color');
   }
 }

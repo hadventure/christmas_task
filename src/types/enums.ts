@@ -11,3 +11,11 @@ export enum Tags {
   btn ='button',
   tpl ='template',
 }
+
+export enum Colors {
+  white = 'белый',
+  yellow = 'желтый',
+  red = 'красный',
+  blue = 'синий',
+  green = 'зелёный',
+} 
