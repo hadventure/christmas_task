@@ -1,5 +1,5 @@
 import Component from '@/common/component';
-import El from '@/common/tag';
+import Tag from '@/common/tag';
 import Toy from '@/models/toy';
 import { Shapes, Tags } from '@/types/enums';
 import cls from './filter-shape.module.scss';
@@ -10,9 +10,9 @@ class FilterShape extends Component {
       <div class=${cls.filterName}>форма</div>
     `;
 
-    const wrap = El.create(Tags.div, cls.wrap);
+    const wrap = Tag.create(Tags.div, cls.wrap);
 
-    const colorsEl = El.create(Tags.div, cls.shapes);
+    const colorsEl = Tag.create(Tags.div, cls.shapes);
     const nameTpl = document.createElement(Tags.tpl);
     nameTpl.innerHTML = name;
 
@@ -23,13 +23,13 @@ class FilterShape extends Component {
     const shapes = ['ball', 'bell', 'toy', 'pine', 'snowflake', 'star'];
 
     shapes.forEach((shape) => {
-      const wrapShape = El.create(Tags.div, `${cls.wrapShape}`);
+      const wrapShape = Tag.create(Tags.div, `${cls.wrapShape}`);
 
-      const e = El.create('img', `${cls.img}`);
+      const e = <HTMLImageElement>Tag.create('img', `${cls.img}`);
       e.src = `/src/assets/svg/shape/${shape}.svg`;
       e.dataset.color = shape;
 
-      const e1 = El.create(Tags.div, `${cls.shapeName} ${cls[shape]}`);
+      const e1 = Tag.create(Tags.div, `${cls.shapeName} ${cls[shape]}`);
       e1.textContent = Shapes[shape as keyof typeof Shapes];
 
       wrapShape.append(e);
@@ -41,12 +41,10 @@ class FilterShape extends Component {
     colorsEl.addEventListener('click', (e) => {
       const el = (<HTMLElement>e.target);
 
-      if (el.classList.contains('img')) {
-        el.classList.add(cls.active);
-        const key = (<DOMStringMap>el.dataset).color;
+      el.classList.add(cls.active);
+      const key = (<DOMStringMap>el.dataset).color;
 
-        Toy.filter.setShapes(key);
-      }
+      Toy.filter.setShapes(key);
     });
   }
 }

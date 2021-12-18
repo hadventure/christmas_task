@@ -20,6 +20,8 @@ class Toy {
 
   static filterd: TToy[];
 
+  static favourite: string[] = [];
+
   static async getList() {
     const res = await fetch(toyUrl);
     const data = await res.json();
@@ -51,6 +53,15 @@ class Toy {
         return el;
       })
       .filter((el) => el.name.includes(search));
+  }
+
+  static setFavourite(val: string) {
+    this.favourite.push(val);
+  }
+
+  static unsetFavourite(val: string) {
+    const pos = this.favourite.indexOf(val);
+    this.favourite.splice(pos, 1);
   }
 }
 

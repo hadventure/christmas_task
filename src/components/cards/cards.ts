@@ -1,5 +1,5 @@
 import Component from '@/common/component';
-import El from '@/common/tag';
+import Tag from '@/common/tag';
 import EventEmitter from '@/common/event-emitter';
 import Toy from '@/models/toy';
 import { Tags } from '@/types/enums';
@@ -7,7 +7,7 @@ import Card from '../card/card';
 import cls from './cards.module.scss';
 
 class Cards extends Component {
-  static toyList = El.create(Tags.div, `${cls.toyList}`);
+  static toyList = Tag.create(Tags.div, `${cls.toyList}`);
 
   constructor(root: HTMLElement) {
     super(root);

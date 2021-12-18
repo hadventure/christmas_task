@@ -34,9 +34,11 @@ class Filter {
     };
   }
 
-  setColors(val: string) {
-    this.filter.colors[val] = true;
-    EventEmitter.emit('change:color');
+  setColors(val: string | undefined) {
+    if (typeof val === 'string') {
+      this.filter.colors[val] = true;
+      EventEmitter.emit('change:color');
+    }
   }
 
   setShapes(val: string | undefined) {
@@ -46,11 +48,9 @@ class Filter {
     }
   }
 
-  setSearch(val: string | undefined) {
-    if (typeof val === 'string') {
-      this.filter.shapes[val] = true;
-      EventEmitter.emit('change:color');
-    }
+  setSearch(val: string) {
+    this.filter.search = val;
+    EventEmitter.emit('change:color');
   }
 }
 

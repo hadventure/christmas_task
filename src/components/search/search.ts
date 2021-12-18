@@ -1,11 +1,11 @@
 import Component from '@/common/component';
-import El from '@/common/tag';
+import Tag from '@/common/tag';
 import Toy from '@/models/toy';
 import { Shapes, Tags } from '@/types/enums';
 import cls from './search.module.scss';
 
 class FilterSearch extends Component {
-  private localroot = El.create(Tags.div, cls.searchGroup);
+  private localroot = Tag.create(Tags.div, cls.searchGroup);
 
   register() {
     const name = `
@@ -17,7 +17,7 @@ class FilterSearch extends Component {
     this.localroot.innerHTML = `<div class=${cls.icon}></div>`;
     this.root.append(this.localroot);
 
-    const input = El.create('input', cls.search, {
+    const input = Tag.create('input', cls.search, {
       type: 'search',
       autocomplete: 'off',
       placeholder: 'Поиск',
@@ -30,6 +30,8 @@ class FilterSearch extends Component {
       // TODO: once
       setTimeout(() => {
         const search = (<HTMLInputElement>e.target).value;
+
+        console.log('----', search)
 
         Toy.filter.setSearch(search);
       }, 1500);
