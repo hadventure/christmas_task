@@ -11,6 +11,8 @@
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"]
-    }
+    },
+    "sourceMap": true,
+    "lib": ["es2015", "es2017.object", "dom"]
   }
 }

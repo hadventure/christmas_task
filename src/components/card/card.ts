@@ -5,7 +5,7 @@ import { Tags } from '@/types/enums';
 import cls from './card.module.scss';
 
 class Card extends Component {
-  private item
+  private item;
 
   constructor(root: HTMLElement, item: tToy) {
     super(root);

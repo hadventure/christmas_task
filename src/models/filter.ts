@@ -1,13 +1,13 @@
 import EventEmitter from '@/common/event-emitter';
 
-type tFilter = {
+type TFilter = {
   [index: string]: {
     [index: string]: boolean
   }
-}
+};
 
 class Filter {
-  filter: tFilter
+  filter: TFilter;
 
   constructor() {
     this.filter = {
@@ -26,7 +26,7 @@ class Filter {
         snowflake: false,
         star: false,
       },
-    }
+    };
   }
 
   setColors(val: string) {

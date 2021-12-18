@@ -5,10 +5,6 @@ import { Tags } from '@/types/enums';
 import cls from './filter-color.module.scss';
 
 class FilterColor extends Component {
-  constructor(root: HTMLElement) {
-    super(root);
-  }
-
   register() {
     const name = `
       <div class=${cls.filterName}>цвет</div>
@@ -21,21 +17,21 @@ class FilterColor extends Component {
 
     this.root.append(wrap);
     wrap.append(nameTpl.content);
-    wrap.append(colorsEl)
+    wrap.append(colorsEl);
 
-    const colors = ['white', 'yellow', 'red', 'blue', 'green']
+    const colors = ['white', 'yellow', 'red', 'blue', 'green'];
 
-    colors.forEach(color => {
-      const e = El.create(Tags.div, `${cls.filterColor} ${cls[color]}`)
+    colors.forEach((color) => {
+      const e = El.create(Tags.div, `${cls.filterColor} ${cls[color]}`);
       e.dataset.color = color;
 
       colorsEl.append(e);
-    })
+    });
 
-    colorsEl.addEventListener('click', e => {
+    colorsEl.addEventListener('click', (e) => {
       e.target.classList.add(cls.active);
       Toy.filter.setColors(e.target.dataset.color);
-    })
+    });
   }
 }
 

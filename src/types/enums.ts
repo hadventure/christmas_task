@@ -1,15 +1,15 @@
 export enum Events {
   div = 'div',
   img = 'img',
-  btn ='button',
-  tpl ='template',
+  btn = 'button',
+  tpl = 'template',
 }
 
 export enum Tags {
   div = 'div',
   img = 'img',
-  btn ='button',
-  tpl ='template',
+  btn = 'button',
+  tpl = 'template',
 }
 
 export enum Colors {
@@ -18,7 +18,7 @@ export enum Colors {
   red = 'красный',
   blue = 'синий',
   green = 'зелёный',
-} 
+}
 
 export enum Shapes {
   ball = 'шар',
@@ -27,4 +27,4 @@ export enum Shapes {
   pine = 'шишка',
   snowflake = 'снежинка',
   star = 'звезда',
-} 
+}

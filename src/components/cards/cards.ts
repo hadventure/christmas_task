@@ -7,7 +7,7 @@ import Card from '../card/card';
 import cls from './cards.module.scss';
 
 class Cards extends Component {
-  static toyList = El.create(Tags.div, `${cls.toyList}`)
+  static toyList = El.create(Tags.div, `${cls.toyList}`);
 
   constructor(root: HTMLElement) {
     super(root);
@@ -21,10 +21,10 @@ class Cards extends Component {
   render() {
     Cards.toyList.innerHTML = '';
 
-    console.log(Toy.filterd)
+    console.log(Toy.filterd);
 
-    Toy.filterd.forEach(element => {
-      const toy = new Card(Cards.toyList, element)
+    Toy.filterd.forEach((element) => {
+      const toy = new Card(Cards.toyList, element);
       toy.register();
     });
   }
@@ -42,7 +42,6 @@ class Cards extends Component {
     this.root.append(Cards.toyList);
 
     this.render();
-
   }
 }
 
