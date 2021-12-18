@@ -1,24 +1,41 @@
 import EventEmitter from '@/common/event-emitter';
 
-type tColors = {
-  [index: string]: boolean
+type tFilter = {
+  [index: string]: {
+    [index: string]: boolean
+  }
 }
 
 class Filter {
-  colors: tColors
+  filter: tFilter
 
   constructor() {
-    this.colors = {
-      white: false,
-      yellow: false,
-      red: false,
-      blue: false,
-      green: false,
+    this.filter = {
+      colors: {
+        white: false,
+        yellow: false,
+        red: false,
+        blue: false,
+        green: false,
+      },
+      shapes: {
+        ball: false,
+        bell: false,
+        toy: false,
+        pine: false,
+        snowflake: false,
+        star: false,
+      },
     }
   }
 
   setColors(val: string) {
-    this.colors[val] = true;
+    this.filter.colors[val] = true;
+    EventEmitter.emit('change:color');
+  }
+
+  setShapes(val: string) {
+    this.filter.shapes[val] = true;
     EventEmitter.emit('change:color');
   }
 }

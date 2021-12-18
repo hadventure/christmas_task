@@ -1,4 +1,4 @@
-import { Colors } from '@/types/enums';
+import { Colors, Shapes } from '@/types/enums';
 import { toyUrl } from '../common/game-constants';
 import Filter from './filter';
 
@@ -26,14 +26,39 @@ class Toy {
   }
 
   static filterColor() {
-    const merge = Object.keys(this.filter.colors)
-      .filter(el => this.filter.colors[el])
+    console.log(this.filter)
+
+    const newLocal = this.filter;
+    const {colors, shapes} = newLocal.filter;
+
+    console.log(newLocal, colors, shapes);
+
+    const merge = Object.keys(colors)
+      .filter(el => colors[el])
       .map(el => Colors[el]);
 
-    this.filterd = this.store.filter(el => {
-      console.log(merge.includes(el.color))
-      return merge.includes(el.color);
-    })
+    const merge1 = Object.keys(shapes)
+      .filter(el => shapes[el])
+      .map(el => Shapes[el]);
+
+     
+      console.log(this.filterd)
+
+      this.filterd = this.store
+      .filter(el => {
+        if(merge1.length > 0) {
+          return merge1.includes(el.shape);
+        }
+
+        return el;
+      })
+      .filter(el => {
+        if(merge.length > 0) {
+          return merge.includes(el.color);
+        }
+
+        return el;
+      })
   }
 }
 

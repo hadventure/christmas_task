@@ -12,13 +12,13 @@ class FilterColor extends Component {
   register() {
     const name = `
       <div class=${cls.filterName}>цвет</div>
-  `;
+    `;
 
-    const wrap = El.create(Tags.div);
+    const wrap = El.create(Tags.div, cls.wrap);
     const colorsEl = El.create(Tags.div, cls.colorsWrap);
     const nameTpl = document.createElement(Tags.tpl);
     nameTpl.innerHTML = name;
-    
+
     this.root.append(wrap);
     wrap.append(nameTpl.content);
     wrap.append(colorsEl)

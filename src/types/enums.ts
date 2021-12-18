@@ -19,3 +19,12 @@ export enum Colors {
   blue = 'синий',
   green = 'зелёный',
 } 
+
+export enum Shapes {
+  ball = 'шар',
+  bell = 'колокольчик',
+  toy = 'фигурка',
+  pine = 'шишка',
+  snowflake = 'снежинка',
+  star = 'звезда',
+} 

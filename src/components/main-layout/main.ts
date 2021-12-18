@@ -3,6 +3,7 @@ import El from '@/common/tag';
 import { Tags } from '@/types/enums';
 import Cards from '../cards/cards';
 import FilterColor from '../filter-color/filter-color';
+import FilterShape from '../filter-shape/filter-shape';
 import cls from './main-layout.module.scss';
 
 class Main extends Component {
@@ -19,11 +20,21 @@ class Main extends Component {
     Main.container.append(Main.filter);
     Main.container.append(Main.cards);
 
-    const cards = new Cards(Main.cards)
-    cards.register()
+    const cards = new Cards(Main.cards);
+    cards.register();
 
-    const filterColor = new FilterColor(Main.filter);
+    const wrapFilterColor = El.create(Tags.div, `toys-cards col`);
+    Main.filter.append(wrapFilterColor);
+
+    const wrapFilterShape = El.create(Tags.div, `toys-cards col`);
+    Main.filter.append(wrapFilterShape);
+
+    const filterColor = new FilterColor(wrapFilterColor);
     filterColor.register();
+
+    const filterShape = new FilterShape(wrapFilterShape);
+    filterShape.register();
+
   }
 }
 
