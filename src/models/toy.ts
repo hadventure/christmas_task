@@ -20,8 +20,6 @@ class Toy {
 
   static filterd: TToy[];
 
-  static favourite: string[] = [];
-
   static async getList() {
     const res = await fetch(toyUrl);
     const data = await res.json();
@@ -29,9 +27,11 @@ class Toy {
     this.filterd = data;
   }
 
-  static filterColor() {
+  static filterList() {
     const newLocal = this.filter;
-    const { colors, shapes, search } = newLocal.filter;
+    const {
+      colors, shapes, search, favourite, isFavourite,
+    } = newLocal.filter;
 
     const merge = Object.keys(colors)
       .filter((el) => colors[el])
@@ -44,24 +44,19 @@ class Toy {
     this.filterd = this.store
       .filter((el: TToy) => {
         if (merge1.length > 0) return merge1.includes(el.shape);
-
         return el;
       })
       .filter((el) => {
         if (merge.length > 0) return merge.includes(el.color);
-
         return el;
       })
-      .filter((el) => el.name.includes(search));
-  }
-
-  static setFavourite(val: string) {
-    this.favourite.push(val);
-  }
-
-  static unsetFavourite(val: string) {
-    const pos = this.favourite.indexOf(val);
-    this.favourite.splice(pos, 1);
+      .filter((el) => el.name.includes(search.toLowerCase()))
+      .filter((el) => {
+        if (isFavourite) {
+          return favourite.includes(el.num);
+        }
+        return el;
+      });
   }
 }
 

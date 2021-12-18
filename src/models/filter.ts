@@ -1,10 +1,14 @@
 import EventEmitter from '@/common/event-emitter';
+import LS from '@/common/local-storage';
 
 type TFilterNest = {
   [index: string]: boolean
 };
 
 type TFilter = {
+  // It's possible to set fav to any data collection
+  favourite: string[],
+  isFavourite: boolean,
   search: string,
   colors: TFilterNest,
   shapes: TFilterNest
@@ -15,6 +19,8 @@ class Filter {
 
   constructor() {
     this.filter = {
+      favourite: [],
+      isFavourite: false,
       search: '',
       colors: {
         white: false,
@@ -37,20 +43,38 @@ class Filter {
   setColors(val: string | undefined) {
     if (typeof val === 'string') {
       this.filter.colors[val] = true;
-      EventEmitter.emit('change:color');
+      EventEmitter.emit('change:filter');
     }
   }
 
   setShapes(val: string | undefined) {
     if (typeof val === 'string') {
       this.filter.shapes[val] = true;
-      EventEmitter.emit('change:color');
+      EventEmitter.emit('change:filter');
     }
   }
 
   setSearch(val: string) {
     this.filter.search = val;
-    EventEmitter.emit('change:color');
+    EventEmitter.emit('change:filter');
+  }
+
+  setFavourite(val: string) {
+    this.filter.favourite.push(val);
+    LS.setFavourite(this.filter.favourite);
+    EventEmitter.emit('change:favourite');
+  }
+
+  unsetFavourite(val: string) {
+    const pos = this.filter.favourite.indexOf(val);
+    this.filter.favourite.splice(pos, 1);
+    LS.setFavourite(this.filter.favourite);
+    EventEmitter.emit('change:favourite');
+  }
+
+  toggleFav() {
+    this.filter.isFavourite = !this.filter.isFavourite;
+    EventEmitter.emit('change:filter');
   }
 }
 

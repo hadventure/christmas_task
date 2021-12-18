@@ -3,6 +3,7 @@ import Tag from '@/common/tag';
 import { Tags } from '@/types/enums';
 import Cards from '../cards/cards';
 import FilterColor from '../filter-color/filter-color';
+import FilterFav from '../filter-fav/filter-fav';
 import FilterShape from '../filter-shape/filter-shape';
 import FilterSearch from '../search/search';
 import cls from './main-layout.module.scss';
@@ -23,13 +24,11 @@ class Main extends Component {
     cards.register();
 
     const wrapFilterSearch = Tag.create(Tags.div, 'toys-cards col');
-    this.filter.append(wrapFilterSearch);
-
     const wrapFilterColor = Tag.create(Tags.div, 'toys-cards col');
-    this.filter.append(wrapFilterColor);
-
     const wrapFilterShape = Tag.create(Tags.div, 'toys-cards col');
-    this.filter.append(wrapFilterShape);
+    const wrapFilterFav = Tag.create(Tags.div, 'toys-cards col');
+
+    this.filter.append(wrapFilterSearch, wrapFilterColor, wrapFilterShape, wrapFilterFav);
 
     const search = new FilterSearch(wrapFilterSearch);
     search.register();
@@ -39,6 +38,9 @@ class Main extends Component {
 
     const filterShape = new FilterShape(wrapFilterShape);
     filterShape.register();
+
+    const filterFav = new FilterFav(wrapFilterFav);
+    filterFav.register();
   }
 }
 

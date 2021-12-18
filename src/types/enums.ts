@@ -10,6 +10,9 @@ export enum Tags {
   img = 'img',
   btn = 'button',
   tpl = 'template',
+  input = 'input',
+  span = 'span',
+  label = 'label',
 }
 
 export enum Colors {

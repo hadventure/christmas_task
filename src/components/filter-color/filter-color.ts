@@ -1,5 +1,5 @@
 import Component from '@/common/component';
-import El from '@/common/tag';
+import Tag from '@/common/tag';
 import Toy from '@/models/toy';
 import { Tags } from '@/types/enums';
 import cls from './filter-color.module.scss';
@@ -10,9 +10,9 @@ class FilterColor extends Component {
       <div class=${cls.filterName}>цвет</div>
     `;
 
-    const wrap = El.create(Tags.div, cls.wrap);
-    const colorsEl = El.create(Tags.div, cls.colorsWrap);
-    const nameTpl = document.createElement(Tags.tpl);
+    const wrap = Tag.create(Tags.div, cls.wrap);
+    const colorsEl = Tag.create(Tags.div, cls.colorsWrap);
+    const nameTpl = <HTMLTemplateElement>Tag.create(Tags.tpl);
     nameTpl.innerHTML = name;
 
     this.root.append(wrap);
@@ -22,7 +22,7 @@ class FilterColor extends Component {
     const colors = ['white', 'yellow', 'red', 'blue', 'green'];
 
     colors.forEach((color) => {
-      const e = El.create(Tags.div, `${cls.filterColor} ${cls[color]}`);
+      const e = Tag.create(Tags.div, `${cls.filterColor} ${cls[color]}`);
       e.dataset.color = color;
 
       colorsEl.append(e);

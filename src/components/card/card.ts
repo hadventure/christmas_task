@@ -64,7 +64,7 @@ class Card extends Component {
   }
 
   isFavourite() {
-    if (this.item.favorite) {
+    if (Toy.filter.filter.favourite.includes(this.item.num)) {
       return cls.favourite;
     }
     return '';
@@ -75,12 +75,12 @@ class Card extends Component {
 
     if (elCls.contains(cls.favourite)) {
       elCls.toggle(cls.favourite);
-      Toy.unsetFavourite(this.item.num);
-    } else if (Toy.favourite.length === favQuantity) {
+      Toy.filter.unsetFavourite(this.item.num);
+    } else if (Toy.filter.filter.favourite.length === favQuantity) {
       alert('NOoo');
     } else {
       elCls.toggle(cls.favourite);
-      Toy.setFavourite(this.item.num);
+      Toy.filter.setFavourite(this.item.num);
     }
   }
 }

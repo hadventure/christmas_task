@@ -1,5 +1,6 @@
 import Controller from '@/common/controller';
 import { mainpage } from '@/common/pages';
+import LS from './common/local-storage';
 
 class App {
   static root = <HTMLElement>document.querySelector('#root');

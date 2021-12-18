@@ -11,12 +11,13 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: 2rem;
   padding: 0;
   height: 100vh;
   font-family: "MountainsOfChristmas", sans-serif;
   font-size: 1.6rem;
-  color: #002766;
+  color: #fff;
+  background-color: #002766;
 }
 
 .container {
@@ -27,32 +28,6 @@ body {
 
 .col {
   padding: 0 2rem;
-}
-
-.search {
-  border-radius: 5px;
-  outline: none;
-  padding: 0 8px;
-  border: none;
-  line-height: 1.8rem;
-  font-size: 1.6rem;
-}
-
-.icon {
-  background-image: url(./assets/svg/search.svg);
-  background-size: 100%;
-  width: 16px;
-  height: 16px;
-}
-
-.search-group {
-  display: flex;
-  align-items: center;
-  padding: 8px;
-  background-color: #fff;
-  margin: 8px;
-  border: 1px solid #eee;
-  border-radius: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */
