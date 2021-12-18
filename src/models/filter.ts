@@ -14,8 +14,15 @@ type TFilter = {
   shapes: TFilterNest
 };
 
+type TSorter = {
+  name: string,
+  direction: string
+};
+
 class Filter {
   filter: TFilter;
+
+  sorter: TSorter;
 
   constructor() {
     this.filter = {
@@ -37,6 +44,11 @@ class Filter {
         snowflake: false,
         star: false,
       },
+    };
+
+    this.sorter = {
+      name: '',
+      direction: '',
     };
   }
 
@@ -75,6 +87,15 @@ class Filter {
   toggleFav() {
     this.filter.isFavourite = !this.filter.isFavourite;
     EventEmitter.emit('change:filter');
+  }
+
+  setSorter(val: string) {
+    const [name, direction] = val.split('-');
+
+    this.sorter.name = name;
+    this.sorter.direction = direction;
+
+    EventEmitter.emit('change:sorter');
   }
 }
 

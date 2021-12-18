@@ -17,8 +17,7 @@ class FilterShape extends Component {
     nameTpl.innerHTML = name;
 
     this.root.append(wrap);
-    wrap.append(nameTpl.content);
-    wrap.append(colorsEl);
+    wrap.append(nameTpl.content, colorsEl);
 
     const shapes = ['ball', 'bell', 'toy', 'pine', 'snowflake', 'star'];
 
@@ -32,8 +31,7 @@ class FilterShape extends Component {
       const e1 = Tag.create(Tags.div, `${cls.shapeName} ${cls[shape]}`);
       e1.textContent = Shapes[shape as keyof typeof Shapes];
 
-      wrapShape.append(e);
-      wrapShape.append(e1);
+      wrapShape.append(e, e1);
 
       colorsEl.append(wrapShape);
     });

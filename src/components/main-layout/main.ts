@@ -6,6 +6,7 @@ import FilterColor from '../filter-color/filter-color';
 import FilterFav from '../filter-fav/filter-fav';
 import FilterShape from '../filter-shape/filter-shape';
 import FilterSearch from '../search/search';
+import Sorter from '../sorter/sorter';
 import cls from './main-layout.module.scss';
 
 class Main extends Component {
@@ -17,8 +18,7 @@ class Main extends Component {
 
   register() {
     this.root.append(this.container);
-    this.container.append(this.filter);
-    this.container.append(this.cards);
+    this.container.append(this.filter, this.cards);
 
     const cards = new Cards(this.cards);
     cards.register();
@@ -27,8 +27,15 @@ class Main extends Component {
     const wrapFilterColor = Tag.create(Tags.div, 'toys-cards col');
     const wrapFilterShape = Tag.create(Tags.div, 'toys-cards col');
     const wrapFilterFav = Tag.create(Tags.div, 'toys-cards col');
+    const wrapSorter = Tag.create(Tags.div, 'toys-cards col');
 
-    this.filter.append(wrapFilterSearch, wrapFilterColor, wrapFilterShape, wrapFilterFav);
+    this.filter.append(
+      wrapFilterSearch,
+      wrapFilterColor,
+      wrapFilterShape,
+      wrapFilterFav,
+      wrapSorter,
+    );
 
     const search = new FilterSearch(wrapFilterSearch);
     search.register();
@@ -41,6 +48,9 @@ class Main extends Component {
 
     const filterFav = new FilterFav(wrapFilterFav);
     filterFav.register();
+
+    const sorter = new Sorter(wrapSorter);
+    sorter.register();
   }
 }
 

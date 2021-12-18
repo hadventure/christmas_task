@@ -58,6 +58,34 @@ class Toy {
         return el;
       });
   }
+
+  static sortList() {
+    const { name, direction } = this.filter.sorter;
+
+    this.filterd = this.filterd.sort((a: TToy, b: TToy): number => {
+      if (direction === 'asc') {
+        if (a[name as keyof TToy] < b[name as keyof TToy]) {
+          return -1;
+        }
+
+        if (a[name as keyof TToy] > b[name as keyof TToy]) {
+          return 1;
+        }
+      }
+
+      if (direction === 'desc') {
+        if (a[name as keyof TToy] > b[name as keyof TToy]) {
+          return -1;
+        }
+
+        if (a[name as keyof TToy] < b[name as keyof TToy]) {
+          return 1;
+        }
+      }
+
+      return 0;
+    });
+  }
 }
 
 export default Toy;

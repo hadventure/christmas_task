@@ -24,6 +24,11 @@ class Cards extends Component {
       Cards.renderHead();
     });
 
+    EventEmitter.subscribe('change:sorter', () => {
+      Toy.sortList();
+      Cards.renderCrads();
+    });
+
     Toy.filter.filter.favourite = LS.ls.fav;
   }
 
@@ -52,8 +57,7 @@ class Cards extends Component {
     await Toy.getList();
 
     Cards.renderHead();
-    this.root.append(Cards.headRoot);
-    this.root.append(Cards.toyList);
+    this.root.append(Cards.headRoot, Cards.toyList);
 
     Cards.renderCrads();
   }

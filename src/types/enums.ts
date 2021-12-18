@@ -13,6 +13,7 @@ export enum Tags {
   input = 'input',
   span = 'span',
   label = 'label',
+  select = 'select',
 }
 
 export enum Colors {

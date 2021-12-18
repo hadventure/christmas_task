@@ -16,8 +16,7 @@ class FilterColor extends Component {
     nameTpl.innerHTML = name;
 
     this.root.append(wrap);
-    wrap.append(nameTpl.content);
-    wrap.append(colorsEl);
+    wrap.append(nameTpl.content, colorsEl);
 
     const colors = ['white', 'yellow', 'red', 'blue', 'green'];
 

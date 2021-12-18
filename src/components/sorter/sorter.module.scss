@@ -1,0 +1,19 @@
+.filter-name {
+  line-height: 4.6rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.select {
+  border-radius: 5px;
+  // height: 2rem;
+  outline: none;
+  width: 100%;
+  padding: 8px;
+  font-size: 1.6rem;
+  font-family: 'MountainsOfChristmas', sans-serif;
+}
+
+.select option {
+  font-family: 'MountainsOfChristmas', sans-serif;
+}
