@@ -1,9 +1,13 @@
 import EventEmitter from '@/common/event-emitter';
 
+type TFilterNest = {
+  [index: string]: boolean
+};
+
 type TFilter = {
-  [index: string]: {
-    [index: string]: boolean
-  }
+  search: string,
+  colors: TFilterNest,
+  shapes: TFilterNest
 };
 
 class Filter {
@@ -11,6 +15,7 @@ class Filter {
 
   constructor() {
     this.filter = {
+      search: '',
       colors: {
         white: false,
         yellow: false,
@@ -34,9 +39,18 @@ class Filter {
     EventEmitter.emit('change:color');
   }
 
-  setShapes(val: string) {
-    this.filter.shapes[val] = true;
-    EventEmitter.emit('change:color');
+  setShapes(val: string | undefined) {
+    if (typeof val === 'string') {
+      this.filter.shapes[val] = true;
+      EventEmitter.emit('change:color');
+    }
+  }
+
+  setSearch(val: string | undefined) {
+    if (typeof val === 'string') {
+      this.filter.shapes[val] = true;
+      EventEmitter.emit('change:color');
+    }
   }
 }
 

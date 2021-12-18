@@ -42,7 +42,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.scss'],
+    extensions: ['.ts', '.js'],
     alias: {
       '@': path.resolve(__dirname, './src'),
     },

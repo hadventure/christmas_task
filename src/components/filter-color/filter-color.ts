@@ -29,8 +29,10 @@ class FilterColor extends Component {
     });
 
     colorsEl.addEventListener('click', (e) => {
-      e.target.classList.add(cls.active);
-      Toy.filter.setColors(e.target.dataset.color);
+      const el = (<HTMLElement>e.target);
+      el.classList.add(cls.active);
+      const key = (<DOMStringMap>el.dataset).color;
+      Toy.filter.setColors(key);
     });
   }
 }

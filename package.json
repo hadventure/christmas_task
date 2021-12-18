@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack serve --config ./webpack.config.js --env mode=dev",
     "build": "webpack",
+    "style": "sass --watch src/app.scss src/style.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +28,7 @@
     "eslint": "^8.5.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-import-resolver-webpack": "^0.13.2",
     "eslint-plugin-import": "^2.25.3",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.5",

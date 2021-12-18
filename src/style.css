@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "MountainsOfChristmas";
+  src: url("./assets/fonts/mountains-of-christmas-cyrillic.woff") format("woff");
+}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: "MountainsOfChristmas", sans-serif;
+  font-size: 1.6rem;
+  color: #002766;
+}
+
+.container {
+  height: 100vh;
+  margin: 0 auto;
+  max-width: 1720px;
+}
+
+.col {
+  padding: 0 2rem;
+}
+
+.search {
+  border-radius: 5px;
+  outline: none;
+  padding: 0 8px;
+  border: none;
+  line-height: 1.8rem;
+  font-size: 1.6rem;
+}
+
+.icon {
+  background-image: url(./assets/svg/search.svg);
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+}
+
+.search-group {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background-color: #fff;
+  margin: 8px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=style.css.map */

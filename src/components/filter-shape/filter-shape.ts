@@ -5,16 +5,10 @@ import { Shapes, Tags } from '@/types/enums';
 import cls from './filter-shape.module.scss';
 
 class FilterShape extends Component {
-  constructor(root: HTMLElement) {
-    super(root);
-
-    console.log(Toy.filter);
-  }
-
   register() {
     const name = `
       <div class=${cls.filterName}>форма</div>
-  `;
+    `;
 
     const wrap = El.create(Tags.div, cls.wrap);
 
@@ -36,7 +30,7 @@ class FilterShape extends Component {
       e.dataset.color = shape;
 
       const e1 = El.create(Tags.div, `${cls.shapeName} ${cls[shape]}`);
-      e1.textContent = Shapes[shape];
+      e1.textContent = Shapes[shape as keyof typeof Shapes];
 
       wrapShape.append(e);
       wrapShape.append(e1);
@@ -45,9 +39,14 @@ class FilterShape extends Component {
     });
 
     colorsEl.addEventListener('click', (e) => {
-      console.log(e.target, e.currentTarget);
-      e.target.classList.add(cls.active);
-      Toy.filter.setShapes(e.target.dataset.color);
+      const el = (<HTMLElement>e.target);
+
+      if (el.classList.contains('img')) {
+        el.classList.add(cls.active);
+        const key = (<DOMStringMap>el.dataset).color;
+
+        Toy.filter.setShapes(key);
+      }
     });
   }
 }
