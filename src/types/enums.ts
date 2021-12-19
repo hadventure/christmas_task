@@ -32,3 +32,9 @@ export enum Shapes {
   snowflake = 'снежинка',
   star = 'звезда',
 }
+
+export enum Sizes {
+  S = 'малый',
+  M = 'средний',
+  L = 'большой',
+}

@@ -29,6 +29,11 @@ class LS {
         snowflake: false,
         star: false,
       },
+      sizes: {
+        S: false,
+        M: false,
+        L: false,
+      },
       yearRange: {
         percent: [],
         years: [],

@@ -32,6 +32,11 @@ class Filter {
         snowflake: false,
         star: false,
       },
+      sizes: {
+        S: false,
+        M: false,
+        L: false,
+      },
       yearRange: {
         percent: [],
         years: [],
@@ -132,6 +137,15 @@ class Filter {
 
   setFilterToLs() {
     LS.setData(this.filter);
+  }
+
+  setSize(val: string | undefined) {
+    if (typeof val === 'string') {
+      this.filter.sizes[val] = !this.filter.sizes[val];
+      this.setFilterToLs();
+
+      EventEmitter.emit('change:filter');
+    }
   }
 }
 

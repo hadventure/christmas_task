@@ -13,6 +13,7 @@ export type TFilter = {
   search: string,
   colors: TFilterNest,
   shapes: TFilterNest,
+  sizes: TFilterNest,
   yearRange: TFilterRange,
   qtyRange: TFilterRange,
   // [x: string]: string | TFilterRange | TFilterRange | TFilterNest | boolean | string[]

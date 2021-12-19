@@ -1,6 +1,6 @@
 import EventEmitter from '@/common/event-emitter';
 import LS from '@/common/local-storage';
-import { Colors, Shapes } from '@/types/enums';
+import { Colors, Shapes, Sizes } from '@/types/enums';
 import { toyUrl } from '../common/game-constants';
 import Filter from './filter';
 
@@ -39,25 +39,33 @@ class Toy {
   static filterList() {
     const newLocal = this.filter;
     const {
-      colors, shapes, search, favourite, isFavourite, yearRange, qtyRange,
+      colors, sizes, shapes, search, favourite, isFavourite, yearRange, qtyRange,
     } = newLocal.filter;
 
-    const merge = Object.keys(colors)
+    const mergeColors = Object.keys(colors)
       .filter((el) => colors[el])
       .map((el) => Colors[el as keyof typeof Colors]);
 
-    const merge1 = Object.keys(shapes)
+    const mergeShapes = Object.keys(shapes)
       .filter((el) => shapes[el])
       .map((el) => Shapes[el as keyof typeof Shapes]);
 
+    const mergeSizes = Object.keys(sizes)
+      .filter((el) => sizes[el])
+      .map((el) => String(Sizes[el as keyof typeof Sizes])); // ???
+
     this.filterd = this.store
-      .filter((el: TToy) => {
-        if (merge1.length > 0) return merge1.includes(el.shape);
+      .filter((el) => {
+        if (mergeShapes.length > 0) return mergeShapes.includes(el.shape);
         return el;
       })
       .filter((el) => {
-        if (merge.length > 0) return merge.includes(el.color);
+        if (mergeColors.length > 0) return mergeColors.includes(el.color);
         return el;
+      })
+      .filter((el1) => {
+        if (mergeSizes.length > 0) return mergeSizes.includes(el1.size);
+        return el1;
       })
       .filter((el) => el.name.toLowerCase().includes(search.toLowerCase()))
       .filter((el) => {

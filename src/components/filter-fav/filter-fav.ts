@@ -27,8 +27,6 @@ class FilterFav extends Component {
 
     this.root.append(nameTpl.content, wrap);
 
-    // const input = Tag.create(Tags.input, cls.input, { type: 'checkbox' });
-
     if (Toy.filter.filter.isFavourite) {
       this.input.checked = Toy.filter.filter.isFavourite;
     }

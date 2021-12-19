@@ -1,16 +1,15 @@
 import Component from '@/common/component';
-import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
 import { Tags } from '@/types/enums';
 import Cards from '../cards/cards';
 import FilterColor from '../filter-color/filter-color';
 import FilterFav from '../filter-fav/filter-fav';
-import FilterReset from '../filter-reset/filter-reset';
 import FilterShape from '../filter-shape/filter-shape';
 import Range from '../range/range';
 import FilterSearch from '../search/search';
 import Sorter from '../sorter/sorter';
 import cls from './main-layout.module.scss';
+import FilterSize from '../filter-size/filter-size';
 
 class Main extends Component {
   private container = Tag.create(Tags.div, `${cls.toys} container`);
@@ -33,15 +32,15 @@ class Main extends Component {
     const wrapSorter = Tag.create(Tags.div, 'toys-cards col');
     const wrapRangeYear = Tag.create(Tags.div, 'toys-cards col');
     const wrapRangeQty = Tag.create(Tags.div, 'toys-cards col');
-    // const wrapReset = Tag.create(Tags.div, 'toys-cards col');
+    const wrapFilterSize = Tag.create(Tags.div, 'toys-cards col');
 
     this.filter.append(
-      // wrapReset,
       wrapFilterSearch,
       wrapFilterColor,
       wrapFilterShape,
       wrapFilterFav,
       wrapSorter,
+      wrapFilterSize,
       wrapRangeYear,
       wrapRangeQty,
     );
@@ -68,8 +67,8 @@ class Main extends Component {
     const rangeQty = new Range(wrapRangeQty, '1', '15', 'qtyRange', 'Количество');
     rangeQty.register();
 
-    // const reset = new FilterReset(wrapReset);
-    // reset.register();
+    const filterSize = new FilterSize(wrapFilterSize);
+    filterSize.register();
   }
 }
 
