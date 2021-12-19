@@ -30,7 +30,7 @@ class Toy {
   static filterList() {
     const newLocal = this.filter;
     const {
-      colors, shapes, search, favourite, isFavourite,
+      colors, shapes, search, favourite, isFavourite, yearRange, qtyRange,
     } = newLocal.filter;
 
     const merge = Object.keys(colors)
@@ -55,6 +55,13 @@ class Toy {
         if (isFavourite) {
           return favourite.includes(el.num);
         }
+        return el;
+      })
+      .filter((el) => {
+        if (yearRange.years.length) {
+          return el.year >= yearRange.years[0] && el.year <= yearRange.years[1];
+        }
+
         return el;
       });
   }

@@ -5,13 +5,21 @@ type TFilterNest = {
   [index: string]: boolean
 };
 
+type TFilterRange = {
+  percent: string[],
+  years: string[],
+  // [index: string]: string[]
+};
+
 type TFilter = {
   // It's possible to set fav to any data collection
   favourite: string[],
   isFavourite: boolean,
   search: string,
   colors: TFilterNest,
-  shapes: TFilterNest
+  shapes: TFilterNest,
+  yearRange: TFilterRange,
+  qtyRange: TFilterRange,
 };
 
 type TSorter = {
@@ -43,6 +51,14 @@ class Filter {
         pine: false,
         snowflake: false,
         star: false,
+      },
+      yearRange: {
+        percent: [],
+        years: [],
+      },
+      qtyRange: {
+        percent: [],
+        years: [],
       },
     };
 
@@ -96,6 +112,18 @@ class Filter {
     this.sorter.direction = direction;
 
     EventEmitter.emit('change:sorter');
+  }
+
+  setPercent(type: string, min: string, max: string) {
+    this.filter[type as keyof TFilter].percent = [];
+    this.filter[type as keyof TFilterRange].percent.push(min, max);
+  }
+
+  setValues(type: string, min: string, max: string) {
+    this.filter[type as keyof TFilter].years = [];
+    this.filter[type as keyof TFilter].years.push(min, max);
+
+    EventEmitter.emit('change:filter');
   }
 }
 

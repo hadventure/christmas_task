@@ -5,6 +5,7 @@ import Cards from '../cards/cards';
 import FilterColor from '../filter-color/filter-color';
 import FilterFav from '../filter-fav/filter-fav';
 import FilterShape from '../filter-shape/filter-shape';
+import Range from '../range/range';
 import FilterSearch from '../search/search';
 import Sorter from '../sorter/sorter';
 import cls from './main-layout.module.scss';
@@ -28,6 +29,7 @@ class Main extends Component {
     const wrapFilterShape = Tag.create(Tags.div, 'toys-cards col');
     const wrapFilterFav = Tag.create(Tags.div, 'toys-cards col');
     const wrapSorter = Tag.create(Tags.div, 'toys-cards col');
+    const wrapRangeYear = Tag.create(Tags.div, 'toys-cards col');
 
     this.filter.append(
       wrapFilterSearch,
@@ -35,6 +37,7 @@ class Main extends Component {
       wrapFilterShape,
       wrapFilterFav,
       wrapSorter,
+      wrapRangeYear,
     );
 
     const search = new FilterSearch(wrapFilterSearch);
@@ -51,6 +54,10 @@ class Main extends Component {
 
     const sorter = new Sorter(wrapSorter);
     sorter.register();
+
+    // TODO: set Dynamicly
+    const rangeYear = new Range(wrapRangeYear, '1940', '2020', 'yearRange');
+    rangeYear.register();
   }
 }
 

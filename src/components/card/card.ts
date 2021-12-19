@@ -18,9 +18,15 @@ class Card extends Component {
       <div class=${cls.toyItem}>
 
         <div class=${cls.toyProp}>
-          <div class=${cls.toyImageWrap}>
+          <div>
+            <div class=${cls.toyImageWrap}>
             <img src="./src/assets/toys/${this.item.num}.png" alt="" class=${cls.toyImg}>
+            </div>
+            <div class=${cls.attr}>
+              <div class="${cls.fav} ${this.isFavourite()}">
+            </div>
           </div>
+            </div>
             
           <div>
             <div class=${cls.attr}>
@@ -43,9 +49,7 @@ class Card extends Component {
               <div class="attr-value">${this.item.size}</div>
             </div>
 
-            <div class=${cls.attr}>
-              <div class="${cls.fav} ${this.isFavourite()}"></div>
-            </div>
+
           </div>
 
           <div class=${cls.toyName}>${this.item.name}</div>

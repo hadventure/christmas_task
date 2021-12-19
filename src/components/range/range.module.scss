@@ -1,0 +1,59 @@
+// https://ru.stackoverflow.com/questions/1025336/%D0%94%D0%B2%D0%B0-%D0%B1%D0%B5%D0%B3%D1%83%D0%BD%D0%BA%D0%B0-%D1%83-input-%D1%81-%D1%82%D0%B8%D0%BF%D0%BE%D0%BC-range
+
+.range-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 10px;
+}
+
+.container {
+  position: relative;
+  pointer-events: none;
+  flex-basis: 100%;
+}
+
+.container input[type='range'] {
+  height: 0.5em;
+  display: block;
+  margin: 0;
+}
+
+.container input[type='range']:last-child {
+  margin-top: -0.5em;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  pointer-events: all;
+}
+input[type='range']::-moz-range-thumb {
+  pointer-events: all;
+}
+input[type='range']::-ms-thumb {
+  pointer-events: all;
+}
+
+.range-from,
+.range-to {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 2px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  background-color: #fdd700;
+}
+
+.range::-webkit-slider-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background: #fff;
+}
+
+.filter-name {
+  line-height: 4.6rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+}

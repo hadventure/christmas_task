@@ -13,7 +13,7 @@ class FilterShape extends Component {
     const wrap = Tag.create(Tags.div, cls.wrap);
 
     const colorsEl = Tag.create(Tags.div, cls.shapes);
-    const nameTpl = document.createElement(Tags.tpl);
+    const nameTpl = <HTMLTemplateElement>Tag.create(Tags.tpl);
     nameTpl.innerHTML = name;
 
     this.root.append(wrap);
@@ -24,7 +24,7 @@ class FilterShape extends Component {
     shapes.forEach((shape) => {
       const wrapShape = Tag.create(Tags.div, `${cls.wrapShape}`);
 
-      const e = <HTMLImageElement>Tag.create('img', `${cls.img}`);
+      const e = <HTMLImageElement>Tag.create(Tags.img, `${cls.img}`);
       e.src = `/src/assets/svg/shape/${shape}.svg`;
       e.dataset.color = shape;
 
