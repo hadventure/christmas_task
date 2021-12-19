@@ -9,3 +9,17 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
 }
+
+.reset {
+  margin-bottom: 2rem;
+  // width: 100%;
+  background-color: #fff;
+  outline: none;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  font-family: 'MountainsOfChristmas', sans-serif;
+  color: #002766;
+  font-size: 2rem;
+  line-height: 4.6rem;
+  cursor: pointer;
+}

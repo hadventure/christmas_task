@@ -1,7 +1,9 @@
 import Component from '@/common/component';
+import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
 import Toy from '@/models/toy';
 import { Tags } from '@/types/enums';
+// import { TFilter, TFilterNest, TFilterRange } from '@/types/types';
 import cls from './range.module.scss';
 
 class Range extends Component {
@@ -21,6 +23,10 @@ class Range extends Component {
 
   private rootValTo = Tag.create(Tags.div, cls.rangeVal);
 
+  private fromEl = <HTMLInputElement>Tag.create(Tags.input, `${cls.range} ${cls.rangeFrom}`);
+
+  private toEl = <HTMLInputElement>Tag.create(Tags.input, `${cls.range} ${cls.rangeTo}`);
+
   constructor(root: HTMLElement, from: string, to: string, type: string, name: string) {
     super(root);
 
@@ -33,12 +39,83 @@ class Range extends Component {
     this.type = type;
     this.name = name;
 
+    this.fromEl.type = 'range';
+    this.fromEl.min = this.min;
+    this.fromEl.step = '1';
+    this.fromEl.max = this.max;
+    this.fromEl.value = '0';
+
+    this.toEl.type = 'range';
+    this.toEl.min = this.min;
+    this.toEl.step = '1';
+    this.toEl.max = this.max;
+    this.toEl.value = this.max;
+
     this.root.classList.add(cls.rootRange);
+
+    EventEmitter.subscribe('reset:filter', () => {
+      this.from = this.min;
+      this.to = this.max;
+      this.renderVal();
+      this.resetColor();
+    });
   }
 
-  renderFromVal() {
-    const min = `<div class=${cls.from}>${this.from}</div>`;
-    const max = `<div class=${cls.to}>${this.to}</div>`;
+  resetColor() {
+    this.fromEl.value = this.min;
+    this.toEl.value = this.max;
+    this.toEl.style.background = `linear-gradient(to right, #FDD700 ${0}%, #FDD700 100%`;
+  }
+
+  renderVal() {
+    let min = `<div class=${cls.from}>${this.from}</div>`;
+    let max = `<div class=${cls.to}>${this.to}</div>`;
+
+    if (this.type === 'yearRange') {
+      if (Toy.filter.filter[this.type].years.length) {
+        const [valfrom, valto] = Toy.filter.filter[this.type].years;
+
+        this.fromEl.value = valfrom;
+        this.toEl.value = valto;
+
+        min = `<div class=${cls.from}>${valfrom}</div>`;
+        max = `<div class=${cls.to}>${valto}</div>`;
+
+        const [f, t] = Toy.filter.filter[this.type].percent;
+
+        this.toEl.style.background = `linear-gradient(to right, #eee ${f}%, #FDD700 ${f}% ${t}%, #eee ${t}% 100%`;
+      }
+    }
+
+    if (this.type === 'qtyRange') {
+      if (Toy.filter.filter[this.type].years.length) {
+        const [valfrom, valto] = Toy.filter.filter[this.type].years;
+
+        this.fromEl.value = valfrom;
+        this.toEl.value = valto;
+
+        min = `<div class=${cls.from}>${valfrom}</div>`;
+        max = `<div class=${cls.to}>${valto}</div>`;
+
+        const [f, t] = Toy.filter.filter[this.type].percent;
+
+        this.toEl.style.background = `linear-gradient(to right, #eee ${f}%, #FDD700 ${f}% ${t}%, #eee ${t}% 100%`;
+      }
+    }
+
+    // if (Toy.filter.filter[this.type].years.length) {
+    //   const [valfrom, valto] = Toy.filter.filter[this.type].years;
+
+    //   this.fromEl.value = valfrom;
+    //   this.toEl.value = valto;
+
+    //   min = `<div class=${cls.from}>${valfrom}</div>`;
+    //   max = `<div class=${cls.to}>${valto}</div>`;
+
+    //   const [f, t] = Toy.filter.filter[this.type].percent;
+
+    //   this.toEl.style.background = `linear-gradient(to right, #eee ${f}%, #FDD700 ${f}% ${t}%, #eee ${t}% 100%`;
+    // }
 
     this.rootValFrom.innerHTML = min;
     this.rootValTo.innerHTML = max;
@@ -52,7 +129,7 @@ class Range extends Component {
     const nameTpl = <HTMLTemplateElement>Tag.create(Tags.tpl);
     nameTpl.innerHTML = name;
 
-    this.renderFromVal();
+    this.renderVal();
 
     const wrapRange = Tag.create(Tags.div, cls.rangeWrap);
     const container = Tag.create(Tags.div, cls.container);
@@ -60,53 +137,39 @@ class Range extends Component {
     this.root.append(nameTpl.content, wrapRange);
     wrapRange.append(this.rootValFrom, container, this.rootValTo);
 
-    const from = <HTMLInputElement>Tag.create(Tags.input, `${cls.range} ${cls.rangeFrom}`);
-    from.type = 'range';
-    from.min = this.min;
-    from.step = '1';
-    from.max = this.max;
-    from.value = '0';
+    container.append(this.fromEl, this.toEl);
 
-    const to = <HTMLInputElement>Tag.create(Tags.input, `${cls.range} ${cls.rangeTo}`);
-    to.type = 'range';
-    to.min = this.min;
-    to.step = '1';
-    to.max = this.max;
-    to.value = this.max;
-
-    container.append(from, to);
-
-    from.addEventListener('input', () => {
-      if (+from.value > +to.value) {
-        to.value = from.value;
+    this.fromEl.addEventListener('input', () => {
+      if (+this.fromEl.value > +this.toEl.value) {
+        this.toEl.value = this.fromEl.value;
       }
     });
 
-    to.addEventListener('input', () => {
-      if (+to.value < +from.value) {
-        from.value = to.value;
+    this.toEl.addEventListener('input', () => {
+      if (+this.toEl.value < +this.fromEl.value) {
+        this.fromEl.value = this.toEl.value;
       }
     });
 
     container.querySelectorAll(`.${cls.range}`).forEach((slider) => {
       slider.addEventListener('change', () => {
-        this.from = from.value;
-        this.to = to.value;
+        this.from = this.fromEl.value;
+        this.to = this.toEl.value;
 
-        const dif = +from.max - +from.min;
+        const dif = +this.fromEl.max - +this.fromEl.min;
 
-        const b = ((+from.max - +this.to) * 100) / dif;
-        const end = ((+from.max - +this.from) * 100) / dif;
+        const b = ((+this.fromEl.max - +this.to) * 100) / dif;
+        const end = ((+this.fromEl.max - +this.from) * 100) / dif;
 
         // TODO: calculations are messed up && delagation
         const f = 100 - end;
         const t = 100 - b;
-        to.style.background = `linear-gradient(to right, #eee ${f}%, #FDD700 ${f}% ${t}%, #eee ${t}% 100%`;
-        console.log(`from ${100 - end} to ${100 - b}`);
+        this.toEl.style.background = `linear-gradient(to right, #eee ${f}%, #FDD700 ${f}% ${t}%, #eee ${t}% 100%`;
+        // console.log(`from ${100 - end} to ${100 - b}`);
 
         Toy.filter.setPercent(this.type, `${100 - end}`, `${100 - b}`);
-        Toy.filter.setValues(this.type, from.value, to.value);
-        this.renderFromVal();
+        Toy.filter.setValues(this.type, this.fromEl.value, this.toEl.value);
+        this.renderVal();
       });
     });
   }

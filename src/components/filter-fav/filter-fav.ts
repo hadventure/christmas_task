@@ -1,10 +1,20 @@
 import Component from '@/common/component';
+import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
 import Toy from '@/models/toy';
 import { Tags } from '@/types/enums';
 import cls from './filter-fav.module.scss';
 
 class FilterFav extends Component {
+  private input = <HTMLInputElement>Tag.create(Tags.input, cls.input, { type: 'checkbox' });
+
+  constructor(root: HTMLElement) {
+    super(root);
+    EventEmitter.subscribe('reset:filter', () => {
+      this.input.checked = false;
+    });
+  }
+
   register() {
     const name = `
       <div class=${cls.filterName}>любимые</div>
@@ -17,21 +27,21 @@ class FilterFav extends Component {
 
     this.root.append(nameTpl.content, wrap);
 
-    const input = Tag.create(Tags.input, cls.input, { type: 'checkbox' });
+    // const input = Tag.create(Tags.input, cls.input, { type: 'checkbox' });
+
+    if (Toy.filter.filter.isFavourite) {
+      this.input.checked = Toy.filter.filter.isFavourite;
+    }
+
     const mark = Tag.create(Tags.span, cls.checkmark);
 
-    wrap.append(input, mark);
+    wrap.append(this.input, mark);
 
-    input.addEventListener('change', (e) => {
-      console.log(e);
+    this.input.addEventListener('change', FilterFav.onChange);
+  }
 
-      Toy.filter.toggleFav();
-
-      // const el = (<HTMLElement>e.target);
-      // el.classList.add(cls.active);
-      // const key = (<DOMStringMap>el.dataset).color;
-      // Toy.filter.setColors(key);
-    });
+  static onChange() {
+    Toy.filter.toggleFav();
   }
 }
 

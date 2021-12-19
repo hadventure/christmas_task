@@ -1,3 +1,5 @@
+import EventEmitter from '@/common/event-emitter';
+import LS from '@/common/local-storage';
 import { Colors, Shapes } from '@/types/enums';
 import { toyUrl } from '../common/game-constants';
 import Filter from './filter';
@@ -25,6 +27,13 @@ class Toy {
     const data = await res.json();
     this.store = data;
     this.filterd = data;
+
+    if (!LS.ls.filter) {
+      LS.setData(this.filter.filter);
+    } else {
+      this.filter.filter = { ...LS.ls.filter };
+      EventEmitter.emit('change:filter');
+    }
   }
 
   static filterList() {
@@ -50,7 +59,7 @@ class Toy {
         if (merge.length > 0) return merge.includes(el.color);
         return el;
       })
-      .filter((el) => el.name.includes(search.toLowerCase()))
+      .filter((el) => el.name.toLowerCase().includes(search.toLowerCase()))
       .filter((el) => {
         if (isFavourite) {
           return favourite.includes(el.num);
@@ -99,6 +108,14 @@ class Toy {
 
       return 0;
     });
+  }
+
+  static resetFilter() {
+    this.filter = new Filter();
+    this.filter.filter.favourite = LS.ls.fav;
+    EventEmitter.emit('reset:filter');
+
+    LS.setData(this.filter.filter);
   }
 }
 

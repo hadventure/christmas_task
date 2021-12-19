@@ -1,9 +1,11 @@
 import Component from '@/common/component';
+import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
 import { Tags } from '@/types/enums';
 import Cards from '../cards/cards';
 import FilterColor from '../filter-color/filter-color';
 import FilterFav from '../filter-fav/filter-fav';
+import FilterReset from '../filter-reset/filter-reset';
 import FilterShape from '../filter-shape/filter-shape';
 import Range from '../range/range';
 import FilterSearch from '../search/search';
@@ -31,8 +33,10 @@ class Main extends Component {
     const wrapSorter = Tag.create(Tags.div, 'toys-cards col');
     const wrapRangeYear = Tag.create(Tags.div, 'toys-cards col');
     const wrapRangeQty = Tag.create(Tags.div, 'toys-cards col');
+    // const wrapReset = Tag.create(Tags.div, 'toys-cards col');
 
     this.filter.append(
+      // wrapReset,
       wrapFilterSearch,
       wrapFilterColor,
       wrapFilterShape,
@@ -63,6 +67,9 @@ class Main extends Component {
 
     const rangeQty = new Range(wrapRangeQty, '1', '15', 'qtyRange', 'Количество');
     rangeQty.register();
+
+    // const reset = new FilterReset(wrapReset);
+    // reset.register();
   }
 }
 

@@ -1,26 +1,6 @@
 import EventEmitter from '@/common/event-emitter';
 import LS from '@/common/local-storage';
-
-type TFilterNest = {
-  [index: string]: boolean
-};
-
-type TFilterRange = {
-  percent: string[],
-  years: string[],
-  // [index: string]: string[]
-};
-
-type TFilter = {
-  // It's possible to set fav to any data collection
-  favourite: string[],
-  isFavourite: boolean,
-  search: string,
-  colors: TFilterNest,
-  shapes: TFilterNest,
-  yearRange: TFilterRange,
-  qtyRange: TFilterRange,
-};
+import { TFilter } from '@/types/types';
 
 type TSorter = {
   name: string,
@@ -73,6 +53,8 @@ class Filter {
       this.filter.colors[val] = true;
       EventEmitter.emit('change:filter');
     }
+
+    this.setFilterToLs();
   }
 
   setShapes(val: string | undefined) {
@@ -80,11 +62,14 @@ class Filter {
       this.filter.shapes[val] = true;
       EventEmitter.emit('change:filter');
     }
+
+    this.setFilterToLs();
   }
 
   setSearch(val: string) {
     this.filter.search = val;
     EventEmitter.emit('change:filter');
+    this.setFilterToLs();
   }
 
   setFavourite(val: string) {
@@ -103,6 +88,8 @@ class Filter {
   toggleFav() {
     this.filter.isFavourite = !this.filter.isFavourite;
     EventEmitter.emit('change:filter');
+
+    this.setFilterToLs();
   }
 
   setSorter(val: string) {
@@ -115,15 +102,36 @@ class Filter {
   }
 
   setPercent(type: string, min: string, max: string) {
-    this.filter[type as keyof TFilter].percent = [];
-    this.filter[type as keyof TFilterRange].percent.push(min, max);
+    if (type === 'qtyRange') {
+      this.filter[type].percent = [];
+      this.filter[type].percent.push(min, max);
+    }
+
+    if (type === 'yearRange') {
+      this.filter[type].percent = [];
+      this.filter[type].percent.push(min, max);
+    }
+
+    this.setFilterToLs();
   }
 
   setValues(type: string, min: string, max: string) {
-    this.filter[type as keyof TFilter].years = [];
-    this.filter[type as keyof TFilter].years.push(min, max);
+    if (type === 'qtyRange') {
+      this.filter[type].years = [];
+      this.filter[type].years.push(min, max);
+    }
 
+    if (type === 'yearRange') {
+      this.filter[type].years = [];
+      this.filter[type].years.push(min, max);
+    }
+
+    this.setFilterToLs();
     EventEmitter.emit('change:filter');
+  }
+
+  setFilterToLs() {
+    LS.setData(this.filter);
   }
 }
 

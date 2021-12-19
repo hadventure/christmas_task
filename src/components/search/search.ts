@@ -1,11 +1,27 @@
 import Component from '@/common/component';
+import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
 import Toy from '@/models/toy';
-import { Shapes, Tags } from '@/types/enums';
+import { Tags } from '@/types/enums';
 import cls from './search.module.scss';
 
 class FilterSearch extends Component {
   private localroot = Tag.create(Tags.div, cls.searchGroup);
+
+  private input = <HTMLInputElement>Tag.create('input', cls.search);
+
+  constructor(root: HTMLElement) {
+    super(root);
+    EventEmitter.subscribe('reset:filter', () => {
+      this.destroy();
+      this.root.innerHTML = '';
+      this.register();
+    });
+  }
+
+  destroy() {
+    this.input.removeEventListener('input', FilterSearch.onInput);
+  }
 
   register() {
     const name = `
@@ -17,25 +33,23 @@ class FilterSearch extends Component {
     this.localroot.innerHTML = `<div class=${cls.icon}></div>`;
     this.root.append(this.localroot);
 
-    const input = Tag.create('input', cls.search, {
-      type: 'search',
-      autocomplete: 'off',
-      placeholder: 'Поиск',
-    });
+    this.input.type = 'search';
+    this.input.autocomplete = 'off';
+    this.input.placeholder = 'Поиск';
+    this.input.value = Toy.filter.filter.search;
 
-    this.localroot.append(input);
+    this.localroot.append(this.input);
 
-    input.focus();
-    input.addEventListener('input', (e) => {
-      // TODO: once
-      setTimeout(() => {
-        const search = (<HTMLInputElement>e.target).value;
+    this.input.focus();
+    this.input.addEventListener('input', (e) => FilterSearch.onInput(e));
+  }
 
-        console.log('----', search)
-
-        Toy.filter.setSearch(search);
-      }, 1500);
-    });
+  static onInput(e: Event) {
+    // TODO: once
+    setTimeout(() => {
+      const search = (<HTMLInputElement>e.target).value;
+      Toy.filter.setSearch(search);
+    }, 1500);
   }
 }
 

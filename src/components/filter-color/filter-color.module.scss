@@ -1,5 +1,5 @@
 .wrap {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .filter-name {
@@ -12,6 +12,7 @@
   height: 2.4rem;
   width: 2.4rem;
   border-radius: 0.5rem;
+  cursor: pointer;
 
   &.active {
     transform: scale(0.8);

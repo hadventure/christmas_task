@@ -1,13 +1,14 @@
 // TODO: add remove listner
+// https://stackoverflow.com/questions/12734660/a-typed-array-of-functions
 
-type tEvents = {
-  [index: string]: []
-}
+type TEvents = {
+  [index: string]: { (): void; } []
+};
 
 class EventEmitter {
-  static events: tEvents = {};
+  static events: TEvents = {};
 
-  static subscribe(eventName: string, fn: any) {
+  static subscribe(eventName: string, fn: () => void) {
     if (!this.events[eventName]) {
       this.events[eventName] = [];
     }
@@ -15,15 +16,15 @@ class EventEmitter {
     this.events[eventName].push(fn);
 
     return () => {
-      this.events[eventName] = this.events[eventName].filter((eventFn: any) => fn !== eventFn);
+      this.events[eventName] = this.events[eventName].filter((eventFn) => fn !== eventFn);
     };
   }
 
-  static emit(eventName: string, data?: any) {
+  static emit(eventName: string) {
     const event = this.events[eventName];
     if (event) {
-      event.forEach((fn: any) => {
-        fn.call(null, data);
+      event.forEach((fn) => {
+        fn.call(null);
       });
     }
   }

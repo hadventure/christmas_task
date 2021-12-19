@@ -29,16 +29,28 @@ class Cards extends Component {
       Cards.renderCrads();
     });
 
+    EventEmitter.subscribe('reset:filter', () => {
+      Toy.filterList();
+      Cards.renderCrads();
+    });
+
+    Toy.filter.filter.favourite = LS.ls.fav;
+    // TODO !!!
+    Toy.filter.filter = LS.ls.filter;
     Toy.filter.filter.favourite = LS.ls.fav;
   }
 
   static renderCrads() {
     Cards.toyList.innerHTML = '';
 
-    Toy.filterd.forEach((element) => {
-      const toy = new Card(Cards.toyList, element);
-      toy.register();
-    });
+    if (Toy.filterd.length === 0) {
+      Cards.toyList.innerHTML = 'Извините, совпадений не обнаружено';
+    } else {
+      Toy.filterd.forEach((element) => {
+        const toy = new Card(Cards.toyList, element);
+        toy.register();
+      });
+    }
   }
 
   static renderHead() {
@@ -56,10 +68,17 @@ class Cards extends Component {
   async register() {
     await Toy.getList();
 
+    const btn = Tag.create(Tags.btn, cls.reset);
+    btn.textContent = 'Очистить фильтры';
+    btn.addEventListener('click', () => {
+      Toy.resetFilter();
+    });
+
     Cards.renderHead();
     this.root.append(Cards.headRoot, Cards.toyList);
 
     Cards.renderCrads();
+    Cards.toyList.before(btn);
   }
 }
 
