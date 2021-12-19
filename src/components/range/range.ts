@@ -15,36 +15,50 @@ class Range extends Component {
 
   private type: string;
 
-  constructor(root: HTMLElement, from: string, to: string, type: string) {
+  private name: string;
+
+  private rootValFrom = Tag.create(Tags.div, cls.rangeVal);
+
+  private rootValTo = Tag.create(Tags.div, cls.rangeVal);
+
+  constructor(root: HTMLElement, from: string, to: string, type: string, name: string) {
     super(root);
 
     this.min = from;
     this.max = to;
 
+    this.from = from;
+    this.to = to;
+
     this.type = type;
+    this.name = name;
+
+    this.root.classList.add(cls.rootRange);
+  }
+
+  renderFromVal() {
+    const min = `<div class=${cls.from}>${this.from}</div>`;
+    const max = `<div class=${cls.to}>${this.to}</div>`;
+
+    this.rootValFrom.innerHTML = min;
+    this.rootValTo.innerHTML = max;
   }
 
   register() {
     const name = `
-      <div class=${cls.filterName}>Количество</div>
+      <div class=${cls.filterName}>${this.name}</div>
     `;
 
     const nameTpl = <HTMLTemplateElement>Tag.create(Tags.tpl);
     nameTpl.innerHTML = name;
 
-    const min = `<div class=${cls.from}>55</div>`;
-    const max = `<div class=${cls.to}>55</div>`;
-
-    const fromTpl = <HTMLTemplateElement>Tag.create(Tags.tpl, cls.from);
-    const toTpl = <HTMLTemplateElement>Tag.create(Tags.tpl, cls.to);
-    fromTpl.innerHTML = min;
-    toTpl.innerHTML = max;
+    this.renderFromVal();
 
     const wrapRange = Tag.create(Tags.div, cls.rangeWrap);
     const container = Tag.create(Tags.div, cls.container);
 
     this.root.append(nameTpl.content, wrapRange);
-    wrapRange.append(fromTpl.content, container, toTpl.content);
+    wrapRange.append(this.rootValFrom, container, this.rootValTo);
 
     const from = <HTMLInputElement>Tag.create(Tags.input, `${cls.range} ${cls.rangeFrom}`);
     from.type = 'range';
@@ -92,6 +106,7 @@ class Range extends Component {
 
         Toy.filter.setPercent(this.type, `${100 - end}`, `${100 - b}`);
         Toy.filter.setValues(this.type, from.value, to.value);
+        this.renderFromVal();
       });
     });
   }

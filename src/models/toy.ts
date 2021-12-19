@@ -59,7 +59,14 @@ class Toy {
       })
       .filter((el) => {
         if (yearRange.years.length) {
-          return el.year >= yearRange.years[0] && el.year <= yearRange.years[1];
+          return +el.year >= +yearRange.years[0] && +el.year <= +yearRange.years[1];
+        }
+
+        return el;
+      })
+      .filter((el) => {
+        if (qtyRange.years.length) {
+          return +el.count >= +qtyRange.years[0] && +el.count <= +qtyRange.years[1];
         }
 
         return el;

@@ -30,6 +30,7 @@ class Main extends Component {
     const wrapFilterFav = Tag.create(Tags.div, 'toys-cards col');
     const wrapSorter = Tag.create(Tags.div, 'toys-cards col');
     const wrapRangeYear = Tag.create(Tags.div, 'toys-cards col');
+    const wrapRangeQty = Tag.create(Tags.div, 'toys-cards col');
 
     this.filter.append(
       wrapFilterSearch,
@@ -38,6 +39,7 @@ class Main extends Component {
       wrapFilterFav,
       wrapSorter,
       wrapRangeYear,
+      wrapRangeQty,
     );
 
     const search = new FilterSearch(wrapFilterSearch);
@@ -56,8 +58,11 @@ class Main extends Component {
     sorter.register();
 
     // TODO: set Dynamicly
-    const rangeYear = new Range(wrapRangeYear, '1940', '2020', 'yearRange');
+    const rangeYear = new Range(wrapRangeYear, '1940', '2020', 'yearRange', 'Год');
     rangeYear.register();
+
+    const rangeQty = new Range(wrapRangeQty, '1', '15', 'qtyRange', 'Количество');
+    rangeQty.register();
   }
 }
 
