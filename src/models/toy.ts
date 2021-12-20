@@ -63,9 +63,9 @@ class Toy {
         if (mergeColors.length > 0) return mergeColors.includes(el.color);
         return el;
       })
-      .filter((el1) => {
-        if (mergeSizes.length > 0) return mergeSizes.includes(el1.size);
-        return el1;
+      .filter((el) => {
+        if (mergeSizes.length > 0) return mergeSizes.includes(el.size);
+        return el;
       })
       .filter((el) => el.name.toLowerCase().includes(search.toLowerCase()))
       .filter((el) => {

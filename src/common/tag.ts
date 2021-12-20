@@ -1,15 +1,9 @@
 class El {
-  static create(el: string, classes?: string, config?: any) {
+  static create(el: string, classes?: string) {
     const element = document.createElement(el);
 
     if (classes) {
       element.className = classes;
-    }
-
-    if (config) {
-      Object.keys(config).forEach((key) => {
-        element[key] = config[key];
-      });
     }
 
     // TODO: ?? should be refactored

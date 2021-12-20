@@ -1,2 +1,2 @@
 export const toyUrl = '/src/data.json';
-export const favQuantity = 4;
+export const favQuantity = 20;

@@ -6,10 +6,11 @@ import { Tags } from '@/types/enums';
 import cls from './filter-fav.module.scss';
 
 class FilterFav extends Component {
-  private input = <HTMLInputElement>Tag.create(Tags.input, cls.input, { type: 'checkbox' });
+  private input = <HTMLInputElement>Tag.create(Tags.input, cls.input);
 
   constructor(root: HTMLElement) {
     super(root);
+    this.input.type = 'checkbox';
     EventEmitter.subscribe('reset:filter', () => {
       this.input.checked = false;
     });

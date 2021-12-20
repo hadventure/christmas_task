@@ -9,14 +9,15 @@ import EventEmitter from '@/common/event-emitter';
 class FilterSize extends Component {
   private localRoot = Tag.create(Tags.div, cls1.root);
 
-  private inputS = <HTMLInputElement>Tag.create(Tags.input, cls.input, { type: 'checkbox' });
+  private inputS = <HTMLInputElement>Tag.create(Tags.input, cls.input);
 
-  private inputM = <HTMLInputElement>Tag.create(Tags.input, cls.input, { type: 'checkbox' });
+  private inputM = <HTMLInputElement>Tag.create(Tags.input, cls.input);
 
-  private inputL = <HTMLInputElement>Tag.create(Tags.input, cls.input, { type: 'checkbox' });
+  private inputL = <HTMLInputElement>Tag.create(Tags.input, cls.input);
 
   createControl(size: string, input: HTMLInputElement) {
     const lInput = input;
+    lInput.type = 'checkbox';
     const itemRoot = Tag.create(Tags.div, cls1.item);
 
     const name = Tag.create(Tags.div, cls.filterName);
