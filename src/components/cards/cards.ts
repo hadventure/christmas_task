@@ -31,7 +31,13 @@ class Cards extends Component {
 
     EventEmitter.subscribe('reset:filter', () => {
       Toy.filterList();
+      Toy.sortList();
       Cards.renderCrads();
+    });
+
+    EventEmitter.subscribe('reset:storage', () => {
+      Toy.sortList();
+      Cards.renderHead();
     });
 
     Toy.filter.filter.favourite = LS.ls.fav;
@@ -75,11 +81,17 @@ class Cards extends Component {
       Toy.resetFilter();
     });
 
+    const btnClear = Tag.create(Tags.btn, `${cls.reset} ${cls.resetML}`);
+    btnClear.textContent = 'Очистить хранилище';
+    btnClear.addEventListener('click', () => {
+      Toy.resetStorage();
+    });
+
     Cards.renderHead();
     this.root.append(Cards.headRoot, Cards.toyList);
 
     Cards.renderCrads();
-    Cards.toyList.before(btn);
+    Cards.toyList.before(btn, btnClear);
   }
 }
 

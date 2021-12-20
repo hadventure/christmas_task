@@ -23,7 +23,7 @@ class FilterShape extends Component {
       const wrapShape = Tag.create(Tags.div, `${cls.wrapShape}`);
 
       const e = <HTMLImageElement>Tag.create(Tags.img, `${cls.img}`);
-      e.src = `/src/assets/svg/shape/${shape}.svg`;
+      e.src = `./src/assets/svg/shape/${shape}.svg`;
       e.dataset.shape = shape;
 
       if (Toy.filter.filter.shapes[shape]) {

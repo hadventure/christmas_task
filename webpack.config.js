@@ -1,6 +1,8 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.ts',
@@ -61,6 +63,12 @@ module.exports = {
       filename: 'index.html',
       favicon: './src/assets/favicon.ico',
       inject: 'body',
+    }),
+    new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'src/assets', to: 'src/assets' },
+      ],
     }),
   ],
   devServer: {

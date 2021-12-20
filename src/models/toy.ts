@@ -121,9 +121,29 @@ class Toy {
   static resetFilter() {
     this.filter = new Filter();
     this.filter.filter.favourite = LS.ls.fav;
-    EventEmitter.emit('reset:filter');
-
+    this.filter.sorter = LS.ls.sorter;
     LS.setData(this.filter.filter);
+    LS.setSorterToLs(this.filter.sorter);
+
+    EventEmitter.emit('reset:filter');
+  }
+
+  // TODO: it needs to be refactored
+  static resetStorage() {
+    LS.ls.fav = [];
+    this.filter = new Filter();
+    this.filter.filter.favourite = [];
+
+    this.filter.sorter = {
+      name: '',
+      direction: '',
+    };
+
+    LS.setSorterToLs(this.filter.sorter);
+    LS.setData(this.filter.filter);
+
+    EventEmitter.emit('reset:filter');
+    EventEmitter.emit('reset:storage');
   }
 }
 
