@@ -6,31 +6,43 @@ import cls from './sorter.module.scss';
 
 class Sorter extends Component {
   register() {
-    const name = `
+    const nameF = `
       <div class=${cls.filterName}>сортировка</div>
     `;
 
     const nameTpl = <HTMLTemplateElement>Tag.create(Tags.tpl);
-    nameTpl.innerHTML = name;
+    nameTpl.innerHTML = nameF;
 
-    const sel = Tag.create(Tags.select, cls.select);
+    const sel = <HTMLSelectElement>Tag.create(Tags.select, cls.select);
 
-    const options = `
-      <option></option>
-      <option value="name-asc">Наименование - по возрастанию</option>
-      <option value="name-desc">Наименование - по убыванию</option>
-      <option value="year-asc">Год - по возрастанию</option>
-      <option value="year-desc">Год - по убыванию</option>
-    `;
+    console.log(Toy.filter.sorter);
+    // if (Object.keys(Toy.filter.sorter).length) {
+    const { name, direction } = Toy.filter.sorter;
+    const val = `${name}-${direction}`;
+    // }
 
-    sel.innerHTML = options;
+    const createOption = (title: string, value: string) => {
+      const opt = <HTMLOptionElement>Tag.create(Tags.option);
+      opt.textContent = title;
+      opt.value = value;
+
+      opt.selected = value === val;
+
+      sel.append(opt);
+    };
+
+    createOption('', '');
+    createOption('Наименование - по возрастанию', 'name-asc');
+    createOption('Наименование - по убыванию', 'name-desc');
+    createOption('Год - по возрастанию', 'year-asc');
+    createOption('Год - по убыванию', 'year-desc');
 
     this.root.append(nameTpl.content, sel);
 
     sel.addEventListener('change', (e) => {
-      const val = (<HTMLSelectElement>e.target).value;
+      const value1 = (<HTMLSelectElement>e.target).value;
 
-      Toy.filter.setSorter(val);
+      Toy.filter.setSorter(value1);
     });
   }
 }

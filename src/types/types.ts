@@ -18,3 +18,8 @@ export type TFilter = {
   qtyRange: TFilterRange,
   // [x: string]: string | TFilterRange | TFilterRange | TFilterNest | boolean | string[]
 };
+
+export type TSorter = {
+  name: string,
+  direction: string
+};

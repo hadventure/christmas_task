@@ -7,6 +7,7 @@ export enum Tags {
   span = 'span',
   label = 'label',
   select = 'select',
+  option = 'option',
 }
 
 export enum Colors {

@@ -1,11 +1,6 @@
 import EventEmitter from '@/common/event-emitter';
 import LS from '@/common/local-storage';
-import { TFilter } from '@/types/types';
-
-type TSorter = {
-  name: string,
-  direction: string
-};
+import { TFilter, TSorter } from '@/types/types';
 
 class Filter {
   filter: TFilter;
@@ -102,6 +97,8 @@ class Filter {
 
     this.sorter.name = name;
     this.sorter.direction = direction;
+
+    LS.setSorterToLs(this.sorter);
 
     EventEmitter.emit('change:sorter');
   }

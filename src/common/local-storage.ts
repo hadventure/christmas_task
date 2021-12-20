@@ -1,15 +1,20 @@
 // https://stackoverflow.com/questions/67700374/use-localstorage-getitem-with-typescript
-import { TFilter } from '@/types/types';
+import { TFilter, TSorter } from '@/types/types';
 
 type TLs = {
-  fav: string [],
+  fav: string[],
   filter: TFilter,
+  sorter: TSorter
 };
 
 class LS {
   // TODO!!
   static ls: TLs = {
     fav: [],
+    sorter: {
+      name: '',
+      direction: '',
+    },
     filter: {
       favourite: [],
       isFavourite: false,
@@ -78,6 +83,11 @@ class LS {
 
   static setData(filter: TFilter) {
     this.ls.filter = filter;
+    this.setLocalStorage();
+  }
+
+  static setSorterToLs(sorter: TSorter) {
+    this.ls.sorter = sorter;
     this.setLocalStorage();
   }
 }
