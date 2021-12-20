@@ -14,7 +14,6 @@ class Sorter extends Component {
     super(root);
 
     EventEmitter.subscribe('reset:storage', () => {
-      console.log('-------');
       this.clearSelect();
       this.renderSelect();
       Toy.sortList();
@@ -42,8 +41,6 @@ class Sorter extends Component {
   renderSelect() {
     const { name, direction } = Toy.filter.sorter;
     this.val = `${name}-${direction}`;
-
-    console.log('----this.val----', this.val);
 
     this.createOption('', '');
     this.createOption('Наименование - по возрастанию', 'name-asc');
