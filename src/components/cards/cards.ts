@@ -18,9 +18,6 @@ class Cards extends Component {
     EventEmitter.subscribe('change:filter', () => {
       Toy.filterList();
       Cards.renderCrads();
-    });
-
-    EventEmitter.subscribe('change:favourite', () => {
       Cards.renderHead();
     });
 
@@ -33,6 +30,7 @@ class Cards extends Component {
       Toy.filterList();
       Toy.sortList();
       Cards.renderCrads();
+      Cards.renderHead();
     });
 
     EventEmitter.subscribe('reset:storage', () => {
@@ -62,7 +60,7 @@ class Cards extends Component {
 
   static renderHead() {
     const head = `
-      <div class=${cls.toysHead}>игрушки (${Toy.filter.filter.favourite.length})</div>
+      <div class=${cls.toysHead}>игрушки (${Toy.filterd.length})</div>
     `;
 
     const headTpl = <HTMLTemplateElement>Tag.create(Tags.tpl);

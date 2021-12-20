@@ -44,6 +44,10 @@
   width: 32px;
   height: 32px;
   background-repeat: no-repeat;
+
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 .favourite {

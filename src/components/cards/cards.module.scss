@@ -23,13 +23,17 @@
   // width: 100%;
   background-color: #fff;
   outline: none;
-  border: 1px solid #eee;
+  border: 1px dashed #002766;
   border-radius: 5px;
   font-family: 'MountainsOfChristmas', sans-serif;
   color: #002766;
-  font-size: 2rem;
-  line-height: 4.6rem;
+  font-size: 1.8rem;
+  padding: 4px 8px;
   cursor: pointer;
+
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 .reset-m-l {

@@ -10,16 +10,22 @@ import FilterSearch from '../search/search';
 import Sorter from '../sorter/sorter';
 import cls from './main-layout.module.scss';
 import FilterSize from '../filter-size/filter-size';
+import Header from '../header/header';
 
 class Main extends Component {
-  private container = Tag.create(Tags.div, `${cls.toys} container`);
+  private container = Tag.create(Tags.div, `${cls.toys} content`);
 
-  private filter = Tag.create(Tags.div, `${cls.toysFilter} col`);
+  private filter = Tag.create(Tags.div, `${cls.toysFilter}`);
 
   private cards = Tag.create(Tags.div, 'toys-cards col');
 
   register() {
-    this.root.append(this.container);
+    const wrapHeader = Tag.create(Tags.div, 'content');
+
+    const header = new Header(wrapHeader);
+    header.register();
+
+    this.root.append(wrapHeader, this.container);
     this.container.append(this.filter, this.cards);
 
     const cards = new Cards(this.cards);

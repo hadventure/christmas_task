@@ -1,0 +1,60 @@
+.header {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-item {
+  height: min-content;
+  align-self: center;
+
+  background-color: #fff;
+  color: #002766;
+  border: 1px dashed #002766;
+  padding: 4px 8px;
+  border-radius: 5px;
+
+  font-family: "MountainsOfChristmas", sans-serif;
+  font-size: 1.8rem;
+  // TODO: 
+  width: 86px;
+
+  cursor: pointer;
+
+  &.active {
+    background-color: #002766;
+    color: #eee;
+    border: none;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.nav-wrap {
+  display: flex;
+  column-gap: 4rem;
+}
+
+.favWrap {
+  place-self: end;
+  display: flex;
+  font-size: 2.8rem;
+  column-gap: 1rem;
+  align-items: center;
+}
+
+.col {
+  padding: 1rem 2rem;
+}
+
+.heart {
+  cursor: pointer;
+  background-image: url(../../assets/svg/heart-red.svg);
+  background-size: 100%;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+}
