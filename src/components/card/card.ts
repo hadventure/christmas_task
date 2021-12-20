@@ -3,6 +3,7 @@ import { favQuantity } from '@/common/game-constants';
 import Tag from '@/common/tag';
 import Toy, { TToy } from '@/models/toy';
 import { Tags } from '@/types/enums';
+import Modal from '../modal/modal';
 import cls from './card.module.scss';
 
 class Card extends Component {
@@ -81,7 +82,7 @@ class Card extends Component {
       elCls.toggle(cls.favourite);
       Toy.filter.unsetFavourite(this.item.num);
     } else if (Toy.filter.filter.favourite.length === favQuantity) {
-      alert('NOoo');
+      Modal.show('Извините, все слоты заполнены');
     } else {
       elCls.toggle(cls.favourite);
       Toy.filter.setFavourite(this.item.num);

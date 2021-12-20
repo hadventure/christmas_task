@@ -1,6 +1,7 @@
 import Controller from '@/common/controller';
 import { mainpage } from '@/common/pages';
 import LS from './common/local-storage';
+import Modal from './components/modal/modal';
 
 class App {
   static root = <HTMLElement>document.querySelector('#root');
@@ -13,6 +14,7 @@ class App {
 
   static initialize() {
     this.register();
+    Modal.register(this.root);
   }
 
   static register() {
