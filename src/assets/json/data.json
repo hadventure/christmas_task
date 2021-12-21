@@ -47,7 +47,7 @@
     "shape": "фигурка",
     "color": "красный",
     "size": "средний",
-    "favorite": false
+    "favorite": true
   },
   {
     "num": "6",
@@ -67,7 +67,7 @@
     "shape": "шар",
     "color": "белый",
     "size": "средний",
-    "favorite": false
+    "favorite": true
   },
   {
     "num": "8",
@@ -127,7 +127,7 @@
     "shape": "шар",
     "color": "синий",
     "size": "большой",
-    "favorite": false
+    "favorite": true
   },
   {
     "num": "14",
@@ -137,7 +137,7 @@
     "shape": "шар",
     "color": "синий",
     "size": "большой",
-    "favorite": false
+    "favorite": true
   },
   {
     "num": "15",
@@ -157,7 +157,7 @@
     "shape": "шишка",
     "color": "синий",
     "size": "средний",
-    "favorite": false
+    "favorite": true
   },
   {
     "num": "17",
@@ -197,7 +197,7 @@
     "shape": "шар",
     "color": "красный",
     "size": "средний",
-    "favorite": false
+    "favorite": true
   },
   {
     "num": "21",
@@ -207,7 +207,7 @@
     "shape": "шар",
     "color": "красный",
     "size": "большой",
-    "favorite": false
+    "favorite": true
   },
   {
     "num": "22",
@@ -287,7 +287,7 @@
     "shape": "шар",
     "color": "желтый",
     "size": "большой",
-    "favorite": false
+    "favorite": true
   },
   {
     "num": "30",
@@ -297,7 +297,7 @@
     "shape": "шар",
     "color": "желтый",
     "size": "большой",
-    "favorite": false
+    "favorite": true
   },
   {
     "num": "31",
@@ -347,7 +347,7 @@
     "shape": "фигурка",
     "color": "желтый",
     "size": "средний",
-    "favorite": false
+    "favorite": true
   },
   {
     "num": "36",
@@ -437,7 +437,7 @@
     "shape": "фигурка",
     "color": "красный",
     "size": "средний",
-    "favorite": false
+    "favorite": true
   },
   {
     "num": "45",
@@ -517,7 +517,7 @@
     "shape": "шар",
     "color": "красный",
     "size": "большой",
-    "favorite": false
+    "favorite": true
   },
   {
     "num": "53",
@@ -597,6 +597,6 @@
     "shape": "фигурка",
     "color": "белый",
     "size": "средний",
-    "favorite": false
+    "favorite": true
   }
 ]

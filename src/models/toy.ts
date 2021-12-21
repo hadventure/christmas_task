@@ -70,7 +70,7 @@ class Toy {
       .filter((el) => el.name.toLowerCase().includes(search.toLowerCase()))
       .filter((el) => {
         if (isFavourite) {
-          return favourite.includes(el.num);
+          return el.favorite;
         }
         return el;
       })

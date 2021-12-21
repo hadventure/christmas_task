@@ -24,7 +24,7 @@ class Card extends Component {
             <img src="./src/assets/toys/${this.item.num}.png" alt="" class=${cls.toyImg}>
             </div>
             <div class=${cls.attr}>
-              <div class="${cls.fav} ${this.isFavourite()}">
+              <div class="${cls.fav} ${this.isFavouriteToTree()}">
             </div>
           </div>
             </div>
@@ -50,6 +50,10 @@ class Card extends Component {
               <div class="attr-value">${this.item.size}</div>
             </div>
 
+            <div class="${cls.attr} ${cls.favToGrandma}">
+              <div class="attr-value">${this.isFavouriteToGrandMa()}</div>
+            </div>
+
 
           </div>
 
@@ -68,11 +72,18 @@ class Card extends Component {
     this.root.append(toyTpl.content);
   }
 
-  isFavourite() {
+  isFavouriteToTree() {
     if (Toy.filter.filter.favourite.includes(this.item.num)) {
       return cls.favourite;
     }
     return '';
+  }
+
+  isFavouriteToGrandMa() {
+    if (this.item.favorite) {
+      return 'да';
+    }
+    return 'нет';
   }
 
   toggleFav(e: MouseEvent) {
