@@ -1,10 +1,14 @@
 .toys {
   display: grid;
-  grid-template-columns: 50vh auto;
-  // grid-gap: 2rem;
+  grid-template-columns: 34rem auto;
+  height: calc(100vh - 6rem);
 }
 
 .toys-filter {
   background-color: #002766;
   color: #eee;
+}
+
+.card-border {
+  border-bottom: 1px solid #eee;
 }

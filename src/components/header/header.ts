@@ -30,13 +30,18 @@ class Header extends Component {
   }
 
   register() {
-    const header = Tag.create(Tags.div, cls.header);
+    const settings = Tag.create(Tags.div, cls.tempWrap);
+
+    const header = Tag.create(Tags.div, `${cls.header} content`);
     this.root.append(header);
 
     this.renderFav();
 
     const navWrap = Tag.create(Tags.div, cls.navWrap);
-    header.append(navWrap, this.favWrap);
+    const nav1 = Tag.create(Tags.div, cls.nav1);
+
+    nav1.append(navWrap, this.favWrap);
+    header.append(settings, nav1);
 
     const nav = [
       { name: 'Елка', path: '' },

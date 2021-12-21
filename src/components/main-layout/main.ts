@@ -20,7 +20,7 @@ class Main extends Component {
   private cards = Tag.create(Tags.div, 'toys-cards col');
 
   register() {
-    const wrapHeader = Tag.create(Tags.div, 'content');
+    const wrapHeader = Tag.create(Tags.div, cls.cardBorder);
 
     const header = new Header(wrapHeader);
     header.register();

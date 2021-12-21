@@ -1,6 +1,6 @@
 .header {
   padding: 1rem 2rem;
-  border-bottom: 1px solid #eee;
+  // border-bottom: 1px solid #eee;
   display: flex;
   justify-content: space-between;
 }
@@ -57,4 +57,18 @@
   width: 24px;
   height: 24px;
   background-repeat: no-repeat;
+}
+
+.temp-wrap {
+  width: 340px;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav1 {
+  display: flex;
+  justify-content: space-between;
+  flex: 1 1 max-content;
 }
