@@ -1,5 +1,6 @@
 import Component from '@/common/component';
 import Tag from '@/common/tag';
+import AsideToys from '@/components/aside-toys/aside-toys';
 import Header from '@/components/header/header';
 import { Tags } from '@/types/enums';
 import cls from './tree-layout.module.scss';
@@ -23,6 +24,9 @@ class TreeLayout extends Component {
       wrapTree,
       wrapAsideToys,
     );
+
+    const asideToys = new AsideToys(wrapAsideToys);
+    asideToys.register();
   }
 }
 
