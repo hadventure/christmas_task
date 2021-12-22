@@ -1,16 +1,16 @@
 import Component from '@/common/component';
 import Tag from '@/common/tag';
 import { Tags } from '@/types/enums';
-import Cards from '../cards/cards';
-import FilterColor from '../filter-color/filter-color';
-import FilterFav from '../filter-fav/filter-fav';
-import FilterShape from '../filter-shape/filter-shape';
-import Range from '../range/range';
-import FilterSearch from '../search/search';
-import Sorter from '../sorter/sorter';
+import Cards from '../../components/cards/cards';
+import FilterColor from '../../components/filter-color/filter-color';
+import FilterFav from '../../components/filter-fav/filter-fav';
+import FilterShape from '../../components/filter-shape/filter-shape';
+import Range from '../../components/range/range';
+import FilterSearch from '../../components/search/search';
+import Sorter from '../../components/sorter/sorter';
 import cls from './main-layout.module.scss';
-import FilterSize from '../filter-size/filter-size';
-import Header from '../header/header';
+import FilterSize from '../../components/filter-size/filter-size';
+import Header from '../../components/header/header';
 
 class Main extends Component {
   private container = Tag.create(Tags.div, `${cls.toys} content`);

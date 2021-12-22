@@ -1,0 +1,22 @@
+.tree-layout {
+  display: grid;
+  grid-template-columns: 34rem auto 20rem;
+  height: calc(100vh - 6rem);
+}
+
+.aside-tree {
+  background-color: #002766;
+  color: #eee;
+}
+
+.head {
+  border-bottom: 1px solid #eee;
+}
+
+.tree {
+
+}
+
+.aside-toys {
+  border-left: 1px solid #eee;
+}

@@ -1,4 +1,5 @@
-import Main from '../components/main-layout/main';
+import TreeLayout from '@/views/tree-layout/tree-layout';
+import Main from '../views/main-layout/main';
 // import { mainpage } from './pages';
 
 class Controller {
@@ -6,7 +7,9 @@ class Controller {
     const rootPage = root;
     rootPage.innerHTML = '';
 
-    const currentPage = new Main(rootPage);
+    // const currentPage = new Main(rootPage);
+
+    const currentPage = new TreeLayout(rootPage);
     currentPage.register();
   }
 }
