@@ -7,9 +7,8 @@
 
 .toy-img {
   width: 4.2rem;
-  height: max-content;
+  height: 4.2rem;
   cursor: move;
-  border-right: 1px dashed #fff;
 }
 
 .toy {
@@ -24,4 +23,7 @@
 .toy-counter {
   align-self: center;
   font-size: 2.2rem;
+  flex-basis: 100%;
+  border-left: 1px dashed #fff;
+  text-align: center;
 }

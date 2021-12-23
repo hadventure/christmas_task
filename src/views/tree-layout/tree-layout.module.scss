@@ -1,12 +1,26 @@
 .tree-layout {
   display: grid;
-  grid-template-columns: 34rem auto 20rem;
+  grid-template-columns: calc(100vw - 70vw) auto 20rem;
   height: calc(100vh - 6rem);
+
+  background-image: url(/src/assets/bg/1.jpg);
+  background-repeat: no-repeat;
+  // background-size: contain;
+  background-size: cover;
+
+  // @media (max-width: 978px) {
+  //   grid-template-columns: 24rem auto 18rem;
+  // }
+
+  // @media (max-width: 820px) {
+  //   grid-template-columns: repeat(1, 1fr);
+  // }
 }
 
 .aside-tree {
   background-color: #002766;
   color: #eee;
+  background-color: #00276659;
 }
 
 .head {
@@ -14,9 +28,11 @@
 }
 
 .tree {
-
+  // height: inherit;
+  place-self: end;
 }
 
 .aside-toys {
-  border-left: 1px solid #eee;
+  // position: absolute;
+  right: 0;
 }
