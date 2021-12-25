@@ -21,7 +21,9 @@
   width: 86px;
 
   cursor: pointer;
-
+  text-decoration: none;
+  text-align: center;
+  
   &.active {
     background-color: #002766;
     color: #eee;

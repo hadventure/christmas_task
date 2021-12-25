@@ -44,21 +44,33 @@ class Header extends Component {
     header.append(settings, nav1);
 
     const nav = [
-      { name: 'Елка', path: '' },
-      { name: 'Игрушки', path: '', active: true },
-      { name: 'Главная', path: '' },
+      { name: 'Главная', path: '#' },
+      { name: 'Игрушки', path: '#/toys' },
+      { name: 'Елка', path: '#/tree' },
     ];
 
     nav.forEach((el) => {
       const chunk = Tag.create(Tags.btn, cls.navItem);
       chunk.textContent = el.name;
+      chunk.dataset.path = el.path;
 
-      if (el.active) {
+      // console.log()
+
+      if (window.location.hash.includes(el.path) && el.path !== '#') {
         chunk.classList.add(cls.active);
       }
 
       navWrap.append(chunk);
     });
+
+    navWrap.onclick = (e) => {
+      const el = <HTMLElement>e.target;
+
+      if (el.classList.contains(cls.navItem)) {
+        window.history.pushState({}, '', el.dataset.path);
+        window.history.go();
+      }
+    };
   }
 }
 

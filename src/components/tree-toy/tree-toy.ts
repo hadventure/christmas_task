@@ -42,9 +42,10 @@ export default class TreeToy extends Component {
       const shiftX = x - el.getBoundingClientRect().left;
       const shiftY = y - el.getBoundingClientRect().top;
 
-      // console.log(el, shiftX, shiftY);
-      // console.log(pagex, pagey);
-      // console.log(self.item.count);
+      console.log(el, shiftX, shiftY);
+      console.log(pagex, pagey);
+
+      console.log(self.item.count);
 
       // if (+self.item.count === 0) {
       //   const clone = el.cloneNode();
@@ -95,12 +96,12 @@ export default class TreeToy extends Component {
         if (target !== droppableBelow) {
           if (target) { // null если мы были не над droppable до этого события
             // (например, над пустым пространством)
-            console.log('уменьшаем счетчик');
+            // console.log('уменьшаем счетчик');
           }
           target = droppableBelow;
           if (target) { // null если мы не над droppable сейчас, во время этого события
             // (например, только что покинули droppable)
-            console.log('увеличиваем счетчик');
+            // console.log('увеличиваем счетчик');
           }
         }
       }
@@ -108,6 +109,7 @@ export default class TreeToy extends Component {
       document.addEventListener('mousemove', onMouseMove);
 
       el.onmouseup = () => {
+        console.log(self.item.count);
         if (target) {
           if (el.classList.contains('on-tree') === false) {
             el.classList.add('on-tree');
@@ -118,6 +120,8 @@ export default class TreeToy extends Component {
           document.removeEventListener('mousemove', onMouseMove);
           el.onmouseup = null;
         } else {
+          // if (+self.item.count === 0 || +self.item.count === 1) {
+
           if (+self.item.count === 0) {
             const toyImg1 = <HTMLImageElement>Tag.create(Tags.img, `${cls.toyImg}`);
             toyImg1.src = `./src/assets/toys/${self.item.num}.png`;

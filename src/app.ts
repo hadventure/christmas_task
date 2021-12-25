@@ -1,6 +1,6 @@
-import Controller from '@/common/controller';
+import controller from '@/common/controller';
 import { mainpage } from '@/common/pages';
-import LS from './common/local-storage';
+import Router from './common/router';
 import Modal from './components/modal/modal';
 
 class App {
@@ -18,7 +18,8 @@ class App {
   }
 
   static register() {
-    Controller.setPage(this.activePage, this.root);
+    const router = new Router(this.root);
+    router.register();
   }
 }
 
