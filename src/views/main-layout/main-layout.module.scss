@@ -1,6 +1,6 @@
 .toys {
   display: grid;
-  grid-template-columns: 34rem auto;
+  grid-template-columns: calc(100vw - 70vw) auto;
   height: calc(100vh - 6rem);
 }
 
