@@ -7,8 +7,13 @@ export type TFilterRange = {
   years: string[],
 };
 
+export type TFavourite = {
+  num: string,
+  count: string,
+};
+
 export type TFilter = {
-  favourite: string[],
+  favourite: TFavourite[],
   isFavourite: boolean,
   search: string,
   colors: TFilterNest,

@@ -1,8 +1,8 @@
 // https://stackoverflow.com/questions/67700374/use-localstorage-getitem-with-typescript
-import { TFilter, TSorter } from '@/types/types';
+import { TFavourite, TFilter, TSorter } from '@/types/types';
 
 type TLs = {
-  fav: string[],
+  fav: TFavourite[],
   filter: TFilter,
   sorter: TSorter
 };
@@ -74,10 +74,11 @@ class LS {
     }
   }
 
-  static setFavourite(fav: string[]) {
+  static setFavourite(fav: TFavourite[]) {
     LS.getLocalStorage();
 
     LS.ls.fav = fav;
+    LS.ls.filter.favourite = fav;
     LS.setLocalStorage();
   }
 

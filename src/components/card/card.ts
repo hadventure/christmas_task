@@ -73,7 +73,14 @@ class Card extends Component {
   }
 
   isFavouriteToTree() {
-    if (Toy.filter.filter.favourite.includes(this.item.num)) {
+    const isFav = Object.values(Toy.filter.filter.favourite).filter((el) => {
+      if (el.num === this.item.num) {
+        return el;
+      }
+      return '';
+    });
+
+    if (isFav.length > 0) {
       return cls.favourite;
     }
     return '';
@@ -96,7 +103,7 @@ class Card extends Component {
       Modal.show('Извините, все слоты заполнены');
     } else {
       elCls.toggle(cls.favourite);
-      Toy.filter.setFavourite(this.item.num);
+      Toy.filter.setFavourite(this.item.num, this.item.count);
     }
   }
 }

@@ -72,17 +72,26 @@ class Filter {
     this.setFilterToLs();
   }
 
-  setFavourite(val: string) {
-    this.filter.favourite.push(val);
+  setFavourite(val: string, count: string) {
+    this.filter.favourite.push({ num: val, count });
+
     LS.setFavourite(this.filter.favourite);
     EventEmitter.emit('change:favourite');
   }
 
   unsetFavourite(val: string) {
-    const pos = this.filter.favourite.indexOf(val);
-    this.filter.favourite.splice(pos, 1);
-    LS.setFavourite(this.filter.favourite);
-    EventEmitter.emit('change:favourite');
+    let pos;
+    this.filter.favourite.forEach((el, i) => {
+      if (el.num === val) {
+        pos = i;
+      }
+    });
+
+    if (typeof pos === 'number') {
+      this.filter.favourite.splice(pos, 1);
+      LS.setFavourite(this.filter.favourite);
+      EventEmitter.emit('change:favourite');
+    }
   }
 
   toggleFav() {
