@@ -31,77 +31,93 @@ class AsideToys extends Component {
 
     toysForTree.forEach((el) => {
       const toy = Tag.create(Tags.div, `${cls.toy}`);
-      // toy.textContent = el.count;
+      const imgWrap = Tag.create(Tags.div, cls.imgWrap);
+
       const counter = Tag.create(Tags.div, cls.toyCounter);
       const toyImg = <HTMLImageElement>Tag.create(Tags.img, `${cls.toyImg}`);
       toyImg.src = `./src/assets/toys/${el.num}.png`;
-      toy.append(toyImg, counter);
+      imgWrap.append(toyImg);
+
+      toy.append(imgWrap, counter);
 
       let currentDroppable = null;
+      toyImg.addEventListener('mousedown', onMouseDown);
 
-      toyImg.onmousedown = function (event) {
-        const shiftX = event.clientX - toyImg.getBoundingClientRect().left;
-        const shiftY = event.clientY - toyImg.getBoundingClientRect().top;
+      function onMouseDown(event: Event) {
+        const shiftX = event.clientX - this.getBoundingClientRect().left;
+        const shiftY = event.clientY - this.getBoundingClientRect().top;
 
-        console.log(shiftX, shiftY);
+        console.log(this, shiftX, shiftY);
+        console.log(event.pageX, event.pageY);
 
-        toyImg.style.position = 'absolute';
-        toyImg.style.zIndex = 1000;
-        document.body.append(toyImg);
+        const clone = this.cloneNode();
+
+        const stl = window.getComputedStyle(this).left;
+        console.log(stl, stl === 'auto');
+
+        if(stl === 'auto') {
+          imgWrap.append(clone);
+        }
+        
+        clone.addEventListener('mousedown', onMouseDown);
+
+        this.style.position = 'absolute';
+        this.style.zIndex = 1000;
+
+        const moveAt = (pageX, pageY) => {
+          // console.log(this)
+          this.style.left = `${pageX - shiftX}px`;
+          this.style.top = `${pageY - shiftY}px`;
+        };
 
         moveAt(event.pageX, event.pageY);
 
-        function moveAt(pageX, pageY) {
-          toyImg.style.left = `${pageX - shiftX}px`;
-          toyImg.style.top = `${pageY - shiftY}px`;
-        }
-
+        const self = this;
         function onMouseMove(event) {
+          // console.log(el)
           moveAt(event.pageX, event.pageY);
 
-          toyImg.hidden = true;
+          self.hidden = true;
           const elemBelow = document.elementFromPoint(event.clientX, event.clientY);
-          toyImg.hidden = false;
+          self.hidden = false;
 
           if (!elemBelow) return;
 
-          const droppableBelow = elemBelow.closest('area');
+          const droppableBelow = elemBelow.closest('map');
 
-          console.log(elemBelow);
+          // console.log(currentDroppable);
 
           if (currentDroppable != droppableBelow) {
-            if (currentDroppable) { // null если мы были не над droppable до этого события
-              // (например, над пустым пространством)
-              leaveDroppable(currentDroppable);
-            }
+            // if (currentDroppable) { // null если мы были не над droppable до этого события
+            //   // (например, над пустым пространством)
+
+            // }
             currentDroppable = droppableBelow;
-            if (currentDroppable) { // null если мы не над droppable сейчас, во время этого события
-              // (например, только что покинули droppable)
-              enterDroppable(currentDroppable);
-            }
+            // if (currentDroppable) { // null если мы не над droppable сейчас, во время этого события
+            //   // (например, только что покинули droppable)
+
+            // }
           }
         }
 
         document.addEventListener('mousemove', onMouseMove);
 
-        toyImg.onmouseup = function () {
-          document.removeEventListener('mousemove', onMouseMove);
-          toyImg.onmouseup = null;
+        this.onmouseup = function (e) {
+          console.log(e);
+          if (currentDroppable) {
+            document.removeEventListener('mousemove', onMouseMove);
+            this.onmouseup = null;
+          } else {
+            document.removeEventListener('mousemove', onMouseMove);
+            this.onmouseup = null;
+            this.remove();
+          }
         };
-      };
 
-
-      function enterDroppable(elem) {
-        elem.style.background = 'pink';
+        this.ondragstart = function () {
+          return false;
+        };
       }
-  
-      function leaveDroppable(elem) {
-        elem.style.background = '';
-      }
-  
-      toyImg.ondragstart = function() {
-        return false;
-      };
 
       counter.textContent = el.count;
       this.localRoot.append(toy);
