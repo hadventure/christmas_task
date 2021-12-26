@@ -16,6 +16,8 @@ export default class HomeLayout extends Component {
       window.history.go();
     };
 
-    this.root.append(this.container, btn);
+    this.container.append(btn)
+
+    this.root.append(this.container);
   }
 }
