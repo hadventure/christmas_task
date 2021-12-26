@@ -8,7 +8,7 @@ import FilterShape from '../../components/filter-shape/filter-shape';
 import Range from '../../components/range/range';
 import FilterSearch from '../../components/search/search';
 import Sorter from '../../components/sorter/sorter';
-import cls from './main-layout.module.scss';
+import cls from './toys-layout.module.scss';
 import FilterSize from '../../components/filter-size/filter-size';
 import Header from '../../components/header/header';
 

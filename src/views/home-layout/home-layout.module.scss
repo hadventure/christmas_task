@@ -1,7 +1,22 @@
 .toys {
-  background-image: url(./kisspng-snowflake-schema-beautiful-winter-vector-snow-flurries-5a9bdfb19d6079.3462964915201647856446-removebg.png);
-  background-size: contain;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-position-x: right;
+  background-image: url(../../assets/bg/home.png);
+  background-size: 100vh;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position-x: right;
+}
+
+.greeting {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  width: 24rem;
+  font-size: xx-large;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #043f9f;
   }
+}
