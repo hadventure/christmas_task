@@ -27,6 +27,9 @@ module.exports = {
               modules: {
                 auto: true,
                 exportLocalsConvention: 'camelCase',
+
+                exportGlobals: true,
+                localIdentName: '[local]--[hash:base64:5]',
               },
             },
           },

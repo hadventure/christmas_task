@@ -3,6 +3,7 @@ import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
 import Tree from '@/models/tree';
 import { Tags } from '@/types/enums';
+import Garland from '../garland/garland';
 import cls from './tree-view.module.scss';
 
 export default class TreeView extends Component {
@@ -24,6 +25,9 @@ export default class TreeView extends Component {
 
   register() {
     console.log(this);
+    const garland = Tag.create(Tags.div, cls.garlandWrap);
+    const garlandEl = new Garland(garland);
+    garlandEl.register();
 
     this.root.classList.add(cls.localRoot);
 
@@ -40,6 +44,6 @@ export default class TreeView extends Component {
 
     m.append(area);
 
-    this.root.append(this.img, m);
+    this.root.append(this.img, m, garland);
   }
 }

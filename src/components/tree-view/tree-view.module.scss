@@ -6,6 +6,15 @@
 
 .img {
   // place-self: end;
-  max-height: calc(100vh - 6rem);
+  max-height: calc(100vh - 8rem);
   max-width: 100%;
+}
+
+.garland-wrap {
+  position: absolute;
+  height: 95%;
+  width: calc(100% - 4rem);
+  top: 0;
+  z-index: 1;
+  pointer-events: none;
 }

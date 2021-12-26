@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: bottom;
-  transition: all 0.8s;
+  transition: background-image 0.8s;
 
 }
 
@@ -20,8 +20,10 @@
 }
 
 .tree {
+  position: relative;
   align-self: end;
   justify-self: center;
+  border: 1px solid #eee;
 }
 
 .aside-toys {
