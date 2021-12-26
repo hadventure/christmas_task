@@ -18,9 +18,9 @@ export default class FilterTree extends Component {
   }
 
   renderTrees() {
-    const colors = ['1', '2', '4', '6'];
+    const trees = ['1', '2', '4', '6'];
 
-    colors.forEach((num, i) => {
+    trees.forEach((num, i) => {
       const el = <HTMLImageElement>Tag.create(Tags.img, `${cls.tree}`);
       el.src = `/src/assets/tree/${num}.png`;
 

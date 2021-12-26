@@ -2,25 +2,17 @@
   display: grid;
   grid-template-columns: calc(100vw - 70vw) auto 20rem;
   height: calc(100vh - 6rem);
-
-  background-image: url(/src/assets/bg/1.jpg);
   background-repeat: no-repeat;
-  // background-size: contain;
   background-size: cover;
   background-position-y: bottom;
-  // @media (max-width: 978px) {
-  //   grid-template-columns: 24rem auto 18rem;
-  // }
+  transition: all 0.8s;
 
-  // @media (max-width: 820px) {
-  //   grid-template-columns: repeat(1, 1fr);
-  // }
 }
 
 .aside-tree {
   background-color: #002766;
   color: #eee;
-  background-color: #00276659;
+  background-color: #002766a1;
 }
 
 .head {

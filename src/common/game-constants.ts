@@ -2,3 +2,4 @@ export const toyUrl = 'https://rolling-scopes-school.github.io/lan3945663-JSFE20
 // export const toyUrl = 'src/assets/json/data.json';
 export const favQuantity = 20;
 // https://rolling-scopes-school.github.io/lan3945663-JSFE2021Q3/momentum/src/helpers/quotes.json
+export const DEFAULT_BG = '1';

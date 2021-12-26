@@ -7,7 +7,8 @@ export default class TreeFilter {
 
   constructor() {
     this.filter = {
-      tree: ''
+      tree: '',
+      bg: '',
     };
   }
 
@@ -20,6 +21,14 @@ export default class TreeFilter {
     // this.setFilterToLs();
   }
 
+  setBg(val: string | undefined) {
+    if (typeof val === 'string') {
+      this.filter.bg = val;
+      EventEmitter.emit('change:bg');
+    }
+
+    // this.setFilterToLs();
+  }
 
   setFilterToLs() {
     LS.setData(this.filter);
