@@ -35,7 +35,7 @@ class TreeLayout extends Component {
   setBg(num: string) {
     const bgNum = Tree.filter.filter.bg || num;
 
-    this.container.style.backgroundImage = `url("/src/assets/bg/${bgNum}.jpg")`;
+    this.container.style.backgroundImage = `url("./src/assets/bg/${bgNum}.jpg")`;
   }
 
   register() {

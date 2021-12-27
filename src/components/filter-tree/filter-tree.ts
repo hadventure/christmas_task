@@ -22,7 +22,7 @@ export default class FilterTree extends Component {
 
     trees.forEach((num, i) => {
       const el = <HTMLImageElement>Tag.create(Tags.img, `${cls.tree}`);
-      el.src = `/src/assets/tree/${num}.png`;
+      el.src = `./src/assets/tree/${num}.png`;
 
       el.dataset.num = num;
 

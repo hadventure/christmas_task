@@ -14,11 +14,11 @@ export default class TreeView extends Component {
     super(root);
 
     EventEmitter.subscribe('change:tree', () => {
-      this.img.src = `/src/assets/tree/${Tree.filter.filter.tree}.png`;
+      this.img.src = `./src/assets/tree/${Tree.filter.filter.tree}.png`;
     });
 
     EventEmitter.subscribe('reset:tree-filter', () => {
-      this.img.src = `/src/assets/tree/${DEFAULT_TREE}.png`;
+      this.img.src = `./src/assets/tree/${DEFAULT_TREE}.png`;
     });
   }
 
@@ -37,7 +37,7 @@ export default class TreeView extends Component {
     area.shape = 'poly';
 
     const treeNum = Tree.filter.filter.tree || DEFAULT_TREE;
-    this.img.src = `/src/assets/tree/${treeNum}.png`;
+    this.img.src = `./src/assets/tree/${treeNum}.png`;
     this.img.useMap = '#image-map';
 
     m.append(area);
