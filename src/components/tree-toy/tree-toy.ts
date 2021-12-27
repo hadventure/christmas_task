@@ -3,6 +3,7 @@ import Tag from '@/common/tag';
 import { Tags } from '@/types/enums';
 import { TFavourite } from '@/types/types';
 import cls from './tree-toy.module.scss';
+// import layout from '../../views/tree-layout/tree-layout.module.scss';
 
 export default class TreeToy extends Component {
   private counter = Tag.create(Tags.div, cls.toyCounter);
@@ -28,10 +29,13 @@ export default class TreeToy extends Component {
 
     toy.append(imgWrap, this.counter);
 
-    const self = this;
     let target: HTMLMapElement | null = null;
-    function onMouseDown(event: Event) {
+    const onMouseDown = (event: Event) => {
       const el = <HTMLImageElement>event.currentTarget;
+
+      if (el.classList.contains(cls.above)) {
+        el.classList.remove(cls.above);
+      }
 
       const pagex = (<MouseEvent>event).pageX;
       const pagey = (<MouseEvent>event).pageY;
@@ -42,27 +46,8 @@ export default class TreeToy extends Component {
       const shiftX = x - el.getBoundingClientRect().left;
       const shiftY = y - el.getBoundingClientRect().top;
 
-      console.log(el, shiftX, shiftY);
-      console.log(pagex, pagey);
-
-      console.log(self.item.count);
-
-      // if (+self.item.count === 0) {
-      //   const clone = el.cloneNode();
-
-      //   const stl = window.getComputedStyle(el).left;
-
-      //   console.log()
-      //   // if (stl === 'auto') {
-      //   imgWrap.append(clone);
-      //   // }
-
-      //   // clone.addEventListener('mousedown', onMouseDown);
-      // }
-
-      if (+self.item.count - 1 !== 0) {
+      if (+this.item.count - 1 !== 0) {
         const clone = el.cloneNode();
-
         const stl = window.getComputedStyle(el).left;
 
         if (stl === 'auto') {
@@ -76,7 +61,7 @@ export default class TreeToy extends Component {
       el.style.zIndex = '1000';
 
       const moveAt = (pageX: number, pageY: number) => {
-        el.style.left = `${pageX - shiftX}px`;
+        el.style.left = `${((pageX - shiftX) * 100) / document.documentElement.clientWidth}%`;
         el.style.top = `${pageY - shiftY}px`;
       };
 
@@ -94,14 +79,12 @@ export default class TreeToy extends Component {
         const droppableBelow = elemBelow.closest('map');
 
         if (target !== droppableBelow) {
-          if (target) { // null если мы были не над droppable до этого события
-            // (например, над пустым пространством)
-            // console.log('уменьшаем счетчик');
+          if (target) {
+            // el.classList.remove(cls.above);
           }
           target = droppableBelow;
-          if (target) { // null если мы не над droppable сейчас, во время этого события
-            // (например, только что покинули droppable)
-            // console.log('увеличиваем счетчик');
+          if (target) {
+            // el.classList.add(cls.above);
           }
         }
       }
@@ -109,29 +92,40 @@ export default class TreeToy extends Component {
       document.addEventListener('mousemove', onMouseMove);
 
       el.onmouseup = () => {
-        console.log(self.item.count);
+        // console.log(tree?.clientHeight, tree?.clientWidth)
+
         if (target) {
+          el.classList.add(cls.above);
+
           if (el.classList.contains('on-tree') === false) {
             el.classList.add('on-tree');
-            self.item.count = String(+self.item.count - 1);
-            self.renderCounter(self.item.count);
+            this.item.count = String(+this.item.count - 1);
+            this.renderCounter(this.item.count);
           }
+
+          // TODO: цеплять к елке и высчитывать top и left
+          // tree?.prepend(el)
 
           document.removeEventListener('mousemove', onMouseMove);
           el.onmouseup = null;
         } else {
-          // if (+self.item.count === 0 || +self.item.count === 1) {
-
-          if (+self.item.count === 0) {
+          if (+this.item.count === 0 || +this.item.count === 1) {
             const toyImg1 = <HTMLImageElement>Tag.create(Tags.img, `${cls.toyImg}`);
-            toyImg1.src = `./src/assets/toys/${self.item.num}.png`;
+            toyImg1.src = `./src/assets/toys/${this.item.num}.png`;
             imgWrap.append(toyImg1);
             toyImg1.addEventListener('mousedown', onMouseDown);
+
+            // console.log(imgWrap.childNodes);
+
+            // TODO: непонятно что тут... после единицы проблема с возвратом...
+            if (+this.item.count === 1 && toyImg.classList.contains('on-tree')) {
+              imgWrap.childNodes[imgWrap.childNodes.length - 1].remove();
+            }
           }
 
           if (el.classList.contains('on-tree')) {
-            self.item.count = String(+self.item.count + 1);
-            self.renderCounter(self.item.count);
+            this.item.count = String(+this.item.count + 1);
+            this.renderCounter(this.item.count);
           }
 
           document.removeEventListener('mousemove', onMouseMove);
@@ -141,7 +135,7 @@ export default class TreeToy extends Component {
       };
 
       el.ondragstart = () => false;
-    }
+    };
 
     toyImg.addEventListener('mousedown', onMouseDown);
 
