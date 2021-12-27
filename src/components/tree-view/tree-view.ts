@@ -16,6 +16,10 @@ export default class TreeView extends Component {
     EventEmitter.subscribe('change:tree', () => {
       this.img.src = `/src/assets/tree/${Tree.filter.filter.tree}.png`;
     });
+
+    EventEmitter.subscribe('reset:tree-filter', () => {
+      this.img.src = `/src/assets/tree/${DEFAULT_TREE}.png`;
+    });
   }
 
   register() {

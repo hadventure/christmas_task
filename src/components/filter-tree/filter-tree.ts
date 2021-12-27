@@ -1,4 +1,5 @@
 import Component from '@/common/component';
+import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
 import Tree from '@/models/tree';
 import { Tags } from '@/types/enums';
@@ -6,6 +7,15 @@ import cls from './filter-tree.module.scss';
 
 export default class FilterTree extends Component {
   private treeRoot = Tag.create(Tags.div, cls.treeRoot);
+
+  constructor(root: HTMLElement) {
+    super(root);
+
+    EventEmitter.subscribe('reset:tree-filter', () => {
+      this.treeRoot.innerHTML = '';
+      this.renderTrees();
+    });
+  }
 
   renderTrees() {
     const trees = ['1', '2', '4', '6'];

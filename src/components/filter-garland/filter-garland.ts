@@ -5,9 +5,19 @@ import { Garlands, Tags } from '@/types/enums';
 import app from '@/app.module.scss';
 import cls from './filter-garland.module.scss';
 import Tree from '@/models/tree';
+import EventEmitter from '@/common/event-emitter';
 
 export default class FilterGarland extends Component {
   private colorsEl = Tag.create(Tags.div, cls.colorsWrap);
+
+  constructor(root: HTMLElement) {
+    super(root);
+
+    EventEmitter.subscribe('reset:tree-filter', () => {
+      this.colorsEl.innerHTML = '';
+      this.renderColors();
+    });
+  }
 
   renderColors() {
     const colors = [Garlands.yellow, Garlands.aqua, Garlands.pink, Garlands.green, Garlands.multi];

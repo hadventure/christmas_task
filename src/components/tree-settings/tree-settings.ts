@@ -1,6 +1,7 @@
 import Component from '@/common/component';
 import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
+import Player from '@/models/player';
 import Tree from '@/models/tree';
 import { Tags } from '@/types/enums';
 import cls from './tree-settings.module.scss';
@@ -8,26 +9,28 @@ import cls from './tree-settings.module.scss';
 export default class TreeSettings extends Component {
   private localroot = Tag.create(Tags.div, cls.settingsWrap);
 
+  private musicIcon = Tag.create(Tags.div, cls.player);
+
   constructor(root: HTMLElement) {
     super(root);
-    EventEmitter.subscribe('reset:filter', () => {
-      // this.destroy();
-      // this.root.innerHTML = '';
-      // this.register();
+    EventEmitter.subscribe('reset:tree-filter', () => {
+      if (this.musicIcon.classList.contains(cls.active)) {
+        this.musicIcon.classList.remove(cls.active);
+      }
+
+      Player.stopAudio();
     });
   }
 
   register() {
-    const musicIcon = Tag.create(Tags.div, cls.player);
-
     if (Tree.filter.filter.player) {
-      musicIcon.classList.add(cls.active);
+      this.musicIcon.classList.add(cls.active);
     }
 
-    this.localroot.append(musicIcon);
+    this.localroot.append(this.musicIcon);
     this.root.append(this.localroot);
 
-    musicIcon.onclick = (e) => {
+    this.musicIcon.onclick = (e) => {
       const el = <HTMLElement>(e.target);
 
       if (el.classList.contains(cls.active)) {

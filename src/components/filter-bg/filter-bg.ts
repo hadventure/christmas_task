@@ -4,9 +4,19 @@ import Tree from '@/models/tree';
 import { Tags } from '@/types/enums';
 import app from '@/app.module.scss';
 import cls from './filter-bg.module.scss';
+import EventEmitter from '@/common/event-emitter';
 
 export default class FilterBg extends Component {
   private bgRoot = Tag.create(Tags.div, cls.bgRoot);
+
+  constructor(root: HTMLElement) {
+    super(root);
+
+    EventEmitter.subscribe('reset:tree-filter', () => {
+      this.bgRoot.innerHTML = '';
+      this.renderTrees();
+    });
+  }
 
   renderTrees() {
     const bg = ['1', '2', '3', '4', '5', '6', '7', '10'];

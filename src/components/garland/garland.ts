@@ -21,6 +21,11 @@ export default class Garland extends Component {
     EventEmitter.subscribe('change:garland', () => {
       this.updateLights();
     });
+
+    EventEmitter.subscribe('reset:tree-filter', () => {
+      // TODO: not update at all (hide?)
+      this.updateLights();
+    });
   }
 
   updateLights() {
