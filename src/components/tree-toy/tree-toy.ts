@@ -118,7 +118,7 @@ export default class TreeToy extends Component {
             // console.log(imgWrap.childNodes);
 
             // TODO: непонятно что тут... после единицы проблема с возвратом...
-            if (+this.item.count === 1 && toyImg.classList.contains('on-tree')) {
+            if (+this.item.count === 1 && el.classList.contains('on-tree')) {
               imgWrap.childNodes[imgWrap.childNodes.length - 1].remove();
             }
           }
