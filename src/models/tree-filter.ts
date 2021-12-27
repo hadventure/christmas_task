@@ -57,4 +57,10 @@ export default class TreeFilter {
     LS.setTreeInfo(this.filter);
     EventEmitter.emit('toggle:audio');
   }
+
+  toggleSnow() {
+    this.filter.snow = !this.filter.snow;
+    LS.setTreeInfo(this.filter);
+    EventEmitter.emit('toggle:snow');
+  }
 }

@@ -40,7 +40,7 @@ export default class FilterTree extends Component {
 
   register() {
     const name = `
-      <div class=${cls.filterName}>Елка</div>
+      <div class=${cls.filterName}>Ёлка</div>
     `;
 
     const wrap = Tag.create(Tags.div, cls.wrap);

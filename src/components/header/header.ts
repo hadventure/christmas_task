@@ -47,7 +47,7 @@ class Header extends Component {
     const nav = [
       { name: 'Главная', path: '#' },
       { name: 'Игрушки', path: '#/toys' },
-      { name: 'Елка', path: '#/tree' },
+      { name: 'Ёлка', path: '#/tree' },
     ];
 
     nav.forEach((el) => {

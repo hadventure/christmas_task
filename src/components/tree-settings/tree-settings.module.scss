@@ -1,9 +1,10 @@
 .settingsWrap {
+  display: flex;
+  column-gap: 4rem;
   margin-bottom: 2rem;
 }
 
-.player {
-  background-image: url(../../assets/svg/audio.svg);
+.icon {
   width: 4rem;
   height: 4rem;
   background-size: contain;
@@ -13,4 +14,13 @@
   &.active {
     transform: scale(0.8);
   }
+}
+
+.player {
+  background-image: url(../../assets/svg/audio.svg);
+
+}
+
+.snow {
+  background-image: url(../../assets/svg/snowflake.svg);
 }
