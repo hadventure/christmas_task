@@ -15,10 +15,9 @@ export default class FilterGarland extends Component {
     colors.forEach((color) => {
       const e = Tag.create(Tags.div, `${cls.filterColor} ${cls[color]}`);
       e.dataset.color = color;
-
       e.style.background = color;
 
-      if (Toy.filter.filter.colors[color]) {
+      if (Tree.filter.filter.garland === color) {
         e.classList.add(cls.active);
       }
 

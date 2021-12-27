@@ -15,7 +15,9 @@ export default class Player {
     EventEmitter.subscribe('toggle:audio', this.toggleAudio);
     if (Tree.filter.filter.player) {
       document.addEventListener('click', () => {
-        this.audio.play();
+        if (Tree.filter.filter.player) {
+          this.audio.play();
+        }
       }, { once: true });
     }
   }

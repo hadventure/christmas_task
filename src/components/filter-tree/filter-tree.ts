@@ -1,21 +1,11 @@
 import Component from '@/common/component';
-import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
-import Toy from '@/models/toy';
 import Tree from '@/models/tree';
 import { Tags } from '@/types/enums';
 import cls from './filter-tree.module.scss';
 
 export default class FilterTree extends Component {
   private treeRoot = Tag.create(Tags.div, cls.treeRoot);
-
-  constructor(root: HTMLElement) {
-    super(root);
-    // EventEmitter.subscribe('reset:filter', () => {
-    //   this.treeRoot.innerHTML = '';
-    //   this.renderColors();
-    // });
-  }
 
   renderTrees() {
     const trees = ['1', '2', '4', '6'];
@@ -27,7 +17,9 @@ export default class FilterTree extends Component {
       el.dataset.num = num;
 
       if (Tree.filter.filter.tree) {
-        el.classList.add(cls.active);
+        if (Tree.filter.filter.tree === num) {
+          el.classList.add(cls.active);
+        }
       } else if (i === 0) {
         el.classList.add(cls.active);
       }

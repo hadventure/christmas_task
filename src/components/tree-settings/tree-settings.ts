@@ -20,6 +20,10 @@ export default class TreeSettings extends Component {
   register() {
     const musicIcon = Tag.create(Tags.div, cls.player);
 
+    if (Tree.filter.filter.player) {
+      musicIcon.classList.add(cls.active);
+    }
+
     this.localroot.append(musicIcon);
     this.root.append(this.localroot);
 

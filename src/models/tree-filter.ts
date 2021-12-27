@@ -1,8 +1,9 @@
 import EventEmitter from '@/common/event-emitter';
 import LS from '@/common/local-storage';
+import { TTreeFilter } from '@/types/types';
 
 export default class TreeFilter {
-  filter: any;
+  filter: TTreeFilter;
 
   constructor() {
     this.filter = {
@@ -10,6 +11,7 @@ export default class TreeFilter {
       bg: '',
       garland: '',
       player: false,
+      snow: false,
     };
   }
 
@@ -19,7 +21,7 @@ export default class TreeFilter {
       EventEmitter.emit('change:tree');
     }
 
-    // this.setFilterToLs();
+    this.setFilterToLs();
   }
 
   setBg(val: string | undefined) {
@@ -28,7 +30,7 @@ export default class TreeFilter {
       EventEmitter.emit('change:bg');
     }
 
-    // this.setFilterToLs();
+    this.setFilterToLs();
   }
 
   setGarland(val: string | undefined) {
@@ -37,21 +39,22 @@ export default class TreeFilter {
       EventEmitter.emit('change:garland');
     }
 
-    // this.setFilterToLs();
+    this.setFilterToLs();
   }
 
   unsetGarland() {
     this.filter.garland = '';
     EventEmitter.emit('change:garland');
-    // this.setFilterToLs();
+    this.setFilterToLs();
   }
 
   setFilterToLs() {
-    LS.setData(this.filter);
+    LS.setTreeInfo(this.filter);
   }
 
   togglePlayer() {
     this.filter.player = !this.filter.player;
+    LS.setTreeInfo(this.filter);
     EventEmitter.emit('toggle:audio');
   }
 }

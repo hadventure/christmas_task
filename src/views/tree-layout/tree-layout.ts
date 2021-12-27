@@ -1,6 +1,7 @@
 import Component from '@/common/component';
 import EventEmitter from '@/common/event-emitter';
 import { DEFAULT_BG } from '@/common/game-constants';
+import LS from '@/common/local-storage';
 import Tag from '@/common/tag';
 import AsideToys from '@/components/aside-toys/aside-toys';
 import FilterBg from '@/components/filter-bg/filter-bg';
@@ -22,10 +23,15 @@ class TreeLayout extends Component {
     EventEmitter.subscribe('change:bg', () => {
       this.setBg(Tree.filter.filter.bg);
     });
+
+    // TODO: refactor
+    Tree.filter.filter = LS.ls.tree;
   }
 
   setBg(num: string) {
-    this.container.style.backgroundImage = `url("/src/assets/bg/${num}.jpg")`;
+    const bgNum = Tree.filter.filter.bg || num;
+
+    this.container.style.backgroundImage = `url("/src/assets/bg/${bgNum}.jpg")`;
   }
 
   register() {

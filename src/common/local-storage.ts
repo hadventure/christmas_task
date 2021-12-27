@@ -1,14 +1,18 @@
 // https://stackoverflow.com/questions/67700374/use-localstorage-getitem-with-typescript
-import { TFavourite, TFilter, TSorter } from '@/types/types';
+import Tree from '@/models/tree';
+import {
+  TFavourite, TFilter, TSorter, TTreeFilter,
+} from '@/types/types';
 
 type TLs = {
   fav: TFavourite[],
   filter: TFilter,
-  sorter: TSorter
+  sorter: TSorter,
+  tree: TTreeFilter,
 };
 
 class LS {
-  // TODO!!
+  // TODO add some utils type
   static ls: TLs = {
     fav: [],
     sorter: {
@@ -48,6 +52,13 @@ class LS {
         years: [],
       },
     },
+    tree: {
+      tree: '',
+      bg: '',
+      garland: '',
+      player: false,
+      snow: false,
+    },
   };
 
   static initLocalStorage() {
@@ -59,6 +70,8 @@ class LS {
       if (typeof value === 'string') {
         LS.ls = JSON.parse(value);
       }
+
+      Tree.filter.filter = this.ls.tree;
     }
   }
 
@@ -89,6 +102,11 @@ class LS {
 
   static setSorterToLs(sorter: TSorter) {
     this.ls.sorter = sorter;
+    this.setLocalStorage();
+  }
+
+  static setTreeInfo(tree: TTreeFilter) {
+    this.ls.tree = tree;
     this.setLocalStorage();
   }
 }

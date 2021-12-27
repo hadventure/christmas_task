@@ -15,8 +15,10 @@ export default class FilterBg extends Component {
       const w = <HTMLDivElement>Tag.create(Tags.div, `${cls.bg}`);
       w.dataset.num = num;
 
-      if (Tree.filter.filter.tree) {
-        w.classList.add(cls.active);
+      if (Tree.filter.filter.bg) {
+        if (Tree.filter.filter.bg === num) {
+          w.classList.add(cls.active);
+        }
       } else if (i === 0) {
         w.classList.add(cls.active);
       }

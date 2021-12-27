@@ -11,8 +11,8 @@ class App {
   }
 
   static register() {
-    // const router = new Router(this.root);
-    Router.register(this.root, controller);
+    const router = new Router(this.root, controller);
+    // router.register();
   }
 }
 

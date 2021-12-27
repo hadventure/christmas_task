@@ -13,7 +13,7 @@ export default class HomeLayout extends Component {
     btn.textContent = 'Помогите бабушке нарядить елку';
 
     btn.onclick = () => {
-      window.history.pushState({ path: '#/toys' }, 'title', '#/toys');
+      window.history.replaceState({ path: '#/toys' }, 'title', '#/toys');
       // window.history.go();
       Router.initView();
     };
