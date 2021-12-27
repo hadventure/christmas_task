@@ -8,6 +8,7 @@ import FilterBg from '@/components/filter-bg/filter-bg';
 import FilterGarland from '@/components/filter-garland/filter-garland';
 import FilterTree from '@/components/filter-tree/filter-tree';
 import Header from '@/components/header/header';
+import Snowflake from '@/components/snowflake/snowflake';
 import TreeReset from '@/components/tree-reset/tree-reset';
 import TreeSettings from '@/components/tree-settings/tree-settings';
 import TreeView from '@/components/tree-view/tree-view';
@@ -51,6 +52,9 @@ class TreeLayout extends Component {
     const wrapAsideToys = Tag.create(Tags.div, `${cls.asideToys} col`);
     const wrapTree = Tag.create(Tags.div, `${cls.tree} col`);
 
+    const snowflakeWrap = Tag.create(Tags.div, `${cls.snowflakeWrap}`);
+    this.container.append(snowflakeWrap)
+
     this.container.append(
       wrapAsideTree,
       wrapTree,
@@ -79,6 +83,9 @@ class TreeLayout extends Component {
 
     const tree = new TreeView(wrapTree);
     tree.register();
+
+    const snowflake = new Snowflake(snowflakeWrap);
+    snowflake.register();
   }
 }
 

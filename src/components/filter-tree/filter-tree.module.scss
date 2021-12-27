@@ -8,6 +8,14 @@
   width: 6rem;
   cursor: pointer;
 
+  @media (max-width: 1000px) {
+    width: 5rem;
+  }
+
+  @media (max-width: 820px) {
+    width: 4rem;
+  }
+
   &.active {
     transform: scale(0.6);
   }

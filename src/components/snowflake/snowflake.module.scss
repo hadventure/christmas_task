@@ -1,0 +1,11 @@
+$snow-size: 1.5rem;
+
+.snow {
+  position: absolute;
+  background-image: url(../../assets/svg/snow.svg);
+  width: $snow-size;
+  height: $snow-size;
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: -$snow-size;
+}
