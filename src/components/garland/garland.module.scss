@@ -28,7 +28,6 @@ $green: #00f7a5;
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  
 
   &.aqua {
     background-color: $aqua;
@@ -101,7 +100,8 @@ $green: #00f7a5;
       0px
       0px
       $width * 2
-      $spread $aqua;
+      $spread
+      $aqua;
   } 
   50% {
     background: rgba(0,255,255,$light-off-opacity);

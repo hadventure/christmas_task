@@ -7,6 +7,7 @@ import FilterBg from '@/components/filter-bg/filter-bg';
 import FilterGarland from '@/components/filter-garland/filter-garland';
 import FilterTree from '@/components/filter-tree/filter-tree';
 import Header from '@/components/header/header';
+import TreeSettings from '@/components/tree-settings/tree-settings';
 import TreeView from '@/components/tree-view/tree-view';
 import Tree from '@/models/tree';
 import { Tags } from '@/types/enums';
@@ -54,6 +55,9 @@ class TreeLayout extends Component {
 
     const filterFarland = new FilterGarland(wrapAsideTree);
     filterFarland.register();
+
+    const treeSettings = new TreeSettings(wrapAsideTree);
+    treeSettings.register();
 
     const asideToys = new AsideToys(wrapAsideToys);
     asideToys.register();

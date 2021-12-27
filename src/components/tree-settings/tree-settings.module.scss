@@ -1,0 +1,16 @@
+.settingsWrap {
+  margin-top: 3rem;
+}
+
+.player {
+  background-image: url(../../assets/svg/audio.svg);
+  width: 4rem;
+  height: 4rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  &.active {
+    transform: scale(0.8);
+  }
+}

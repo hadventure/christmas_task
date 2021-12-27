@@ -1,6 +1,5 @@
 import EventEmitter from '@/common/event-emitter';
 import LS from '@/common/local-storage';
-import { TFilter, TSorter } from '@/types/types';
 
 export default class TreeFilter {
   filter: any;
@@ -10,6 +9,7 @@ export default class TreeFilter {
       tree: '',
       bg: '',
       garland: '',
+      player: false,
     };
   }
 
@@ -48,5 +48,10 @@ export default class TreeFilter {
 
   setFilterToLs() {
     LS.setData(this.filter);
+  }
+
+  togglePlayer() {
+    this.filter.player = !this.filter.player;
+    EventEmitter.emit('toggle:audio');
   }
 }

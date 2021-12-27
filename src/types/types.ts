@@ -1,3 +1,7 @@
+import HomeLayout from "@/views/home-layout/home-layout";
+import Main from "@/views/toys-layout/toys-layout";
+import TreeLayout from "@/views/tree-layout/tree-layout";
+
 export type TFilterNest = {
   [index: string]: boolean
 };
@@ -27,4 +31,11 @@ export type TFilter = {
 export type TSorter = {
   name: string,
   direction: string
+};
+
+export type TRouter = {
+  '': typeof HomeLayout;
+  '#/tree': typeof TreeLayout;
+  '#/toys': typeof Main;
+  [index: string]: typeof Main | typeof TreeLayout | typeof HomeLayout
 };

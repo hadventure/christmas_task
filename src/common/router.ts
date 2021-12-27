@@ -1,37 +1,36 @@
-import HomeLayout from '@/views/home-layout/home-layout';
-import Main from '@/views/toys-layout/toys-layout';
-import TreeLayout from '@/views/tree-layout/tree-layout';
-import controller from './controller';
-
-type TRouter = {
-  '': typeof HomeLayout;
-  '#/tree': typeof TreeLayout;
-  '#/toys': typeof Main;
-  [index: string]: typeof Main | typeof TreeLayout | typeof HomeLayout
-};
+import { TRouter } from '@/types/types';
 
 class Router {
-  root: HTMLElement;
+  static root: HTMLElement;
 
-  controller: TRouter;
+  static controller: TRouter;
 
-  constructor(root: HTMLElement) {
-    this.root = root;
-    this.controller = controller;
+  // constructor(root: HTMLElement) {
+  //   Router.root = root;
+  //   Router.controller = controller;
+
+  //   document.addEventListener('DOMContentLoaded', () => {
+  //     Router.initView();
+  //   });
+  // }
+
+  static register(root: HTMLElement, controller: TRouter) {
+    Router.root = root;
+    Router.controller = controller;
 
     document.addEventListener('DOMContentLoaded', () => {
-      this.initView();
+      Router.initView();
     });
-  }
 
-  register() {
     window.addEventListener('popstate', () => {
       this.root.innerHTML = '';
       this.initView();
     });
   }
 
-  initView() {
+  static initView() {
+    this.root.innerHTML = '';
+
     const View = this.controller[window.location.hash];
     const view = new View(this.root);
 

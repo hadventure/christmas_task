@@ -39,7 +39,6 @@ class FilterSearch extends Component {
     this.input.value = Toy.filter.filter.search;
     this.input.autofocus = true;
 
-
     this.localroot.append(this.input);
 
     // this.input.focus();

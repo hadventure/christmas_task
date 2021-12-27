@@ -12,7 +12,7 @@ import TreeFilter from './tree-filter';
 //   year: string
 // };
 
-class Toy {
+export default class Tree {
   static filter = new TreeFilter();
 
 
@@ -45,5 +45,3 @@ class Toy {
   //   EventEmitter.emit('reset:storage');
   // }
 }
-
-export default Toy;
