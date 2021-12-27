@@ -9,7 +9,7 @@ export default class HomeLayout extends Component {
 
   register() {
     const btn = Tag.create(Tags.btn, `${app.btnPrimary} ${cls.greeting}`);
-    btn.textContent = 'Помоги бабушке нарядить елку';
+    btn.textContent = 'Помогите бабушке нарядить елку';
 
     btn.onclick = () => {
       window.history.pushState({}, 'title', '#/toys');

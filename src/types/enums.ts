@@ -32,3 +32,20 @@ export enum Sizes {
   M = 'средний',
   L = 'большой',
 }
+
+export enum Garlands {
+  yellow = '#ffeb3b',
+  aqua = '#00ffff',
+  pink = '#f70094',
+  green = '#00f7a5',
+  multi = 'linear-gradient(to right, #ffeb3b, #00ffff, #f70094, #00f7a5)',
+}
+
+// TODO: ?
+export enum GarlandsReversed {
+  '#ffeb3b' = 'yellow',
+  '#00ffff' = 'aqua',
+  '#f70094' = 'pink',
+  '#00f7a5' = 'green',
+  'linear-gradient(to right, #ffeb3b, #00ffff, #f70094, #00f7a5)' = 'multi',
+}

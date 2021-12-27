@@ -4,6 +4,7 @@ import { DEFAULT_BG } from '@/common/game-constants';
 import Tag from '@/common/tag';
 import AsideToys from '@/components/aside-toys/aside-toys';
 import FilterBg from '@/components/filter-bg/filter-bg';
+import FilterGarland from '@/components/filter-garland/filter-garland';
 import FilterTree from '@/components/filter-tree/filter-tree';
 import Header from '@/components/header/header';
 import TreeView from '@/components/tree-view/tree-view';
@@ -50,6 +51,9 @@ class TreeLayout extends Component {
 
     const filterBg = new FilterBg(wrapAsideTree);
     filterBg.register();
+
+    const filterFarland = new FilterGarland(wrapAsideTree);
+    filterFarland.register();
 
     const asideToys = new AsideToys(wrapAsideToys);
     asideToys.register();

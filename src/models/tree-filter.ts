@@ -9,6 +9,7 @@ export default class TreeFilter {
     this.filter = {
       tree: '',
       bg: '',
+      garland: '',
     };
   }
 
@@ -27,6 +28,21 @@ export default class TreeFilter {
       EventEmitter.emit('change:bg');
     }
 
+    // this.setFilterToLs();
+  }
+
+  setGarland(val: string | undefined) {
+    if (typeof val === 'string') {
+      this.filter.garland = val;
+      EventEmitter.emit('change:garland');
+    }
+
+    // this.setFilterToLs();
+  }
+
+  unsetGarland() {
+    this.filter.garland = '';
+    EventEmitter.emit('change:garland');
     // this.setFilterToLs();
   }
 

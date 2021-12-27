@@ -3,14 +3,10 @@ import EventEmitter from '@/common/event-emitter';
 import { DEFAULT_TRANSFORMY } from '@/common/game-constants';
 import Tag from '@/common/tag';
 import Tree from '@/models/tree';
-import { Tags } from '@/types/enums';
+import { Garlands, GarlandsReversed, Tags } from '@/types/enums';
 import cls from './garland.module.scss';
 
 export default class Garland extends Component {
-  private localRoot = Tag.create(Tags.div);
-
-  private img = <HTMLImageElement>Tag.create(Tags.img, cls.img);
-
   private config = [
     { count: 3 },
     { count: 7 },
@@ -21,6 +17,43 @@ export default class Garland extends Component {
 
   constructor(root: HTMLElement) {
     super(root);
+
+    EventEmitter.subscribe('change:garland', () => {
+      this.updateLights();
+    });
+  }
+
+  updateLights() {
+    // TODO: how to update only color
+    this.root.innerHTML = '';
+    this.register();
+  }
+
+  static figureGarland(index: number) {
+    let classes = cls.light;
+
+    if (Tree.filter.filter.garland === Garlands.multi) {
+      if (index === 0) {
+        classes += ` ${cls.yellow}`;
+      }
+
+      if (index === 1) {
+        classes += ` ${cls.aqua}`;
+      }
+
+      if (index === 2) {
+        classes += ` ${cls.pink}`;
+      }
+
+      if (index === 3) {
+        classes += ` ${cls.green}`;
+      }
+    } else {
+      const main = GarlandsReversed[Tree.filter.filter.garland as keyof typeof GarlandsReversed];
+      classes += ` ${cls[main]}`;
+    }
+
+    return classes;
   }
 
   register() {
@@ -28,9 +61,18 @@ export default class Garland extends Component {
     Object.values(this.config).forEach((el) => {
       const line = Tag.create(Tags.div, cls.gLine);
 
+      const temp = [];
       const lights = new Array(el.count)
         .fill(true, 0)
-        .map(() => Tag.create(Tags.div, cls.light));
+        .map(() => {
+          if (temp.length === 3) {
+            temp.length = 0;
+          } else {
+            temp.push(1);
+          }
+
+          return Tag.create(Tags.div, `${Garland.figureGarland(temp.length)}`);
+        });
 
       const middle = Math.floor(lights.length / 2);
 
