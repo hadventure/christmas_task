@@ -29,19 +29,17 @@ export default class TreeView extends Component {
 
     this.root.classList.add(cls.localRoot);
 
-    const m = <HTMLMapElement>Tag.create('map');
-    m.name = 'image-map';
-
-    const area = <HTMLAreaElement>Tag.create('area');
-    area.coords = '31,609,12,537,45,497,18,437,104,422,105,388,71,363,108,319,127,253,99,211,141,213,176,165,152,130,195,119,200,73,223,40,247,0,273,32,315,76,279,121,309,116,314,157,346,130,361,144,343,177,352,200,364,215,397,216,402,241,395,273,394,302,375,322,387,345,428,348,426,369,377,403,399,404,408,418,415,433,449,442,459,463,427,484,435,511,439,527,487,529,493,553,489,565,463,580,467,601,459,633,448,648,444,669,406,673,379,695,327,701,255,697,206,700,137,689,107,684';
-    area.shape = 'poly';
 
     const treeNum = Tree.filter.filter.tree || DEFAULT_TREE;
     this.img.src = `./src/assets/tree/${treeNum}.png`;
     this.img.useMap = '#image-map';
 
-    m.append(area);
+    const svg = Tag.create('div', cls.svgWrap)
+    svg.innerHTML = `<svg viewBox="0 0 560 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="54,587,16,547,95,548,106,517,94,492,145,458,58,479,43,447,120,433,90,350,151,370,167,332,194,313,131,330,181,296,143,270,181,260,132,229,183,219,196,188,194,156,207,149,217,110,215,84,242,55,251,32,267,68,274,108,297,136,306,161,342,149,322,197,339,196,338,225,384,224,346,280,393,290,374,343,398,347,416,366,335,419,388,414,396,434,419,442,444,442,436,463,413,479,408,500,420,513,427,523,444,535,498,543,480,565,450,584,449,614,442,644,429,672,367,678,322,692,252,680,216,687,129,655,87,628" class="image-mapper-shape" data-area-index="0" style="fill: transparent; stroke: rgb(51, 51, 51); stroke-width: 2; opacity: 0.6; cursor: pointer;"></polygon>
+    </svg>
+    `
 
-    this.root.append(this.img, m, garland);
+    this.root.append(this.img, svg, garland);
   }
 }

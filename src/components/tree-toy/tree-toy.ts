@@ -29,7 +29,7 @@ export default class TreeToy extends Component {
 
     toy.append(imgWrap, this.counter);
 
-    let target: HTMLMapElement | null = null;
+    let target: SVGPolygonElement | null = null;
     const onMouseDown = (event: Event) => {
       const el = <HTMLImageElement>event.currentTarget;
 
@@ -76,7 +76,7 @@ export default class TreeToy extends Component {
 
         if (!elemBelow) return;
 
-        const droppableBelow = elemBelow.closest('map');
+        const droppableBelow = elemBelow.closest('polygon');
 
         if (target !== droppableBelow) {
           if (target) {

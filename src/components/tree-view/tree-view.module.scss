@@ -1,11 +1,4 @@
-.local-root {
-  // background-image: url(../../assets/bg/1.jpg);
-  // background-repeat: no-repeat;
-  // background-size: contain;
-}
-
 .img {
-  // place-self: end;
   max-height: calc(100vh - 8rem);
   max-width: 100%;
 }
@@ -17,4 +10,11 @@
   top: 0;
   z-index: 1;
   pointer-events: none;
+}
+
+.svg-wrap {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
 }
