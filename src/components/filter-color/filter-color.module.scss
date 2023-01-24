@@ -1,0 +1,46 @@
+.wrap {
+  margin-bottom: 2rem;
+}
+
+.filter-name {
+  line-height: 4.6rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.filter-color {
+  height: 2.4rem;
+  width: 2.4rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  &.active {
+    transform: scale(0.8);
+  }
+}
+
+.colors-wrap {
+  display: flex;
+  column-gap: 1rem;
+}
+
+.white {
+  background-color: #fff;
+  border: 1px solid #eee;
+}
+
+.yellow {
+  background-color: #FDD700;
+}
+
+.red {
+  background-color: #FD0000;
+}
+
+.blue {
+  background-color: #2299EB;
+}
+
+.green {
+  background-color: #08AA05;
+}

@@ -1,0 +1,45 @@
+.tree-layout {
+  // position: relative;
+  display: grid;
+  grid-template-columns: calc(100vw - 70vw) auto 20rem;
+  height: calc(100vh - 6rem);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: bottom;
+  transition: background-image 0.8s;
+
+}
+
+.aside-tree {
+  background-color: #002766;
+  color: #eee;
+  background-color: #002766a1;
+}
+
+.head {
+  border-bottom: 1px solid #eee;
+}
+
+.tree {
+  position: relative;
+  align-self: end;
+  justify-self: center;
+  // border: 1px solid #eee;
+}
+
+.aside-toys {
+  // position: absolute;
+  right: 0;
+}
+
+.snowflake-wrap {
+  left: 55%;
+  transform: translateX(-45%);
+
+  position: absolute;
+  height: 80vh;
+  width: 50vw;
+  // margin: 0 calc((100vw - 40vw) / 2);
+  pointer-events: none;
+  z-index: 5;
+}

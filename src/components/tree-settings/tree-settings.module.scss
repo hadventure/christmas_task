@@ -1,0 +1,26 @@
+.settingsWrap {
+  display: flex;
+  column-gap: 4rem;
+  margin-bottom: 2rem;
+}
+
+.icon {
+  width: 4rem;
+  height: 4rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  &.active {
+    transform: scale(0.8);
+  }
+}
+
+.player {
+  background-image: url(../../assets/svg/audio.svg);
+
+}
+
+.snow {
+  background-image: url(../../assets/svg/snowflake.svg);
+}

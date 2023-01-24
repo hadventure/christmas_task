@@ -1,0 +1,41 @@
+.toys-head {
+  font-size: 2rem;
+  line-height: 4.6rem;
+  text-transform: uppercase;
+}
+
+.toy-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 820px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.reset {
+  margin-bottom: 2rem;
+  // width: 100%;
+  background-color: #fff;
+  outline: none;
+  border: 1px dashed #002766;
+  border-radius: 5px;
+  font-family: 'MountainsOfChristmas', sans-serif;
+  color: #002766;
+  font-size: 1.8rem;
+  padding: 4px 8px;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.reset-m-l {
+  margin-left: 1rem;
+}

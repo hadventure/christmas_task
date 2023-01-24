@@ -1,0 +1,17 @@
+.modal {
+  width: 40%;
+  height: auto;
+  padding: 2rem;
+  transition: all 600ms ease-in-out;
+  bottom: 100%;
+  position: fixed;
+  left: 50%;
+  text-align: left;
+  transform: translate(-50%);
+  background-color: #FDD700;
+  border-radius: 5px;
+}
+
+.modal-open {
+  bottom: 80%;
+}

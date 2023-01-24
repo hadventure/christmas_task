@@ -1,0 +1,70 @@
+.bg-root {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 820px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.bg {
+  background-size: cover;
+  height: 5rem;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  background-position: center;
+  cursor: pointer;
+
+  &.active {
+    transform: scale(0.6);
+  }
+
+  @media (max-width: 1000px) {
+    height: 5rem;
+  }
+}
+
+.active {
+  transform: scale(0.8);
+}
+
+.bg:nth-child(1) {
+  background-image: url(../../assets/bg/1.jpg);
+}
+
+.bg:nth-child(2) {
+  background-image: url(../../assets/bg/2.jpg);
+}
+
+.bg:nth-child(3) {
+  background-image: url(../../assets/bg/3.jpg);
+}
+
+.bg:nth-child(4) {
+  background-image: url(../../assets/bg/4.jpg);
+}
+
+.bg:nth-child(5) {
+  background-image: url(../../assets/bg/5.jpg);
+}
+
+.bg:nth-child(6) {
+  background-image: url(../../assets/bg/6.jpg);
+}
+
+.bg:nth-child(7) {
+  background-image: url(../../assets/bg/7.jpg);
+}
+
+.bg:nth-child(8) {
+  background-image: url(../../assets/bg/10.jpg);
+}
+
+.bg {
+  width: 100%;
+}

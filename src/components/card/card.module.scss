@@ -1,0 +1,64 @@
+.toy-item {
+  backdrop-filter: blur(4px);
+  border-radius: 1rem;
+  padding: 1.8rem;
+  border: 1px solid #eee;
+  background-color: #ecf0f5;
+}
+
+.attr {
+  display: flex;
+  justify-content: center;
+  line-height: 2.4rem;
+  font-size: 1.8rem;
+}
+
+.toy-image-wrap {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.toy-img {
+  height: 64px;
+}
+
+.toy-name {
+  font-size: 2.2rem;
+  margin-top: 2rem;
+  grid-area: c;
+}
+
+.toy-prop {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+            "a b"
+            "c c"
+}
+
+.fav {
+  cursor: pointer;
+  background-image: url(../../assets/svg/heart.svg);
+  background-size: 100%;
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.favourite {
+  cursor: pointer;
+  background-image: url(../../assets/svg/heart-red.svg);
+  background-size: 100%;
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+}
+
+.fav-to-grandma {
+  font-weight: bold;
+}

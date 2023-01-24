@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'MountainsOfChristmas';
+  src: url('./assets/fonts/mountains-of-christmas-cyrillic.woff') format('woff'), /* Super Modern Browsers */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: 'MountainsOfChristmas', sans-serif;
+  font-size: 1.6rem;
+  color: #002766;
+  // overflow-y: overlay;
+}
+
+.container {
+  height: 100vh;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 1720px;
+}
+
+.col {
+  padding: 0 2rem;
+}

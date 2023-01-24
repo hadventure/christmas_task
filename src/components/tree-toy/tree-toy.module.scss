@@ -1,0 +1,40 @@
+.toy-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0.8rem;
+  padding-top: 2rem;
+}
+
+.toy-img {
+  width: 4.2rem;
+  height: 4.2rem;
+  cursor: move;
+}
+
+.above {
+  // cursor: copy;
+  transform: scale(0.8);
+}
+
+.toy {
+  background-color: #ecf0f5;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+}
+
+.toy-counter {
+  align-self: center;
+  font-size: 2.2rem;
+  // flex-basis: 100%;
+  flex-basis: calc(100% - 4.2rem);
+  border-left: 1px dashed #fff;
+  text-align: center;
+}
+
+.img-wrap {
+  flex-basis: 4.2rem;
+  height: 4.2rem;
+}

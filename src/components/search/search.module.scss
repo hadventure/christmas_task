@@ -1,0 +1,34 @@
+.search-group {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  // TODO: 
+  margin-bottom: 2rem;
+}
+
+.icon {
+  background-image: url(../../assets/svg/search.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+}
+
+.search {
+  flex-basis: 100%;
+  font-family: 'MountainsOfChristmas', sans-serif;
+  border-radius: 5px;
+  outline: none;
+  padding: 0 8px;
+  border: none;
+  font-size: 1.6rem;
+}
+
+.filter-name {
+  line-height: 4.6rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
