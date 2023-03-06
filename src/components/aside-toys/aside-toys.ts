@@ -102,7 +102,7 @@ class AsideToys extends Component {
 
     const handleDragStart = (e: Event) => {
       dragged = e.target as HTMLElement;
-      draggedCopy = dragged.cloneNode(true);
+      draggedCopy = dragged.cloneNode(true) as HTMLImageElement;
       EventEmitter.emit(`clone${dragged.dataset.num}`);
     };
 

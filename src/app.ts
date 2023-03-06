@@ -5,19 +5,15 @@ import controller from './common/controller';
 class App {
   static root = <HTMLElement>document.querySelector('#root');
 
-  private _loading = true;
+  private router = new Router(App.root);
+
+  constructor() {
+    this.router = new Router(App.root);
+  }
 
   async initialize() {
-    this.register();
+    this.router.listen();
     Modal.register(App.root);
-  }
-
-  register() {
-    new Router(App.root, controller);
-  }
-
-  public set loading(v: boolean) {
-    this._loading = v;
   }
 }
 

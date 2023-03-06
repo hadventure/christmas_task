@@ -1,6 +1,6 @@
 .tree-layout {
   display: grid;
-  grid-template-columns: calc(100vw - 70vw) auto 20rem;
+  grid-template-columns: auto auto 20rem;
   height: calc(100vh - 6rem);
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,7 +19,7 @@
 
 .tree {
   position: relative;
-  align-self: end;
+  align-self: center;
   justify-self: center;
 }
 

@@ -78,7 +78,6 @@ class TreeLayout extends Component {
 
     const asideToys = new AsideToys(wrapAsideToys);
     asideToys.register();
-
     const tree = new TreeView(wrapTree);
     tree.register();
 

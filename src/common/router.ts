@@ -1,26 +1,24 @@
 import { ImagesStore } from '@/models/images-store';
+import controller, { Controller } from './controller';
 import EventEmitter from './event-emitter';
 
 class Router {
   static root: HTMLElement;
 
-  static controller: any;
+  static controller: Controller;
 
-  constructor(root: HTMLElement, controller: any) {
+  constructor(root: HTMLElement) {
     Router.root = root;
     Router.controller = controller;
+  }
 
+  listen() {
     document.addEventListener('DOMContentLoaded', async () => {
-      console.log('DOMContentLoaded');
       const imagesStore = new ImagesStore();
       await imagesStore.loadImages();
 
       Router.initView();
     });
-
-    window.onpopstate = function (event) {
-      alert(`location: ${document.location}, state: ${JSON.stringify(event.state)}`);
-    };
   }
 
   static async initView() {
@@ -31,8 +29,6 @@ class Router {
     }
 
     const View = this.controller[window.location.hash];
-
-    console.log(View);
     const view = new View(this.root);
 
     view.register();
