@@ -1,6 +1,7 @@
 import Component from '@/common/component';
 import { favQuantity } from '@/common/game-constants';
 import Tag from '@/common/tag';
+import { ImagesStore } from '@/models/images-store';
 import Toy, { TToy } from '@/models/toy';
 import { Tags } from '@/types/enums';
 import Modal from '../modal/modal';
@@ -21,7 +22,6 @@ class Card extends Component {
         <div class=${cls.toyProp}>
           <div>
             <div class=${cls.toyImageWrap}>
-            <img src="./src/assets/toys/${this.item.num}.png" alt="" class=${cls.toyImg}>
             </div>
             <div class=${cls.attr}>
               <div class="${cls.fav} ${this.isFavouriteToTree()}">
@@ -66,6 +66,12 @@ class Card extends Component {
     toyTpl.innerHTML = toy;
 
     const fav = <HTMLElement>toyTpl.content.querySelector(`.${cls.fav}`);
+
+    const toyImageWrap = <HTMLElement>toyTpl.content.querySelector(`.${cls.toyImageWrap}`);
+    
+    const indexImage = Number(this.item.num) - 1;
+    ImagesStore.images.toys[indexImage].classList.add(cls.toyImg);
+    toyImageWrap.appendChild(ImagesStore.images.toys[indexImage]);
 
     fav.addEventListener('click', (e) => this.toggleFav(e));
 

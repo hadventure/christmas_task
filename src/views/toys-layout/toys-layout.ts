@@ -66,7 +66,6 @@ class Main extends Component {
     const sorter = new Sorter(wrapSorter);
     sorter.register();
 
-    // TODO: set Dynamicly
     const rangeYear = new Range(wrapRangeYear, '1940', '2020', 'yearRange', 'Год');
     rangeYear.register();
 

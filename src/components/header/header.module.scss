@@ -1,6 +1,5 @@
 .header {
   padding: 1rem 2rem;
-  // border-bottom: 1px solid #eee;
   display: flex;
   justify-content: space-between;
 }
@@ -8,16 +7,13 @@
 .nav-item {
   height: min-content;
   align-self: center;
-
   background-color: #fff;
   color: #002766;
   border: 1px dashed #002766;
   padding: 4px 8px;
   border-radius: 5px;
-
   font-family: "MountainsOfChristmas", sans-serif;
   font-size: 1.8rem;
-  // TODO: 
   width: 86px;
 
   cursor: pointer;
@@ -59,10 +55,6 @@
   width: 24px;
   height: 24px;
   background-repeat: no-repeat;
-}
-
-.temp-wrap {
-  // width: 340px;
 }
 
 .nav {

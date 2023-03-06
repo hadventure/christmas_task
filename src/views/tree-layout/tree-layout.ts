@@ -29,7 +29,7 @@ class TreeLayout extends Component {
     EventEmitter.subscribe('reset:tree-filter', () => {
       this.setBg(DEFAULT_BG);
     });
-    // TODO: refactor
+
     Tree.filter.filter = LS.ls.tree;
   }
 
@@ -60,8 +60,6 @@ class TreeLayout extends Component {
       wrapTree,
       wrapAsideToys,
     );
-
-    // TODO: remove dep from order
 
     const treeReset = new TreeReset(wrapAsideTree);
     treeReset.register();

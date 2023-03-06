@@ -6,8 +6,6 @@ class El {
       element.className = classes;
     }
 
-    // TODO: ?? should be refactored
-    // 'T' could be instantiated with an arbitrary type which could be unrelated to 'HTMLElement'
     return element;
   }
 }

@@ -5,14 +5,19 @@ import controller from './common/controller';
 class App {
   static root = <HTMLElement>document.querySelector('#root');
 
-  static initialize() {
+  private _loading = true;
+
+  async initialize() {
     this.register();
-    Modal.register(this.root);
+    Modal.register(App.root);
   }
 
-  static register() {
-    const router = new Router(this.root, controller);
-    // router.register();
+  register() {
+    new Router(App.root, controller);
+  }
+
+  public set loading(v: boolean) {
+    this._loading = v;
   }
 }
 
