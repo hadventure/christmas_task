@@ -53,7 +53,7 @@ class TreeLayout extends Component {
     const wrapTree = Tag.create(Tags.div, `${cls.tree} col`);
 
     const snowflakeWrap = Tag.create(Tags.div, `${cls.snowflakeWrap}`);
-    this.container.append(snowflakeWrap)
+    this.container.append(snowflakeWrap);
 
     this.container.append(
       wrapAsideTree,
