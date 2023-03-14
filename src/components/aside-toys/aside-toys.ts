@@ -64,7 +64,7 @@ class AsideToys extends Component {
     const handleDrop = (e: Event) => {
       e.preventDefault();
       const tree1 = document.querySelector(`.${cls1.tree}`) as HTMLElement;
-      console.log('test');
+
       const target = e.target as HTMLElement;
       if (target.closest('polygon')) {
         const tree = target.closest(`.${cls1.tree}`) as HTMLElement;
@@ -88,8 +88,6 @@ class AsideToys extends Component {
 
         tree.appendChild(dragged);
       } else if (dragged.classList.contains('ontree')) {
-        console.log(target.closest('img'));
-
         if (target.closest('img') !== null) {
           tree1.appendChild(draggedCopy);
           dragged.remove();

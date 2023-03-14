@@ -3,7 +3,6 @@ import Tag from '@/common/tag';
 import controller, { Controller } from './controller';
 import EventEmitter from './event-emitter';
 import { Tags } from '@/types/enums';
-import data from '../assets/svg/snow.svg';
 
 class Router {
   static root: HTMLElement;
@@ -17,7 +16,6 @@ class Router {
 
   listen() {
     document.addEventListener('DOMContentLoaded', async () => {
-      console.log(data)
       const tag = Tag.create(Tags.div, 'progress');
 
       const progress = Tag.create(Tags.div, 'progress-image');
