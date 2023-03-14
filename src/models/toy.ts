@@ -52,7 +52,7 @@ class Toy {
 
     const mergeSizes = Object.keys(sizes)
       .filter((el) => sizes[el])
-      .map((el) => String(Sizes[el as keyof typeof Sizes])); // ???
+      .map((el) => String(Sizes[el as keyof typeof Sizes]));
 
     this.filterd = this.store
       .filter((el) => {
@@ -128,7 +128,6 @@ class Toy {
     EventEmitter.emit('reset:filter');
   }
 
-  // TODO: it needs to be refactored
   static resetStorage() {
     LS.ls.fav = [];
     this.filter = new Filter();

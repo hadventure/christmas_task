@@ -21,9 +21,10 @@ export default class FilterTree extends Component {
     const trees = ['1', '2', '4', '6'];
 
     trees.forEach((num, i) => {
-      const el = <HTMLImageElement>Tag.create(Tags.img, `${cls.tree}`);
-      el.src = `./src/assets/tree/${num}.png`;
+      const el = new Image();
+      el.src = `./src/assets/tree/${num || 1}.png`;
 
+      el.classList.add(`${cls.tree}`);
       el.dataset.num = num;
 
       if (Tree.filter.filter.tree) {

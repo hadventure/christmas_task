@@ -21,7 +21,6 @@ class Card extends Component {
         <div class=${cls.toyProp}>
           <div>
             <div class=${cls.toyImageWrap}>
-            <img src="./src/assets/toys/${this.item.num}.png" alt="" class=${cls.toyImg}>
             </div>
             <div class=${cls.attr}>
               <div class="${cls.fav} ${this.isFavouriteToTree()}">
@@ -66,6 +65,14 @@ class Card extends Component {
     toyTpl.innerHTML = toy;
 
     const fav = <HTMLElement>toyTpl.content.querySelector(`.${cls.fav}`);
+
+    const toyImageWrap = <HTMLElement>toyTpl.content.querySelector(`.${cls.toyImageWrap}`);
+
+    const img = new Image();
+    img.src = `./src/assets/toys/${this.item.num}.png`;
+    img.classList.add(cls.toyImg);
+
+    toyImageWrap.appendChild(img);
 
     fav.addEventListener('click', (e) => this.toggleFav(e));
 

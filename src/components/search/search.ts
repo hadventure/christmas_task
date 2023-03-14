@@ -41,12 +41,10 @@ class FilterSearch extends Component {
 
     this.localroot.append(this.input);
 
-    // this.input.focus();
     this.input.addEventListener('input', (e) => FilterSearch.onInput(e));
   }
 
   static onInput(e: Event) {
-    // TODO: once
     setTimeout(() => {
       const search = (<HTMLInputElement>e.target).value;
       Toy.filter.setSearch(search);

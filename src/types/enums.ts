@@ -41,7 +41,6 @@ export enum Garlands {
   multi = 'linear-gradient(to right, #ffeb3b, #00ffff, #f70094, #00f7a5)',
 }
 
-// TODO: ?
 export enum GarlandsReversed {
   '#ffeb3b' = 'yellow',
   '#00ffff' = 'aqua',
