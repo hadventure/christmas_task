@@ -6,13 +6,13 @@
 }
 
 .toy-img {
+  position: relative;
   width: 4.2rem;
   height: 4.2rem;
   cursor: move;
 }
 
 .above {
-  // cursor: copy;
   transform: scale(0.8);
 }
 
@@ -28,13 +28,17 @@
 .toy-counter {
   align-self: center;
   font-size: 2.2rem;
-  // flex-basis: 100%;
   flex-basis: calc(100% - 4.2rem);
   border-left: 1px dashed #fff;
   text-align: center;
 }
 
 .img-wrap {
+  // position: relative;
   flex-basis: 4.2rem;
   height: 4.2rem;
+}
+
+.clonable {
+  display: none;
 }

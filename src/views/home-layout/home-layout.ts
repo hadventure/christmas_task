@@ -14,7 +14,6 @@ export default class HomeLayout extends Component {
 
     btn.onclick = () => {
       window.history.replaceState({ path: '#/toys' }, 'title', '#/toys');
-      // window.history.go();
       Router.initView();
     };
 

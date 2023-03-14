@@ -55,8 +55,6 @@ class Header extends Component {
       chunk.textContent = el.name;
       chunk.dataset.path = el.path;
 
-      // console.log()
-
       if (window.location.hash.includes(el.path) && el.path !== '#') {
         chunk.classList.add(cls.active);
       }
@@ -69,7 +67,6 @@ class Header extends Component {
 
       if (el.classList.contains(cls.navItem)) {
         window.history.pushState({ path: el.dataset.path }, '', el.dataset.path);
-        // window.history.go();
         Router.initView();
       }
     };

@@ -3,7 +3,6 @@ import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
 import Toy from '@/models/toy';
 import { Tags } from '@/types/enums';
-// import { TFilter, TFilterNest, TFilterRange } from '@/types/types';
 import cls from './range.module.scss';
 
 class Range extends Component {
@@ -103,20 +102,6 @@ class Range extends Component {
       }
     }
 
-    // if (Toy.filter.filter[this.type].years.length) {
-    //   const [valfrom, valto] = Toy.filter.filter[this.type].years;
-
-    //   this.fromEl.value = valfrom;
-    //   this.toEl.value = valto;
-
-    //   min = `<div class=${cls.from}>${valfrom}</div>`;
-    //   max = `<div class=${cls.to}>${valto}</div>`;
-
-    //   const [f, t] = Toy.filter.filter[this.type].percent;
-
-    //   this.toEl.style.background = `linear-gradient(to right, #eee ${f}%, #FDD700 ${f}% ${t}%, #eee ${t}% 100%`;
-    // }
-
     this.rootValFrom.innerHTML = min;
     this.rootValTo.innerHTML = max;
   }
@@ -161,11 +146,9 @@ class Range extends Component {
         const b = ((+this.fromEl.max - +this.to) * 100) / dif;
         const end = ((+this.fromEl.max - +this.from) * 100) / dif;
 
-        // TODO: calculations are messed up && delagation
         const f = 100 - end;
         const t = 100 - b;
         this.toEl.style.background = `linear-gradient(to right, #eee ${f}%, #FDD700 ${f}% ${t}%, #eee ${t}% 100%`;
-        // console.log(`from ${100 - end} to ${100 - b}`);
 
         Toy.filter.setPercent(this.type, `${100 - end}`, `${100 - b}`);
         Toy.filter.setValues(this.type, this.fromEl.value, this.toEl.value);

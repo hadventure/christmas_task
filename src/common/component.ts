@@ -12,6 +12,10 @@ class Component implements IComponent {
   register() {
     this.register();
   }
+
+  clear() {
+    this.root.innerHTML = '';
+  }
 }
 
 export default Component;

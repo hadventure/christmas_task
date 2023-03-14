@@ -1,6 +1,3 @@
-// TODO: add remove listner
-// https://stackoverflow.com/questions/12734660/a-typed-array-of-functions
-
 type TEvents = {
   [index: string]: { (): void; } []
 };

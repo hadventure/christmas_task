@@ -23,13 +23,11 @@ export default class Garland extends Component {
     });
 
     EventEmitter.subscribe('reset:tree-filter', () => {
-      // TODO: not update at all (hide?)
       this.updateLights();
     });
   }
 
   updateLights() {
-    // TODO: how to update only color
     this.root.innerHTML = '';
     this.register();
   }
