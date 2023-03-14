@@ -5,7 +5,6 @@ import { Tags } from '@/types/enums';
 import app from '@/app.module.scss';
 import cls from './filter-bg.module.scss';
 import EventEmitter from '@/common/event-emitter';
-import { ImagesStore } from '@/models/images-store';
 
 export default class FilterBg extends Component {
   private bgRoot = Tag.create(Tags.div, cls.bgRoot);
@@ -23,8 +22,8 @@ export default class FilterBg extends Component {
     const bg = ['1', '2', '3', '5', '6', '7', '10'];
 
     bg.forEach((num, i) => {
-      const img = ImagesStore.images.backgrounds[Number(num) - 1]
-        .cloneNode(true) as HTMLImageElement;
+      const img = new Image();
+      img.src = `./src/assets/bg/${num}.jpg`;
       img.classList.add(cls.bg);
       img.dataset.num = num;
 
@@ -36,10 +35,10 @@ export default class FilterBg extends Component {
 
       if (Tree.filter.filter.bg) {
         if (Tree.filter.filter.bg === num) {
-          img.classList.add(cls.active);
+          div.classList.add(cls.active);
         }
       } else if (i === 0) {
-        img.classList.add(cls.active);
+        div.classList.add(cls.active);
       }
 
       this.bgRoot.append(div);

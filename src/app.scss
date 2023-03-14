@@ -34,3 +34,28 @@ body {
   padding: 0 2rem;
 }
 
+.progress {
+  position: absolute;
+  top: calc(50%  - 59px);
+  left: calc(50%  - 77px);
+  text-align: center;
+  font-size: xx-large;
+}
+
+.progress-image {
+  svg {
+    animation-duration: 3s;
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

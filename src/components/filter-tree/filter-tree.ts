@@ -1,7 +1,6 @@
 import Component from '@/common/component';
 import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
-import { ImagesStore } from '@/models/images-store';
 import Tree from '@/models/tree';
 import { Tags } from '@/types/enums';
 import cls from './filter-tree.module.scss';
@@ -22,7 +21,9 @@ export default class FilterTree extends Component {
     const trees = ['1', '2', '4', '6'];
 
     trees.forEach((num, i) => {
-      const el = ImagesStore.images.trees[Number(num) - 1].cloneNode(true) as HTMLImageElement;
+      const el = new Image();
+      el.src = `./src/assets/tree/${num || 1}.png`;
+
       el.classList.add(`${cls.tree}`);
       el.dataset.num = num;
 

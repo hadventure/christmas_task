@@ -1,23 +1,26 @@
-interface IImagesStore {
-  toys: HTMLImageElement[],
-  backgrounds: HTMLImageElement[],
-  trees: HTMLImageElement[],
-}
-
-export class ImagesStore {
-  static images: IImagesStore = {
-    toys: [],
-    backgrounds: [],
-    trees: [],
-  };
-
-  public async loadImages() {
-    await this.loadToysImages();
-    await this.loadBackgroundImages();
-    await this.loadTreesImages();
+export default class ImagesStore {
+  public static async loadImages() {
+    await ImagesStore.loadHomeBackground();
+    await ImagesStore.loadToysImages();
+    await ImagesStore.loadBackgroundImages();
+    await ImagesStore.loadTreesImages();
   }
 
-  public async loadToysImages() {
+  public static async loadHomeBackground() {
+    const promises = [];
+
+    const promise = new Promise((resolve, reject) => {
+      const image = new Image();
+      image.src = './src/assets/bg/home.png';
+      image.onload = () => resolve(image);
+      image.onerror = reject;
+    });
+    promises.push(promise);
+
+    await Promise.all(promises);
+  }
+
+  public static async loadToysImages() {
     const promises = [];
 
     for (let i = 1; i <= 60; i++) {
@@ -30,12 +33,10 @@ export class ImagesStore {
       promises.push(promise);
     }
 
-    const data = await Promise.all(promises);
-    console.log('2');
-    ImagesStore.images.toys = data as HTMLImageElement[];
+    await Promise.all(promises);
   }
 
-  public async loadBackgroundImages() {
+  public static async loadBackgroundImages() {
     const promises = [];
 
     for (let i = 1; i <= 10; i++) {
@@ -48,11 +49,10 @@ export class ImagesStore {
       promises.push(promise);
     }
 
-    const data = await Promise.all(promises);
-    ImagesStore.images.backgrounds = data as HTMLImageElement[];
+    await Promise.all(promises);
   }
 
-  public async loadTreesImages() {
+  public static async loadTreesImages() {
     const promises = [];
 
     for (let i = 1; i <= 6; i++) {
@@ -65,7 +65,6 @@ export class ImagesStore {
       promises.push(promise);
     }
 
-    const data = await Promise.all(promises);
-    ImagesStore.images.trees = data as HTMLImageElement[];
+    await Promise.all(promises);
   }
 }
