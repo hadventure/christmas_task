@@ -5,14 +5,15 @@ import controller from './common/controller';
 class App {
   static root = <HTMLElement>document.querySelector('#root');
 
-  static initialize() {
-    this.register();
-    Modal.register(this.root);
+  private router = new Router(App.root);
+
+  constructor() {
+    this.router = new Router(App.root);
   }
 
-  static register() {
-    const router = new Router(this.root, controller);
-    // router.register();
+  async initialize() {
+    this.router.listen();
+    Modal.register(App.root);
   }
 }
 

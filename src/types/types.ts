@@ -23,7 +23,6 @@ export type TFilter = {
   sizes: TFilterNest,
   yearRange: TFilterRange,
   qtyRange: TFilterRange,
-  // [x: string]: string | TFilterRange | TFilterRange | TFilterNest | boolean | string[]
 };
 
 export type TSorter = {

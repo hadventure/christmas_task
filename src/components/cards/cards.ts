@@ -39,7 +39,6 @@ class Cards extends Component {
     });
 
     Toy.filter.filter.favourite = LS.ls.fav;
-    // TODO !!!
     Toy.filter.filter = LS.ls.filter;
     Toy.filter.filter.favourite = LS.ls.fav;
     Toy.filter.sorter = LS.ls.sorter;

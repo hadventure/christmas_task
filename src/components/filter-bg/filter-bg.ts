@@ -19,21 +19,29 @@ export default class FilterBg extends Component {
   }
 
   renderTrees() {
-    const bg = ['1', '2', '3', '4', '5', '6', '7', '10'];
+    const bg = ['1', '2', '3', '5', '6', '7', '10'];
 
     bg.forEach((num, i) => {
-      const w = <HTMLDivElement>Tag.create(Tags.div, `${cls.bg}`);
-      w.dataset.num = num;
+      const img = new Image();
+      img.src = `./src/assets/bg/${num}.jpg`;
+      img.classList.add(cls.bg);
+      img.dataset.num = num;
+
+      const div = Tag.create(Tags.div);
+      div.style.backgroundImage = `url("./src/assets/bg/${num}.jpg")`;
+
+      div.classList.add(cls.bg);
+      div.dataset.num = num;
 
       if (Tree.filter.filter.bg) {
         if (Tree.filter.filter.bg === num) {
-          w.classList.add(cls.active);
+          div.classList.add(cls.active);
         }
       } else if (i === 0) {
-        w.classList.add(cls.active);
+        div.classList.add(cls.active);
       }
 
-      this.bgRoot.append(w);
+      this.bgRoot.append(div);
     });
   }
 

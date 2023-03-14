@@ -18,10 +18,6 @@ class Sorter extends Component {
       this.renderSelect();
       Toy.sortList();
     });
-
-    // EventEmitter.subscribe('reset:filter', () => {
-    //   Toy.sortList();
-    // });
   }
 
   createOption = (title: string, value: string) => {
