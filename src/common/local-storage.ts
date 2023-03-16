@@ -1,4 +1,3 @@
-// https://stackoverflow.com/questions/67700374/use-localstorage-getitem-with-typescript
 import Tree from '@/models/tree';
 import {
   TFavourite, TFilter, TSorter, TTreeFilter,

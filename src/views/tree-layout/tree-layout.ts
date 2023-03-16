@@ -1,6 +1,6 @@
 import Component from '@/common/component';
 import EventEmitter from '@/common/event-emitter';
-import { DEFAULT_BG, DEFAULT_TREE } from '@/common/game-constants';
+import { DEFAULT_BG } from '@/common/game-constants';
 import LS from '@/common/local-storage';
 import Tag from '@/common/tag';
 import AsideToys from '@/components/aside-toys/aside-toys';

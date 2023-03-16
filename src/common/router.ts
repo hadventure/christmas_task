@@ -1,21 +1,36 @@
 import ImagesStore from '@/models/images-store';
 import Tag from '@/common/tag';
-import controller, { Controller } from './controller';
 import EventEmitter from './event-emitter';
 import { Tags } from '@/types/enums';
+import HomeLayout from '@/views/home-layout/home-layout';
+import Main from '@/views/toys-layout/toys-layout';
+import TreeLayout from '@/views/tree-layout/tree-layout';
 
 class Router {
   static root: HTMLElement;
 
-  static controller: Controller;
+  static controller: { [index: string]: typeof HomeLayout | typeof TreeLayout | typeof Main };
 
   constructor(root: HTMLElement) {
     Router.root = root;
-    Router.controller = controller;
+
+    Router.controller = {
+      '': HomeLayout,
+      '#/tree': TreeLayout,
+      '#/toys': Main,
+    };
   }
 
   listen() {
     document.addEventListener('DOMContentLoaded', async () => {
+      window.history.pushState = new Proxy(window.history.pushState, {
+        apply: (target, thisArg, args) => {
+          const proxiedFunction = Reflect.apply(target, thisArg, args);
+          Router.initView();
+          return proxiedFunction;
+        },
+      });
+
       const tag = Tag.create(Tags.div, 'progress');
 
       const progress = Tag.create(Tags.div, 'progress-image');
@@ -40,17 +55,17 @@ class Router {
     });
   }
 
-  static async initView() {
+  static initView() {
     this.root.innerHTML = '';
 
     if (!window.location.hash.includes('tree')) {
       EventEmitter.emit('remove');
     }
 
-    const View = this.controller[window.location.hash];
-    const view = new View(this.root);
+    const View = Router.controller[window.location.hash];
+    const layout = new View(this.root);
 
-    view.register();
+    layout.register();
   }
 }
 

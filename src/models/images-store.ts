@@ -23,7 +23,7 @@ export default class ImagesStore {
   public static async loadToysImages() {
     const promises = [];
 
-    for (let i = 1; i <= 60; i++) {
+    for (let i = 1; i <= 60; i += 1) {
       const promise = new Promise((resolve, reject) => {
         const image = new Image();
         image.src = `./src/assets/toys/${i}.png`;
@@ -39,7 +39,7 @@ export default class ImagesStore {
   public static async loadBackgroundImages() {
     const promises = [];
 
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 10; i += 1) {
       const promise = new Promise((resolve, reject) => {
         const image = new Image();
         image.src = `./src/assets/bg/${i}.jpg`;
@@ -55,7 +55,7 @@ export default class ImagesStore {
   public static async loadTreesImages() {
     const promises = [];
 
-    for (let i = 1; i <= 6; i++) {
+    for (let i = 1; i <= 6; i += 1) {
       const promise = new Promise((resolve, reject) => {
         const image = new Image();
         image.src = `./src/assets/tree/${i}.png`;

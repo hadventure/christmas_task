@@ -39,7 +39,7 @@ class Toy {
   static filterList() {
     const newLocal = this.filter;
     const {
-      colors, sizes, shapes, search, favourite, isFavourite, yearRange, qtyRange,
+      colors, sizes, shapes, search, isFavourite, yearRange, qtyRange,
     } = newLocal.filter;
 
     const mergeColors = Object.keys(colors)

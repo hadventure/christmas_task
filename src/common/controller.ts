@@ -7,9 +7,9 @@ export interface Controller {
 }
 
 const controller = {
-  '': HomeLayout,
-  '#/tree': TreeLayout,
-  '#/toys': Main,
+  // '': HomeLayout,
+  // '#/tree': TreeLayout,
+  // '#/toys': Main,
 };
 
 export default controller;
