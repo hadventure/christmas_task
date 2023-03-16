@@ -1,4 +1,3 @@
-import Tree from '@/models/tree';
 import {
   TFavourite, TFilter, TSorter, TTreeFilter,
 } from '@/types/types';
@@ -68,8 +67,6 @@ class LS {
       if (typeof value === 'string') {
         LS.ls = JSON.parse(value);
       }
-
-      Tree.filter.filter = this.ls.tree;
     }
   }
 
