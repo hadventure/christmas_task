@@ -11,7 +11,6 @@ type TLs = {
 };
 
 class LS {
-  // TODO add some utils type
   static ls: TLs = {
     fav: [],
     sorter: {
