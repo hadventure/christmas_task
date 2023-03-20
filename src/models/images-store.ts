@@ -58,7 +58,7 @@ export default class ImagesStore {
     for (let i = 1; i <= 6; i += 1) {
       const promise = new Promise((resolve, reject) => {
         const image = new Image();
-        image.src = `./src/asssets/tree/${i}.png`;
+        image.src = `./src/assets/tree/${i}.png`;
         image.onload = () => resolve(image);
         image.onerror = () => reject(new Error('sd'));
       });

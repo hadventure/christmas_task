@@ -55,7 +55,9 @@ export default class TreeToy extends Component {
     });
 
     EventEmitter.subscribe(`close${this.item.num}`, () => {
-      this.image.classList.remove(cls.clonable);
+      if (this.image) {
+        this.image.classList.remove(cls.clonable);
+      }
 
       this.count = +this.count - 1;
       this.renderCounter();
