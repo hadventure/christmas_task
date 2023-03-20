@@ -1,5 +1,3 @@
-// https://stackoverflow.com/questions/67700374/use-localstorage-getitem-with-typescript
-import Tree from '@/models/tree';
 import {
   TFavourite, TFilter, TSorter, TTreeFilter,
 } from '@/types/types';
@@ -12,7 +10,6 @@ type TLs = {
 };
 
 class LS {
-  // TODO add some utils type
   static ls: TLs = {
     fav: [],
     sorter: {
@@ -70,8 +67,6 @@ class LS {
       if (typeof value === 'string') {
         LS.ls = JSON.parse(value);
       }
-
-      Tree.filter.filter = this.ls.tree;
     }
   }
 

@@ -42,10 +42,10 @@ export default class TreeToy extends Component {
 
     EventEmitter.subscribe(`clone${this.item.num}`, () => {
       if (this.count > 1) {
-        const src = new Image();
-        src.src = `./src/assets/toys/${this.item.num}.png`;
+        const clone = new Image();
+        clone.src = `./src/assets/toys/${this.item.num}.png`;
 
-        this.image = src;
+        this.image = clone;
         this.image.classList.add(cls.toyImg);
         this.image.draggable = true;
         this.image.dataset.num = this.item.num;
@@ -55,7 +55,9 @@ export default class TreeToy extends Component {
     });
 
     EventEmitter.subscribe(`close${this.item.num}`, () => {
-      this.image.classList.remove(cls.clonable);
+      if (this.image) {
+        this.image.classList.remove(cls.clonable);
+      }
 
       this.count = +this.count - 1;
       this.renderCounter();
@@ -63,15 +65,15 @@ export default class TreeToy extends Component {
 
     EventEmitter.subscribe(`begin${this.item.num}`, () => {
       if (this.count === 0) {
-        const src = new Image();
-        src.src = `./src/assets/toys/${this.item.num}.png`;
+        const clone = new Image();
+        clone.src = `./src/assets/toys/${this.item.num}.png`;
 
-        const image = src;
-        image.classList.add(cls.toyImg);
-        image.draggable = true;
-        image.dataset.num = this.item.num;
-        image.style.zIndex = '10';
-        imgWrap.append(image);
+        const initializedImage = clone;
+        initializedImage.classList.add(cls.toyImg);
+        initializedImage.draggable = true;
+        initializedImage.dataset.num = this.item.num;
+        initializedImage.style.zIndex = '10';
+        imgWrap.append(initializedImage);
       }
 
       this.count = +this.count + 1;

@@ -4,9 +4,6 @@
   text-transform: uppercase;
 }
 
-// https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox
-
-/* The container */
 .container {
   display: block;
   position: relative;
@@ -15,7 +12,6 @@
   margin-bottom: 4rem;
 }
 
-/* Hide the browser's default checkbox */
 .container .input {
   position: absolute;
   opacity: 0;
@@ -24,7 +20,6 @@
   width: 0;
 }
 
-/* Create a custom checkbox */
 .checkmark {
   position: absolute;
   border-radius: 5px;
@@ -35,24 +30,20 @@
   background-color: #fff;
 }
 
-/* When the checkbox is checked, add a blue background */
 .container .input:checked ~ .checkmark {
   background-color: #fff;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
 .container .input:checked ~ .checkmark::after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
 .container .checkmark::after {
   left: 9px;
   top: 5px;
