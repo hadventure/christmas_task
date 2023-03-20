@@ -1,7 +1,6 @@
 import Component from '@/common/component';
 import EventEmitter from '@/common/event-emitter';
 import LS from '@/common/local-storage';
-import Router from '@/common/router';
 import Tag from '@/common/tag';
 import Toy from '@/models/toy';
 import { Tags } from '@/types/enums';
@@ -67,7 +66,6 @@ class Header extends Component {
 
       if (el.classList.contains(cls.navItem)) {
         window.history.pushState({ path: el.dataset.path }, '', el.dataset.path);
-        Router.initView();
       }
     };
   }

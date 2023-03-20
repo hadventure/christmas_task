@@ -11,4 +11,8 @@ export default class Tree {
 
     EventEmitter.emit('reset:tree-filter');
   }
+
+  static setInitialTreeFilter() {
+    Tree.filter.filter = LS.ls.tree;
+  }
 }
