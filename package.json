@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --config ./webpack.config.js --env mode=dev",
     "build": "webpack",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+    "lint": "eslint \"{src}/**/*.ts\" --fix"
   },
   "repository": {
     "type": "git",
