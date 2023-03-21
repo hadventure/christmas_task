@@ -1,6 +1,7 @@
 import Component from '@/common/component';
 import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
+import { lng } from '@/language/lng';
 import Tree from '@/models/tree';
 import { Tags } from '@/types/enums';
 import cls from './filter-tree.module.scss';
@@ -41,7 +42,7 @@ export default class FilterTree extends Component {
 
   register() {
     const name = `
-      <div class=${cls.filterName}>Ёлка</div>
+      <div class=${cls.filterName}>${lng.tree}</div>
     `;
 
     const wrap = Tag.create(Tags.div, cls.wrap);

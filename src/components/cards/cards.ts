@@ -6,6 +6,7 @@ import { Tags } from '@/types/enums';
 import Card from '../card/card';
 import cls from './cards.module.scss';
 import LS from '@/common/local-storage';
+import { lng } from '@/language/lng';
 
 class Cards extends Component {
   static toyList = Tag.create(Tags.div, `${cls.toyList}`);
@@ -48,7 +49,7 @@ class Cards extends Component {
     Cards.toyList.innerHTML = '';
 
     if (Toy.filterd.length === 0) {
-      Cards.toyList.innerHTML = 'Извините, совпадений не обнаружено';
+      Cards.toyList.innerHTML = lng.sorry;
     } else {
       Toy.filterd.forEach((element) => {
         const toy = new Card(Cards.toyList, element);
@@ -59,7 +60,7 @@ class Cards extends Component {
 
   static renderHead() {
     const head = `
-      <div class=${cls.toysHead}>игрушки (${Toy.filterd.length})</div>
+      <div class=${cls.toysHead}>${lng.toys} (${Toy.filterd.length})</div>
     `;
 
     const headTpl = <HTMLTemplateElement>Tag.create(Tags.tpl);
@@ -73,13 +74,13 @@ class Cards extends Component {
     await Toy.getList();
 
     const btn = Tag.create(Tags.btn, cls.reset);
-    btn.textContent = 'Очистить фильтры';
+    btn.textContent = lng.clearFilter;
     btn.addEventListener('click', () => {
       Toy.resetFilter();
     });
 
     const btnClear = Tag.create(Tags.btn, `${cls.reset} ${cls.resetML}`);
-    btnClear.textContent = 'Очистить хранилище';
+    btnClear.textContent = lng.clearStorage;
     btnClear.addEventListener('click', () => {
       Toy.resetStorage();
     });

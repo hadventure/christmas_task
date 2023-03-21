@@ -2,6 +2,7 @@ import Component from '@/common/component';
 import EventEmitter from '@/common/event-emitter';
 import LS from '@/common/local-storage';
 import Tag from '@/common/tag';
+import { lng } from '@/language/lng';
 import Toy from '@/models/toy';
 import { Tags } from '@/types/enums';
 import cls from './header.module.scss';
@@ -44,9 +45,9 @@ class Header extends Component {
     header.append(settings, nav1);
 
     const nav = [
-      { name: 'Главная', path: '#' },
-      { name: 'Игрушки', path: '#/toys' },
-      { name: 'Ёлка', path: '#/tree' },
+      { name: lng.main, path: '#' },
+      { name: lng.toys, path: '#/toys' },
+      { name: lng.tree, path: '#/tree' },
     ];
 
     nav.forEach((el) => {

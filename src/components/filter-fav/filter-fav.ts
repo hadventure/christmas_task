@@ -1,6 +1,7 @@
 import Component from '@/common/component';
 import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
+import { lng } from '@/language/lng';
 import Toy from '@/models/toy';
 import { Tags } from '@/types/enums';
 import cls from './filter-fav.module.scss';
@@ -18,7 +19,7 @@ class FilterFav extends Component {
 
   register() {
     const name = `
-      <div class=${cls.filterName}>любимые</div>
+      <div class=${cls.filterName}>${lng.fav}</div>
     `;
 
     const wrap = Tag.create(Tags.label, cls.container);
