@@ -108,7 +108,7 @@ class Card extends Component {
       elCls.toggle(cls.favourite);
       Toy.filter.unsetFavourite(this.item.num);
     } else if (Toy.filter.filter.favourite.length === favQuantity) {
-      Modal.show('Извините, все слоты заполнены');
+      Modal.show(lng.full);
     } else {
       elCls.toggle(cls.favourite);
       Toy.filter.setFavourite(this.item.num, this.item.count);

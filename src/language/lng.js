@@ -24,4 +24,5 @@ export const lng = {
 
   yes: 'yes',
   no: 'no',
+  full: 'Sorry, all slots are full',
 };
