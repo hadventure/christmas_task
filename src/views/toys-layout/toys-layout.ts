@@ -11,6 +11,7 @@ import Sorter from '../../components/sorter/sorter';
 import cls from './toys-layout.module.scss';
 import FilterSize from '../../components/filter-size/filter-size';
 import Header from '../../components/header/header';
+import { lng } from '@/language/lng';
 
 class Main extends Component {
   private container = Tag.create(Tags.div, `${cls.toys} content`);
@@ -66,10 +67,10 @@ class Main extends Component {
     const sorter = new Sorter(wrapSorter);
     sorter.register();
 
-    const rangeYear = new Range(wrapRangeYear, '1940', '2020', 'yearRange', 'Год');
+    const rangeYear = new Range(wrapRangeYear, '1940', '2020', 'yearRange', lng.year);
     rangeYear.register();
 
-    const rangeQty = new Range(wrapRangeQty, '1', '15', 'qtyRange', 'Количество');
+    const rangeQty = new Range(wrapRangeQty, '1', '15', 'qtyRange', lng.qty);
     rangeQty.register();
 
     const filterSize = new FilterSize(wrapFilterSize);

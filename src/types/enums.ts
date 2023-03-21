@@ -11,26 +11,26 @@ export enum Tags {
 }
 
 export enum Colors {
-  white = 'белый',
-  yellow = 'желтый',
-  red = 'красный',
-  blue = 'синий',
-  green = 'зелёный',
+  white = 'white',
+  yellow = 'yellow',
+  red = 'red',
+  blue = 'blue',
+  green = 'green',
 }
 
 export enum Shapes {
-  ball = 'шар',
-  bell = 'колокольчик',
-  toy = 'фигурка',
-  pine = 'шишка',
-  snowflake = 'снежинка',
-  star = 'звезда',
+  ball = 'ball',
+  bell = 'bell',
+  toy = 'figurine',
+  pine = 'cone',
+  snowflake = 'snowflake',
+  star = 'star',
 }
 
 export enum Sizes {
-  S = 'малый',
-  M = 'средний',
-  L = 'большой',
+  S = 'small',
+  M = 'medium',
+  L = 'big',
 }
 
 export enum Garlands {

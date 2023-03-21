@@ -1,6 +1,7 @@
 import Component from '@/common/component';
 import { favQuantity } from '@/common/game-constants';
 import Tag from '@/common/tag';
+import { lng } from '@/language/lng';
 import Toy, { TToy } from '@/models/toy';
 import { Tags } from '@/types/enums';
 import Modal from '../modal/modal';
@@ -95,9 +96,9 @@ class Card extends Component {
 
   isFavouriteToGrandMa() {
     if (this.item.favorite) {
-      return 'да';
+      return lng.yes;
     }
-    return 'нет';
+    return lng.no;
   }
 
   toggleFav(e: MouseEvent) {

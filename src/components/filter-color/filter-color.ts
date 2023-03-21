@@ -1,6 +1,7 @@
 import Component from '@/common/component';
 import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
+import { lng } from '@/language/lng';
 import Toy from '@/models/toy';
 import { Tags } from '@/types/enums';
 import cls from './filter-color.module.scss';
@@ -33,7 +34,7 @@ class FilterColor extends Component {
 
   register() {
     const name = `
-      <div class=${cls.filterName}>цвет</div>
+      <div class=${cls.filterName}>${lng.color}</div>
     `;
 
     const wrap = Tag.create(Tags.div, cls.wrap);

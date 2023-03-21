@@ -1,6 +1,7 @@
 import Component from '@/common/component';
 import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
+import { lng } from '@/language/lng';
 import Toy from '@/models/toy';
 import { Shapes, Tags } from '@/types/enums';
 import cls from './filter-shape.module.scss';
@@ -41,7 +42,7 @@ class FilterShape extends Component {
 
   register() {
     const name = `
-      <div class=${cls.filterName}>форма</div>
+      <div class=${cls.filterName}>${lng.shape}</div>
     `;
 
     const wrap = Tag.create(Tags.div, cls.wrap);

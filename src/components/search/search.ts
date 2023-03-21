@@ -1,6 +1,7 @@
 import Component from '@/common/component';
 import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
+import { lng } from '@/language/lng';
 import Toy from '@/models/toy';
 import { Tags } from '@/types/enums';
 import cls from './search.module.scss';
@@ -25,7 +26,7 @@ class FilterSearch extends Component {
 
   register() {
     const name = `
-      <div class=${cls.filterName}>поиск</div>
+      <div class=${cls.filterName}>${lng.search}</div>
     `;
 
     this.root.innerHTML = name;
@@ -35,7 +36,7 @@ class FilterSearch extends Component {
 
     this.input.type = 'search';
     this.input.autocomplete = 'off';
-    this.input.placeholder = 'Поиск';
+    this.input.placeholder = lng.search;
     this.input.value = Toy.filter.filter.search;
     this.input.autofocus = true;
 
