@@ -1,6 +1,7 @@
 import Component from '@/common/component';
 import EventEmitter from '@/common/event-emitter';
 import Tag from '@/common/tag';
+import { lng } from '@/language/lng';
 import Toy from '@/models/toy';
 import { Tags } from '@/types/enums';
 import cls from './sorter.module.scss';
@@ -47,7 +48,7 @@ class Sorter extends Component {
 
   register() {
     const nameF = `
-      <div class=${cls.filterName}>сортировка</div>
+      <div class=${cls.filterName}>${lng.sorting}</div>
     `;
 
     const nameTpl = <HTMLTemplateElement>Tag.create(Tags.tpl);

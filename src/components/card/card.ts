@@ -1,6 +1,7 @@
 import Component from '@/common/component';
 import { favQuantity } from '@/common/game-constants';
 import Tag from '@/common/tag';
+import { lng } from '@/language/lng';
 import Toy, { TToy } from '@/models/toy';
 import { Tags } from '@/types/enums';
 import Modal from '../modal/modal';
@@ -95,9 +96,9 @@ class Card extends Component {
 
   isFavouriteToGrandMa() {
     if (this.item.favorite) {
-      return 'да';
+      return lng.yes;
     }
-    return 'нет';
+    return lng.no;
   }
 
   toggleFav(e: MouseEvent) {
@@ -107,7 +108,7 @@ class Card extends Component {
       elCls.toggle(cls.favourite);
       Toy.filter.unsetFavourite(this.item.num);
     } else if (Toy.filter.filter.favourite.length === favQuantity) {
-      Modal.show('Извините, все слоты заполнены');
+      Modal.show(lng.full);
     } else {
       elCls.toggle(cls.favourite);
       Toy.filter.setFavourite(this.item.num, this.item.count);
