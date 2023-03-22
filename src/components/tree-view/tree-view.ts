@@ -1,13 +1,13 @@
-import Component from '@/common/component';
-import EventEmitter from '@/common/event-emitter';
+import { Component } from '@/common/component';
+import { EventEmitter } from '@/common/event-emitter';
 import { DEFAULT_TREE } from '@/common/game-constants';
-import Tag from '@/common/tag';
-import Tree from '@/models/tree';
+import { Tag } from '@/common/tag';
+import { Tree } from '@/models/tree';
 import { Tags } from '@/types/enums';
-import Garland from '../garland/garland';
+import { Garland } from '../garland/garland';
 import cls from './tree-view.module.scss';
 
-export default class TreeView extends Component {
+class TreeView extends Component {
   private img: HTMLImageElement;
 
   constructor(root: HTMLElement) {
@@ -65,3 +65,5 @@ export default class TreeView extends Component {
     this.root.append(this.img, svg, garland);
   }
 }
+
+export { TreeView };

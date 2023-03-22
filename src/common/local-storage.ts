@@ -106,4 +106,4 @@ class LS {
   }
 }
 
-export default LS;
+export { LS };

@@ -1,12 +1,12 @@
-import Component from '@/common/component';
-import EventEmitter from '@/common/event-emitter';
-import Tag from '@/common/tag';
-import Player from '@/models/player';
-import Tree from '@/models/tree';
+import { Component } from '@/common/component';
+import { EventEmitter } from '@/common/event-emitter';
+import { Tag } from '@/common/tag';
+import { Player } from '@/models/player';
+import { Tree } from '@/models/tree';
 import { Tags } from '@/types/enums';
 import cls from './tree-settings.module.scss';
 
-export default class TreeSettings extends Component {
+class TreeSettings extends Component {
   private localroot = Tag.create(Tags.div, cls.settingsWrap);
 
   private musicIcon = Tag.create(Tags.div, `${cls.icon} ${cls.player}`);
@@ -65,3 +65,5 @@ export default class TreeSettings extends Component {
     };
   }
 }
+
+export { TreeSettings };

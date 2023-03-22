@@ -1,4 +1,4 @@
-export default class ImagesStore {
+class ImagesStore {
   public static async loadImages() {
     await ImagesStore.loadHomeBackground();
     await ImagesStore.loadToysImages();
@@ -68,3 +68,5 @@ export default class ImagesStore {
     await Promise.all(promises);
   }
 }
+
+export { ImagesStore };

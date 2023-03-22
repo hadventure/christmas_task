@@ -1,5 +1,5 @@
 import { Tags } from '@/types/enums';
-import Tag from '@/common/tag';
+import { Tag } from '@/common/tag';
 import cls from './modal.module.scss';
 
 class Modal {
@@ -26,4 +26,4 @@ class Modal {
   }
 }
 
-export default Modal;
+export { Modal };

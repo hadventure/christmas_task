@@ -1,13 +1,13 @@
-import Component from '@/common/component';
-import EventEmitter from '@/common/event-emitter';
-import { favQuantity } from '@/common/game-constants';
-import LS from '@/common/local-storage';
-import Tag from '@/common/tag';
-import Toy from '@/models/toy';
+import { Component } from '@/common/component';
+import { EventEmitter } from '@/common/event-emitter';
+import { FAV_QUANTITY } from '@/common/game-constants';
+import { LS } from '@/common/local-storage';
+import { Tag } from '@/common/tag';
+import { Toy } from '@/models/toy';
 import { Tags } from '@/types/enums';
-import TreeToy from '../tree-toy/tree-toy';
+import { TreeToy } from '../tree-toy/tree-toy';
 import cls from './aside-toys.module.scss';
-import cls1 from '../../views/tree-layout/tree-layout.module.scss';
+import clsTreeLayout from '../../views/tree-layout/tree-layout.module.scss';
 
 class AsideToys extends Component {
   private localRoot = Tag.create(Tags.div, `${cls.toyList}`);
@@ -31,7 +31,7 @@ class AsideToys extends Component {
       toysForTree = LS.ls.fav.filter((el) => nums.includes(el.num));
     } else {
       toysForTree = Toy.store.filter((el, i) => {
-        if (i < favQuantity) {
+        if (i < FAV_QUANTITY) {
           return el;
         }
 
@@ -63,11 +63,11 @@ class AsideToys extends Component {
 
     const handleDrop = (e: Event) => {
       e.preventDefault();
-      const tree1 = document.querySelector(`.${cls1.tree}`) as HTMLElement;
+      const tree1 = document.querySelector(`.${clsTreeLayout.tree}`) as HTMLElement;
 
       const target = e.target as HTMLElement;
       if (target.closest('polygon')) {
-        const tree = target.closest(`.${cls1.tree}`) as HTMLElement;
+        const tree = target.closest(`.${clsTreeLayout.tree}`) as HTMLElement;
         const { offsetX, offsetY } = (<MouseEvent>e);
 
         dragged.style.position = 'absolute';
@@ -84,6 +84,7 @@ class AsideToys extends Component {
 
         if (!dragged.classList.contains('ontree')) {
           dragged.classList.add('ontree');
+          dragged.classList.add(cls.above);
         }
 
         tree.appendChild(dragged);
@@ -118,4 +119,4 @@ class AsideToys extends Component {
   }
 }
 
-export default AsideToys;
+export { AsideToys };

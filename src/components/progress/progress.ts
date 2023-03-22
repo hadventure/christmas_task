@@ -1,5 +1,5 @@
-import Component from '@/common/component';
-import Tag from '@/common/tag';
+import { Component } from '@/common/component';
+import { Tag } from '@/common/tag';
 import { Tags } from '@/types/enums';
 import cls from './progress.module.scss';
 

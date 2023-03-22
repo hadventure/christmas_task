@@ -1,13 +1,13 @@
-import Component from '@/common/component';
-import Tag from '@/common/tag';
+import { Component } from '@/common/component';
+import { Tag } from '@/common/tag';
 import { Garlands, Tags } from '@/types/enums';
 import app from '@/app.module.scss';
 import cls from './filter-garland.module.scss';
-import Tree from '@/models/tree';
-import EventEmitter from '@/common/event-emitter';
+import { Tree } from '@/models/tree';
+import { EventEmitter } from '@/common/event-emitter';
 import { lng } from '@/language/lng';
 
-export default class FilterGarland extends Component {
+class FilterGarland extends Component {
   private colorsEl = Tag.create(Tags.div, cls.colorsWrap);
 
   constructor(root: HTMLElement) {
@@ -73,3 +73,5 @@ export default class FilterGarland extends Component {
     });
   }
 }
+
+export { FilterGarland };

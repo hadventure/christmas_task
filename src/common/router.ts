@@ -1,8 +1,8 @@
-import ImagesStore from '@/models/images-store';
-import EventEmitter from './event-emitter';
-import HomeLayout from '@/views/home-layout/home-layout';
-import Main from '@/views/toys-layout/toys-layout';
-import TreeLayout from '@/views/tree-layout/tree-layout';
+import { ImagesStore } from '@/models/images-store';
+import { EventEmitter } from './event-emitter';
+import { HomeLayout } from '@/views/home-layout/home-layout';
+import { Main } from '@/views/toys-layout/toys-layout';
+import { TreeLayout } from '@/views/tree-layout/tree-layout';
 import { Progress } from '@/components/progress/progress';
 
 class Router {
@@ -53,4 +53,4 @@ class Router {
   }
 }
 
-export default Router;
+export { Router };

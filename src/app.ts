@@ -1,4 +1,4 @@
-import Modal from './components/modal/modal';
+import { Modal } from './components/modal/modal';
 
 class App {
   private _root = <HTMLElement>document.querySelector('#root');
@@ -12,4 +12,6 @@ class App {
   }
 }
 
-export default App;
+export {
+  App,
+};

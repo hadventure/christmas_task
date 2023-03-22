@@ -1,13 +1,13 @@
-import Component from '@/common/component';
-import Tag from '@/common/tag';
-import Tree from '@/models/tree';
+import { Component } from '@/common/component';
+import { Tag } from '@/common/tag';
+import { Tree } from '@/models/tree';
 import { Tags } from '@/types/enums';
 import app from '@/app.module.scss';
 import cls from './filter-bg.module.scss';
-import EventEmitter from '@/common/event-emitter';
+import { EventEmitter } from '@/common/event-emitter';
 import { lng } from '@/language/lng';
 
-export default class FilterBg extends Component {
+class FilterBg extends Component {
   private bgRoot = Tag.create(Tags.div, cls.bgRoot);
 
   constructor(root: HTMLElement) {
@@ -73,3 +73,5 @@ export default class FilterBg extends Component {
     });
   }
 }
+
+export { FilterBg };

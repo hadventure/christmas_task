@@ -1,18 +1,18 @@
-import Component from '@/common/component';
-import EventEmitter from '@/common/event-emitter';
+import { Component } from '@/common/component';
+import { EventEmitter } from '@/common/event-emitter';
 import { DEFAULT_BG } from '@/common/game-constants';
-import LS from '@/common/local-storage';
-import Tag from '@/common/tag';
-import AsideToys from '@/components/aside-toys/aside-toys';
-import FilterBg from '@/components/filter-bg/filter-bg';
-import FilterGarland from '@/components/filter-garland/filter-garland';
-import FilterTree from '@/components/filter-tree/filter-tree';
-import Header from '@/components/header/header';
-import Snowflake from '@/components/snowflake/snowflake';
-import TreeReset from '@/components/tree-reset/tree-reset';
-import TreeSettings from '@/components/tree-settings/tree-settings';
-import TreeView from '@/components/tree-view/tree-view';
-import Tree from '@/models/tree';
+import { LS } from '@/common/local-storage';
+import { Tag } from '@/common/tag';
+import { AsideToys } from '@/components/aside-toys/aside-toys';
+import { FilterBg } from '@/components/filter-bg/filter-bg';
+import { FilterGarland } from '@/components/filter-garland/filter-garland';
+import { FilterTree } from '@/components/filter-tree/filter-tree';
+import { Header } from '@/components/header/header';
+import { Snowflake } from '@/components/snowflake/snowflake';
+import { TreeReset } from '@/components/tree-reset/tree-reset';
+import { TreeSettings } from '@/components/tree-settings/tree-settings';
+import { TreeView } from '@/components/tree-view/tree-view';
+import { Tree } from '@/models/tree';
 import { Tags } from '@/types/enums';
 import cls from './tree-layout.module.scss';
 
@@ -86,4 +86,4 @@ class TreeLayout extends Component {
   }
 }
 
-export default TreeLayout;
+export { TreeLayout };

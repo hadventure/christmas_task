@@ -1,9 +1,9 @@
-import Component from '@/common/component';
-import EventEmitter from '@/common/event-emitter';
-import LS from '@/common/local-storage';
-import Tag from '@/common/tag';
+import { Component } from '@/common/component';
+import { EventEmitter } from '@/common/event-emitter';
+import { LS } from '@/common/local-storage';
+import { Tag } from '@/common/tag';
 import { lng } from '@/language/lng';
-import Toy from '@/models/toy';
+import { Toy } from '@/models/toy';
 import { Tags } from '@/types/enums';
 import cls from './header.module.scss';
 
@@ -72,4 +72,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export { Header };

@@ -1,17 +1,17 @@
-import Component from '@/common/component';
-import Tag from '@/common/tag';
+import { Component } from '@/common/component';
+import { Tag } from '@/common/tag';
 import { Tags } from '@/types/enums';
-import Cards from '../../components/cards/cards';
-import FilterColor from '../../components/filter-color/filter-color';
-import FilterFav from '../../components/filter-fav/filter-fav';
-import FilterShape from '../../components/filter-shape/filter-shape';
-import Range from '../../components/range/range';
-import FilterSearch from '../../components/search/search';
-import Sorter from '../../components/sorter/sorter';
-import cls from './toys-layout.module.scss';
-import FilterSize from '../../components/filter-size/filter-size';
-import Header from '../../components/header/header';
+import { Cards } from '../../components/cards/cards';
+import { FilterColor } from '../../components/filter-color/filter-color';
+import { FilterFav } from '../../components/filter-fav/filter-fav';
+import { FilterShape } from '../../components/filter-shape/filter-shape';
+import { Range } from '../../components/range/range';
+import { FilterSearch } from '../../components/search/search';
+import { Sorter } from '../../components/sorter/sorter';
+import { FilterSize } from '../../components/filter-size/filter-size';
+import { Header } from '../../components/header/header';
 import { lng } from '@/language/lng';
+import cls from './toys-layout.module.scss';
 
 class Main extends Component {
   private container = Tag.create(Tags.div, `${cls.toys} content`);
@@ -78,4 +78,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export { Main };

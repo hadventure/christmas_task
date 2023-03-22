@@ -1,8 +1,8 @@
-import EventEmitter from '@/common/event-emitter';
-import LS from '@/common/local-storage';
+import { EventEmitter } from '@/common/event-emitter';
+import { LS } from '@/common/local-storage';
 import { TTreeFilter } from '@/types/types';
 
-export default class TreeFilter {
+class TreeFilter {
   filter: TTreeFilter;
 
   constructor() {
@@ -64,3 +64,5 @@ export default class TreeFilter {
     EventEmitter.emit('toggle:snow');
   }
 }
+
+export { TreeFilter };

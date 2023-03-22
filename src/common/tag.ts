@@ -1,4 +1,4 @@
-class El {
+class Tag {
   static create(el: string, classes?: string) {
     const element = document.createElement(el);
 
@@ -10,4 +10,4 @@ class El {
   }
 }
 
-export default El;
+export { Tag };
