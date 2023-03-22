@@ -1,7 +1,7 @@
 import { Component } from '@/common/component';
-import Tag from '@/common/tag';
+import { Tag } from '@/common/tag';
 import { EventEmitter } from '@/common/event-emitter';
-import Toy from '@/models/toy';
+import { Toy } from '@/models/toy';
 import { Tags } from '@/types/enums';
 import Card from '../card/card';
 import { LS } from '@/common/local-storage';

@@ -1,6 +1,6 @@
 import { Component } from '@/common/component';
-import Tag from '@/common/tag';
-import Toy from '@/models/toy';
+import { Tag } from '@/common/tag';
+import { Toy } from '@/models/toy';
 import { Tags } from '@/types/enums';
 import cls1 from './filter-size.module.scss';
 import cls from '../filter-fav/filter-fav.module.scss';

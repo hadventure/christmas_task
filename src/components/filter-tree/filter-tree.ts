@@ -1,6 +1,6 @@
 import { Component } from '@/common/component';
 import { EventEmitter } from '@/common/event-emitter';
-import Tag from '@/common/tag';
+import { Tag } from '@/common/tag';
 import { lng } from '@/language/lng';
 import Tree from '@/models/tree';
 import { Tags } from '@/types/enums';

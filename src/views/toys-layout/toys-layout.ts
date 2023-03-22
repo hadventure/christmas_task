@@ -1,5 +1,5 @@
 import { Component } from '@/common/component';
-import Tag from '@/common/tag';
+import { Tag } from '@/common/tag';
 import { Tags } from '@/types/enums';
 import Cards from '../../components/cards/cards';
 import FilterColor from '../../components/filter-color/filter-color';
@@ -78,4 +78,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export { Main };

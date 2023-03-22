@@ -1,11 +1,11 @@
 import { Component } from '@/common/component';
-import Tag from '@/common/tag';
+import { Tag } from '@/common/tag';
 import { Tags } from '@/types/enums';
 import app from '@/app.module.scss';
 import cls from './home-layout.module.scss';
 import { lng } from '@/language/lng';
 
-export default class HomeLayout extends Component {
+class HomeLayout extends Component {
   private container = Tag.create(Tags.div, `${cls.toys} content`);
 
   register() {
@@ -21,3 +21,5 @@ export default class HomeLayout extends Component {
     this.root.append(this.container);
   }
 }
+
+export { HomeLayout };

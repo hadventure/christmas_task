@@ -1,8 +1,8 @@
 import { Component } from '@/common/component';
-import { favQuantity } from '@/common/game-constants';
-import Tag from '@/common/tag';
+import { FAV_QUANTITY } from '@/common/game-constants';
+import { Tag } from '@/common/tag';
 import { lng } from '@/language/lng';
-import Toy, { TToy } from '@/models/toy';
+import { Toy, TToy } from '@/models/toy';
 import { Tags } from '@/types/enums';
 import Modal from '../modal/modal';
 import cls from './card.module.scss';
@@ -107,7 +107,7 @@ class Card extends Component {
     if (elCls.contains(cls.favourite)) {
       elCls.toggle(cls.favourite);
       Toy.filter.unsetFavourite(this.item.num);
-    } else if (Toy.filter.filter.favourite.length === favQuantity) {
+    } else if (Toy.filter.filter.favourite.length === FAV_QUANTITY) {
       Modal.show(lng.full);
     } else {
       elCls.toggle(cls.favourite);

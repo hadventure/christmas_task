@@ -2,7 +2,7 @@ import { EventEmitter } from '@/common/event-emitter';
 import { URL_AUDIO } from '@/common/game-constants';
 import Tree from './tree';
 
-export default class Player {
+class Player {
   static audio: HTMLAudioElement;
 
   static initialize() {
@@ -38,3 +38,5 @@ export default class Player {
     this.audio.pause();
   }
 }
+
+export { Player };

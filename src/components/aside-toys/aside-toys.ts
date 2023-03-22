@@ -1,9 +1,9 @@
 import { Component } from '@/common/component';
 import { EventEmitter } from '@/common/event-emitter';
-import { favQuantity } from '@/common/game-constants';
+import { FAV_QUANTITY } from '@/common/game-constants';
 import { LS } from '@/common/local-storage';
-import Tag from '@/common/tag';
-import Toy from '@/models/toy';
+import { Tag } from '@/common/tag';
+import { Toy } from '@/models/toy';
 import { Tags } from '@/types/enums';
 import TreeToy from '../tree-toy/tree-toy';
 import cls from './aside-toys.module.scss';
@@ -31,7 +31,7 @@ class AsideToys extends Component {
       toysForTree = LS.ls.fav.filter((el) => nums.includes(el.num));
     } else {
       toysForTree = Toy.store.filter((el, i) => {
-        if (i < favQuantity) {
+        if (i < FAV_QUANTITY) {
           return el;
         }
 

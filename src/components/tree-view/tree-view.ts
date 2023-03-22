@@ -1,7 +1,7 @@
 import { Component } from '@/common/component';
 import { EventEmitter } from '@/common/event-emitter';
 import { DEFAULT_TREE } from '@/common/game-constants';
-import Tag from '@/common/tag';
+import { Tag } from '@/common/tag';
 import Tree from '@/models/tree';
 import { Tags } from '@/types/enums';
 import Garland from '../garland/garland';

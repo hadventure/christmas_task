@@ -1,4 +1,4 @@
-import HomeLayout from '@/views/home-layout/home-layout';
+import { HomeLayout } from '@/views/home-layout/home-layout';
 
 export type TFilterNest = {
   [index: string]: boolean

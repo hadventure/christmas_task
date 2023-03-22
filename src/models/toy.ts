@@ -2,7 +2,7 @@ import { EventEmitter } from '@/common/event-emitter';
 import { LS } from '@/common/local-storage';
 import { Colors, Shapes, Sizes } from '@/types/enums';
 import { toyUrl } from '../common/game-constants';
-import Filter from './filter';
+import { Filter } from './filter';
 
 export type TToy = {
   color: Colors
@@ -146,4 +146,4 @@ class Toy {
   }
 }
 
-export default Toy;
+export { Toy };

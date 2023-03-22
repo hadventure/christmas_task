@@ -2,7 +2,7 @@ import { Component } from '@/common/component';
 import { EventEmitter } from '@/common/event-emitter';
 import { DEFAULT_BG } from '@/common/game-constants';
 import { LS } from '@/common/local-storage';
-import Tag from '@/common/tag';
+import { Tag } from '@/common/tag';
 import AsideToys from '@/components/aside-toys/aside-toys';
 import FilterBg from '@/components/filter-bg/filter-bg';
 import FilterGarland from '@/components/filter-garland/filter-garland';
@@ -86,4 +86,4 @@ class TreeLayout extends Component {
   }
 }
 
-export default TreeLayout;
+export { TreeLayout };

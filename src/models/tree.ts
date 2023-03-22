@@ -1,6 +1,6 @@
 import { EventEmitter } from '@/common/event-emitter';
 import { LS } from '@/common/local-storage';
-import TreeFilter from './tree-filter';
+import { TreeFilter } from './tree-filter';
 
 export default class Tree {
   static filter = new TreeFilter();

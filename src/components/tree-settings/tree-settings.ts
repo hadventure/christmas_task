@@ -1,7 +1,7 @@
 import { Component } from '@/common/component';
 import { EventEmitter } from '@/common/event-emitter';
-import Tag from '@/common/tag';
-import Player from '@/models/player';
+import { Tag } from '@/common/tag';
+import { Player } from '@/models/player';
 import Tree from '@/models/tree';
 import { Tags } from '@/types/enums';
 import cls from './tree-settings.module.scss';

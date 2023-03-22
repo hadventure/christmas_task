@@ -1,6 +1,6 @@
 import { Component } from '@/common/component';
 import { EventEmitter } from '@/common/event-emitter';
-import Tag from '@/common/tag';
+import { Tag } from '@/common/tag';
 import { Tags } from '@/types/enums';
 import { TFavourite } from '@/types/types';
 import cls from './tree-toy.module.scss';

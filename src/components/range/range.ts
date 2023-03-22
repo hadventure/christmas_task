@@ -1,7 +1,7 @@
 import { Component } from '@/common/component';
 import { EventEmitter } from '@/common/event-emitter';
-import Tag from '@/common/tag';
-import Toy from '@/models/toy';
+import { Tag } from '@/common/tag';
+import { Toy } from '@/models/toy';
 import { Tags } from '@/types/enums';
 import cls from './range.module.scss';
 

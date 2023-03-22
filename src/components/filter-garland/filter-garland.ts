@@ -1,5 +1,5 @@
 import { Component } from '@/common/component';
-import Tag from '@/common/tag';
+import { Tag } from '@/common/tag';
 import { Garlands, Tags } from '@/types/enums';
 import app from '@/app.module.scss';
 import cls from './filter-garland.module.scss';
