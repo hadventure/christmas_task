@@ -40,10 +40,10 @@ class Sorter extends Component {
     this.val = `${name}-${direction}`;
 
     this.createOption('', '');
-    this.createOption('Наименование - по возрастанию', 'name-asc');
-    this.createOption('Наименование - по убыванию', 'name-desc');
-    this.createOption('Год - по возрастанию', 'year-asc');
-    this.createOption('Год - по убыванию', 'year-desc');
+    this.createOption(`${lng.sortName} ${lng.asc}`, 'name-asc');
+    this.createOption(`${lng.sortName} ${lng.desc}`, 'name-desc');
+    this.createOption(`${lng.sortYear} ${lng.asc}`, 'year-asc');
+    this.createOption(`${lng.sortYear} ${lng.desc}`, 'year-desc');
   }
 
   register() {
@@ -58,9 +58,9 @@ class Sorter extends Component {
     this.root.append(nameTpl.content, this.sel);
 
     this.sel.addEventListener('change', (e) => {
-      const value1 = (<HTMLSelectElement>e.target).value;
+      const optionValue = (<HTMLSelectElement>e.target).value;
 
-      Toy.filter.setSorter(value1);
+      Toy.filter.setSorter(optionValue);
     });
   }
 }
