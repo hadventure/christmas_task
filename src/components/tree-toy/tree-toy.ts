@@ -1,5 +1,5 @@
-import Component from '@/common/component';
-import EventEmitter from '@/common/event-emitter';
+import { Component } from '@/common/component';
+import { EventEmitter } from '@/common/event-emitter';
 import Tag from '@/common/tag';
 import { Tags } from '@/types/enums';
 import { TFavourite } from '@/types/types';
@@ -47,6 +47,7 @@ export default class TreeToy extends Component {
 
         this.image = clone;
         this.image.classList.add(cls.toyImg);
+        this.image.classList.add(cls.above);
         this.image.draggable = true;
         this.image.dataset.num = this.item.num;
         this.image.classList.add(cls.clonable);
@@ -57,8 +58,9 @@ export default class TreeToy extends Component {
     EventEmitter.subscribe(`close${this.item.num}`, () => {
       if (this.image) {
         this.image.classList.remove(cls.clonable);
+        this.image.classList.remove(cls.above);
       }
-
+      this.image.classList.remove(cls.above);
       this.count = +this.count - 1;
       this.renderCounter();
     });
@@ -70,6 +72,7 @@ export default class TreeToy extends Component {
 
         const initializedImage = clone;
         initializedImage.classList.add(cls.toyImg);
+        initializedImage.classList.add(cls.above);
         initializedImage.draggable = true;
         initializedImage.dataset.num = this.item.num;
         initializedImage.style.zIndex = '10';

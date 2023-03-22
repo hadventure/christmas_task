@@ -1,7 +1,7 @@
-import Component from '@/common/component';
-import EventEmitter from '@/common/event-emitter';
+import { Component } from '@/common/component';
+import { EventEmitter } from '@/common/event-emitter';
 import { favQuantity } from '@/common/game-constants';
-import LS from '@/common/local-storage';
+import { LS } from '@/common/local-storage';
 import Tag from '@/common/tag';
 import Toy from '@/models/toy';
 import { Tags } from '@/types/enums';
@@ -84,6 +84,7 @@ class AsideToys extends Component {
 
         if (!dragged.classList.contains('ontree')) {
           dragged.classList.add('ontree');
+          dragged.classList.add(cls.above);
         }
 
         tree.appendChild(dragged);

@@ -1,6 +1,6 @@
-import Component from '@/common/component';
-import EventEmitter from '@/common/event-emitter';
-import LS from '@/common/local-storage';
+import { Component } from '@/common/component';
+import { EventEmitter } from '@/common/event-emitter';
+import { LS } from '@/common/local-storage';
 import Tag from '@/common/tag';
 import { lng } from '@/language/lng';
 import Toy from '@/models/toy';

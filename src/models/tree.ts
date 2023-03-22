@@ -1,5 +1,5 @@
-import EventEmitter from '@/common/event-emitter';
-import LS from '@/common/local-storage';
+import { EventEmitter } from '@/common/event-emitter';
+import { LS } from '@/common/local-storage';
 import TreeFilter from './tree-filter';
 
 export default class Tree {

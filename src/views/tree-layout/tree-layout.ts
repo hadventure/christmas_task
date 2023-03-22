@@ -1,7 +1,7 @@
-import Component from '@/common/component';
-import EventEmitter from '@/common/event-emitter';
+import { Component } from '@/common/component';
+import { EventEmitter } from '@/common/event-emitter';
 import { DEFAULT_BG } from '@/common/game-constants';
-import LS from '@/common/local-storage';
+import { LS } from '@/common/local-storage';
 import Tag from '@/common/tag';
 import AsideToys from '@/components/aside-toys/aside-toys';
 import FilterBg from '@/components/filter-bg/filter-bg';

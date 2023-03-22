@@ -1,10 +1,10 @@
-import Component from '@/common/component';
+import { Component } from '@/common/component';
 import Tag from '@/common/tag';
 import Toy from '@/models/toy';
 import { Tags } from '@/types/enums';
 import cls1 from './filter-size.module.scss';
 import cls from '../filter-fav/filter-fav.module.scss';
-import EventEmitter from '@/common/event-emitter';
+import { EventEmitter } from '@/common/event-emitter';
 
 class FilterSize extends Component {
   private localRoot = Tag.create(Tags.div, cls1.root);

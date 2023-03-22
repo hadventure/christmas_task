@@ -1,5 +1,5 @@
-import Component from '@/common/component';
-import EventEmitter from '@/common/event-emitter';
+import { Component } from '@/common/component';
+import { EventEmitter } from '@/common/event-emitter';
 import { DEFAULT_TREE } from '@/common/game-constants';
 import Tag from '@/common/tag';
 import Tree from '@/models/tree';

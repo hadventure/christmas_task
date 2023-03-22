@@ -1,4 +1,4 @@
-import Component from '@/common/component';
+import { Component } from '@/common/component';
 import Tag from '@/common/tag';
 import { Tags } from '@/types/enums';
 import Cards from '../../components/cards/cards';

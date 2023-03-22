@@ -1,4 +1,4 @@
-import Component from '@/common/component';
+import { Component } from '@/common/component';
 import { favQuantity } from '@/common/game-constants';
 import Tag from '@/common/tag';
 import { lng } from '@/language/lng';

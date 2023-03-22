@@ -1,5 +1,5 @@
-import EventEmitter from '@/common/event-emitter';
-import LS from '@/common/local-storage';
+import { EventEmitter } from '@/common/event-emitter';
+import { LS } from '@/common/local-storage';
 import { Colors, Shapes, Sizes } from '@/types/enums';
 import { toyUrl } from '../common/game-constants';
 import Filter from './filter';

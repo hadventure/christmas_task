@@ -1,9 +1,9 @@
-import App from '@/app';
-import LS from './common/local-storage';
-import './app.scss';
+import { App } from '@/app';
+import { LS } from './common/local-storage';
 import Player from './models/player';
 import Router from './common/router';
 import Tree from './models/tree';
+import './app.scss';
 
 try {
   LS.initLocalStorage();

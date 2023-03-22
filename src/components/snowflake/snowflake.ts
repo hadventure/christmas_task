@@ -1,5 +1,5 @@
-import Component from '@/common/component';
-import EventEmitter from '@/common/event-emitter';
+import { Component } from '@/common/component';
+import { EventEmitter } from '@/common/event-emitter';
 import Tag from '@/common/tag';
 import { getRndInteger } from '@/lib/number/get-random-int';
 import Tree from '@/models/tree';

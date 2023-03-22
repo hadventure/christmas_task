@@ -1,5 +1,5 @@
 import ImagesStore from '@/models/images-store';
-import EventEmitter from './event-emitter';
+import { EventEmitter } from './event-emitter';
 import HomeLayout from '@/views/home-layout/home-layout';
 import Main from '@/views/toys-layout/toys-layout';
 import TreeLayout from '@/views/tree-layout/tree-layout';

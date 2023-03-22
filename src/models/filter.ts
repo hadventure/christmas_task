@@ -1,5 +1,5 @@
-import EventEmitter from '@/common/event-emitter';
-import LS from '@/common/local-storage';
+import { EventEmitter } from '@/common/event-emitter';
+import { LS } from '@/common/local-storage';
 import { TFilter, TSorter } from '@/types/types';
 
 class Filter {

@@ -1,4 +1,4 @@
-import EventEmitter from '@/common/event-emitter';
+import { EventEmitter } from '@/common/event-emitter';
 import { URL_AUDIO } from '@/common/game-constants';
 import Tree from './tree';
 

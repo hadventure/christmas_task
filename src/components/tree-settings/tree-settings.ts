@@ -1,5 +1,5 @@
-import Component from '@/common/component';
-import EventEmitter from '@/common/event-emitter';
+import { Component } from '@/common/component';
+import { EventEmitter } from '@/common/event-emitter';
 import Tag from '@/common/tag';
 import Player from '@/models/player';
 import Tree from '@/models/tree';
