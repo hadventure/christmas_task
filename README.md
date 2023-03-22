@@ -1,6 +1,6 @@
 ### Description
 
-demo https://christmas-task-73b0dc.netlify.app
+[application description](https://github.com/sa58/christmas-task/pull/1)
 
 ### Resources
 - https://stackoverflow.com/questions/67700374/use-localstorage-getitem-with-typescript
