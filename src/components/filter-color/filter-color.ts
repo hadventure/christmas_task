@@ -55,4 +55,4 @@ class FilterColor extends Component {
   }
 }
 
-export default FilterColor;
+export { FilterColor };

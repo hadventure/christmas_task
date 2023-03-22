@@ -1,6 +1,6 @@
 import { EventEmitter } from '@/common/event-emitter';
 import { URL_AUDIO } from '@/common/game-constants';
-import Tree from './tree';
+import { Tree } from './tree';
 
 class Player {
   static audio: HTMLAudioElement;

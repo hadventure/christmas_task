@@ -4,7 +4,7 @@ import { Tag } from '@/common/tag';
 import { lng } from '@/language/lng';
 import { Toy, TToy } from '@/models/toy';
 import { Tags } from '@/types/enums';
-import Modal from '../modal/modal';
+import { Modal } from '../modal/modal';
 import cls from './card.module.scss';
 
 class Card extends Component {
@@ -116,4 +116,4 @@ class Card extends Component {
   }
 }
 
-export default Card;
+export { Card };

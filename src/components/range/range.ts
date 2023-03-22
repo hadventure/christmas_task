@@ -158,4 +158,4 @@ class Range extends Component {
   }
 }
 
-export default Range;
+export { Range };

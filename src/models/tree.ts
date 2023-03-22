@@ -2,7 +2,7 @@ import { EventEmitter } from '@/common/event-emitter';
 import { LS } from '@/common/local-storage';
 import { TreeFilter } from './tree-filter';
 
-export default class Tree {
+class Tree {
   static filter = new TreeFilter();
 
   static resetFilter() {
@@ -16,3 +16,5 @@ export default class Tree {
     Tree.filter.filter = LS.ls.tree;
   }
 }
+
+export { Tree };

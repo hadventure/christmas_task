@@ -65,4 +65,4 @@ class FilterShape extends Component {
   }
 }
 
-export default FilterShape;
+export { FilterShape };

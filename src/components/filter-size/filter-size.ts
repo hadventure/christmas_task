@@ -59,4 +59,4 @@ class FilterSize extends Component {
   }
 }
 
-export default FilterSize;
+export { FilterSize };

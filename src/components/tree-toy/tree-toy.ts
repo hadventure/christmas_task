@@ -5,7 +5,7 @@ import { Tags } from '@/types/enums';
 import { TFavourite } from '@/types/types';
 import cls from './tree-toy.module.scss';
 
-export default class TreeToy extends Component {
+class TreeToy extends Component {
   private counter = Tag.create(Tags.div, cls.toyCounter);
 
   private item: TFavourite;
@@ -87,3 +87,5 @@ export default class TreeToy extends Component {
     this.root.append(toy);
   }
 }
+
+export { TreeToy };

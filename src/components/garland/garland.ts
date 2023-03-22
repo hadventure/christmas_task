@@ -2,11 +2,11 @@ import { Component } from '@/common/component';
 import { EventEmitter } from '@/common/event-emitter';
 import { DEFAULT_TRANSFORMY } from '@/common/game-constants';
 import { Tag } from '@/common/tag';
-import Tree from '@/models/tree';
+import { Tree } from '@/models/tree';
 import { Garlands, GarlandsReversed, Tags } from '@/types/enums';
 import cls from './garland.module.scss';
 
-export default class Garland extends Component {
+class Garland extends Component {
   private config = [
     { count: 3 },
     { count: 7 },
@@ -107,3 +107,5 @@ export default class Garland extends Component {
     this.root.append(gWrap);
   }
 }
+
+export { Garland };

@@ -2,11 +2,11 @@ import { Component } from '@/common/component';
 import { EventEmitter } from '@/common/event-emitter';
 import { Tag } from '@/common/tag';
 import { lng } from '@/language/lng';
-import Tree from '@/models/tree';
+import { Tree } from '@/models/tree';
 import { Tags } from '@/types/enums';
 import cls from './filter-tree.module.scss';
 
-export default class FilterTree extends Component {
+class FilterTree extends Component {
   private treeRoot = Tag.create(Tags.div, cls.treeRoot);
 
   constructor(root: HTMLElement) {
@@ -66,3 +66,5 @@ export default class FilterTree extends Component {
     });
   }
 }
+
+export { FilterTree };

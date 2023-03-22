@@ -65,4 +65,4 @@ class Sorter extends Component {
   }
 }
 
-export default Sorter;
+export { Sorter };

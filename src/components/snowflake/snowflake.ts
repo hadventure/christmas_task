@@ -2,11 +2,11 @@ import { Component } from '@/common/component';
 import { EventEmitter } from '@/common/event-emitter';
 import { Tag } from '@/common/tag';
 import { getRndInteger } from '@/lib/number/get-random-int';
-import Tree from '@/models/tree';
+import { Tree } from '@/models/tree';
 import { Tags } from '@/types/enums';
 import cls from './snowflake.module.scss';
 
-export default class Snowflake extends Component {
+class Snowflake extends Component {
   finish = false;
 
   constructor(root: HTMLElement) {
@@ -65,3 +65,5 @@ export default class Snowflake extends Component {
     }, time);
   }
 }
+
+export { Snowflake };

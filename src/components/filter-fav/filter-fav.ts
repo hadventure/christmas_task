@@ -45,4 +45,4 @@ class FilterFav extends Component {
   }
 }
 
-export default FilterFav;
+export { FilterFav };

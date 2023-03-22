@@ -53,4 +53,4 @@ class FilterSearch extends Component {
   }
 }
 
-export default FilterSearch;
+export { FilterSearch };
