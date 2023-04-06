@@ -29,7 +29,7 @@ class Card extends Component {
           </div>
             </div>
             
-          <div>
+          <div class=${cls.description}>
             <div class=${cls.attr}>
               <div class="attr-value">${this.item.count}</div>
             </div>

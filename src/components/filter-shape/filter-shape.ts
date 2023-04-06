@@ -31,10 +31,10 @@ class FilterShape extends Component {
         e.classList.add(cls.active);
       }
 
-      const e1 = Tag.create(Tags.div, `${cls.shapeName} ${cls[shape]}`);
-      e1.textContent = Shapes[shape as keyof typeof Shapes];
+      // const e1 = Tag.create(Tags.div, `${cls.shapeName} ${cls[shape]}`);
+      // e1.textContent = Shapes[shape as keyof typeof Shapes];
 
-      wrapShape.append(e, e1);
+      wrapShape.append(e);
 
       this.shapesEl.append(wrapShape);
     });

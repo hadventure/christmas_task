@@ -5,6 +5,7 @@ import { Tags } from '@/types/enums';
 import cls1 from './filter-size.module.scss';
 import cls from '../filter-fav/filter-fav.module.scss';
 import { EventEmitter } from '@/common/event-emitter';
+import { lng } from '@/language/lng';
 
 class FilterSize extends Component {
   private localRoot = Tag.create(Tags.div, cls1.root);
@@ -48,7 +49,10 @@ class FilterSize extends Component {
   }
 
   register() {
-    this.root.append(this.localRoot);
+    const name = Tag.create(Tags.div, `${cls.filterName}`);
+    name.textContent = lng.size;
+
+    this.root.append(name, this.localRoot);
     this.createControl('S', this.inputS);
     this.createControl('M', this.inputM);
     this.createControl('L', this.inputL);

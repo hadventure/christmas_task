@@ -120,8 +120,13 @@ class Range extends Component {
     const container = Tag.create(Tags.div, cls.container);
 
     this.root.append(nameTpl.content, wrapRange);
-    wrapRange.append(this.rootValFrom, container, this.rootValTo);
+    // wrapRange.append(this.rootValFrom, container, this.rootValTo);
+    wrapRange.append(container);
 
+    const valuesContainer = Tag.create(Tags.div, cls.valuesContainer);
+
+    wrapRange.append(valuesContainer);
+    valuesContainer.append(this.rootValFrom, this.rootValTo);
     container.append(this.fromEl, this.toEl);
 
     this.fromEl.addEventListener('input', () => {

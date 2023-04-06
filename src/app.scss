@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'MountainsOfChristmas';
-  src: url('./assets/fonts/mountains-of-christmas-cyrillic.woff') format('woff');
+  font-family: 'StNicholas';
+  src: url('./assets/fonts/st-nicholas.ttf');
 }
 
 * {
@@ -16,7 +16,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  font-family: 'MountainsOfChristmas', sans-serif;
+  font-family: 'StNicholas', sans-serif;
   font-size: 1.6rem;
   letter-spacing: 0.8px;
   color: #002766;
